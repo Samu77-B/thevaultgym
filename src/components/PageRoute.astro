@@ -1,0 +1,32 @@
+---
+import PageLayout from '../layouts/PageLayout.astro';
+import { mergePage, type PageCms, type PageGen } from '../lib/mergePage';
+
+interface Props {
+  slug: string;
+}
+
+const { slug } = Astro.props;
+
+const genMods = import.meta.glob('../generated/page-data/*.json', { eager: true }) as Record<
+  string,
+  { default: PageGen }
+>;
+const cmsMods = import.meta.glob('../content/pages/*.json', {
+  eager: true,
+  import: 'default',
+}) as Record<string, PageCms>;
+
+const genKey = `../generated/page-data/${slug}.json`;
+const cmsKey = `../content/pages/${slug}.json`;
+
+const genMod = genMods[genKey];
+if (!genMod?.default) {
+  throw new Error(`Missing generated page data for slug "${slug}" (expected ${genKey})`);
+}
+
+const cms = cmsMods[cmsKey] ?? {};
+const page = mergePage(genMod.default, cms);
+---
+
+<PageLayout {...page} />

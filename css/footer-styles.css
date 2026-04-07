@@ -585,8 +585,8 @@ footer .footer-links .footer-link:hover::after {
 .footer-btn {
   display: inline-block;
   padding: 9px 15px;
-  background-color: #F1D600;
-  color: #000;
+  background-color: #ed155d;
+  color: #ffffff;
   border: 0;
   line-height: inherit;
   text-decoration: none;
@@ -670,8 +670,8 @@ footer .footer-links .footer-link:hover::after {
 .touch-btn {
   display: inline-block;
   padding: 9px 15px;
-  background-color: #F1D600;
-  color: #000;
+  background-color: #ed155d;
+  color: #ffffff;
   border: 0;
   line-height: inherit;
   text-decoration: none;
@@ -876,8 +876,8 @@ footer .footer-links .footer-link:hover::after {
 .btn.btn-primary {
   display: inline-block;
   padding: 9px 15px;
-  background-color: #F1D600;
-  color: #000;
+  background-color: #ed155d;
+  color: #ffffff;
   border: 0;
   line-height: inherit;
   text-decoration: none;
@@ -924,11 +924,11 @@ footer .footer-links .footer-link:hover::after {
 .cognito-form-site .cog-cognito--styled .cog-button--primary,
 .footer-component-loaded .newsletter-form .cog-cognito--styled .cog-button--primary,
 .about-info-section .cognito-form-site .cog-cognito--styled .cog-button--primary {
-  background-color: #f1d600 !important;
-  background: #f1d600 !important;
+  background-color: #ed155d !important;
+  background: #ed155d !important;
   border: none !important;
   border-radius: 0 !important;
-  color: #000 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
   letter-spacing: 1px !important;
   text-transform: uppercase !important;
@@ -939,9 +939,9 @@ footer .footer-links .footer-link:hover::after {
 .cognito-form-site .cog-cognito--styled .cog-button--primary:hover,
 .footer-component-loaded .newsletter-form .cog-cognito--styled .cog-button--primary:hover,
 .about-info-section .cognito-form-site .cog-cognito--styled .cog-button--primary:hover {
-  background-color: #f1d600 !important;
-  background: #f1d600 !important;
-  color: #000 !important;
+  background-color: #ed155d !important;
+  background: #ed155d !important;
+  color: #ffffff !important;
   transform: scale(1.02) !important;
   filter: brightness(1.1) !important;
 }
@@ -1247,14 +1247,14 @@ a:focus-visible {
   color: #ed155d !important;
 }
 
-/* Filled yellow CTAs: keep dark text on hover */
+/* Filled CTA buttons: keep white text on hover */
 a.btn.btn-primary:hover,
 a.btn.btn-primary:focus-visible,
 a.footer-btn:hover,
 a.footer-btn:focus-visible,
 a.touch-btn:hover,
 a.touch-btn:focus-visible {
-  color: #000000 !important;
+  color: #ffffff !important;
 }
 
 /* Primary hero CTA: pink fill on hover — keep black label */

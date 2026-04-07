@@ -1,0 +1,24 @@
+{
+  "name": "build101",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "generate": "node scripts/generate-page-data.mjs",
+    "sync-public": "node scripts/sync-public.mjs",
+    "predev": "npm run generate && npm run sync-public",
+    "prebuild": "npm run generate && npm run sync-public",
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Samu77-B/thevaultgym.git"
+  },
+  "license": "ISC",
+  "devDependencies": {
+    "astro": "^6.1.4",
+    "cheerio": "^1.2.0"
+  }
+}

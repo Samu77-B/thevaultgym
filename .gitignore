@@ -1,0 +1,14 @@
+node_modules/
+dist/
+.astro/
+
+# Rebuilt from root *.html on every npm run build
+src/generated/
+
+# Regenerated from repo root (npm run sync-public)
+public/css/
+public/js/
+public/icons/
+public/components/
+# public/images/ is a full copy of ./images/ (includes client uploads under images/uploads/)
+public/images/

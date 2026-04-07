@@ -1,0 +1,92 @@
+---
+import type { HeadLink, ScriptRec } from '../lib/mergePage';
+
+interface Props {
+  wfPage: string;
+  wfSite: string;
+  seo: Record<string, string>;
+  jsonLd: string;
+  headExtraLinks: HeadLink[];
+  stylesheetHrefs: string[];
+  headStyles: string;
+  headScripts: ScriptRec[];
+  bodyMarkup: string;
+  bodyScripts: ScriptRec[];
+}
+
+const {
+  wfPage,
+  wfSite,
+  seo,
+  jsonLd,
+  headExtraLinks,
+  stylesheetHrefs,
+  headStyles,
+  headScripts,
+  bodyMarkup,
+  bodyScripts,
+} = Astro.props;
+
+const title = seo.title || 'The Vault Gym';
+---
+
+<!DOCTYPE html>
+<html lang="en" data-wf-page={wfPage} data-wf-site={wfSite}>
+  <head>
+    <meta charset="utf-8" />
+    <title>{title}</title>
+    {seo.description ? <meta name="description" content={seo.description} /> : null}
+    {seo.keywords ? <meta name="keywords" content={seo.keywords} /> : null}
+    {seo.robots ? <meta name="robots" content={seo.robots} /> : null}
+    {seo.geoRegion ? <meta name="geo.region" content={seo.geoRegion} /> : null}
+    {seo.geoPlacename ? <meta name="geo.placename" content={seo.geoPlacename} /> : null}
+    {seo.ogTitle ? <meta property="og:title" content={seo.ogTitle} /> : null}
+    {seo.ogDescription ? <meta property="og:description" content={seo.ogDescription} /> : null}
+    {seo.ogType ? <meta property="og:type" content={seo.ogType} /> : null}
+    {seo.ogUrl ? <meta property="og:url" content={seo.ogUrl} /> : null}
+    {seo.ogImage ? <meta property="og:image" content={seo.ogImage} /> : null}
+    {seo.twitterTitle ? <meta property="twitter:title" content={seo.twitterTitle} /> : null}
+    {seo.twitterDescription ? <meta property="twitter:description" content={seo.twitterDescription} /> : null}
+    {seo.twitterCard ? <meta name="twitter:card" content={seo.twitterCard} /> : null}
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    {jsonLd ? <script type="application/ld+json" set:html={jsonLd}></script> : null}
+    {headExtraLinks.map((l) => (
+      <link rel={l.rel} href={l.href} type={l.type} sizes={l.sizes} media={l.media} />
+    ))}
+    {stylesheetHrefs.map((href) => (
+      <link rel="stylesheet" href={href} type="text/css" />
+    ))}
+    {headStyles ? <style set:html={headStyles} /> : null}
+    {headScripts.map((s) =>
+      s.src ? (
+        <script
+          src={s.src}
+          type={s.type || 'text/javascript'}
+          integrity={s.integrity}
+          crossorigin={s.crossorigin as 'anonymous' | 'use-credentials' | undefined}
+          async={s.async || undefined}
+          defer={s.defer || undefined}
+        />
+      ) : (
+        <script type={s.type || 'text/javascript'} is:inline set:html={s.inline || ''} />
+      )
+    )}
+  </head>
+  <body>
+    <div style="display:contents" set:html={bodyMarkup}></div>
+    {bodyScripts.map((s) =>
+      s.src ? (
+        <script
+          src={s.src}
+          type={s.type || 'text/javascript'}
+          integrity={s.integrity}
+          crossorigin={s.crossorigin as 'anonymous' | 'use-credentials' | undefined}
+          async={s.async || undefined}
+          defer={s.defer || undefined}
+        />
+      ) : (
+        <script type={s.type || 'text/javascript'} is:inline set:html={s.inline || ''} />
+      )
+    )}
+  </body>
+</html>
