@@ -16,10 +16,12 @@ Use **Cloudflare Pages** (not Workers + Wrangler) for this static Astro site.
    | **Build output directory** | `dist` |
    | **Root directory** | `/` |
 
-5. **Environment variables** (if the build fails on Node): **Settings** → **Environment variables** → add **`NODE_VERSION`** = **`20`** (or `22`).
+5. **Environment variables (required for Astro 6):** **Settings** → **Environment variables** → add **`NODE_VERSION`** = **`22`** or **`22.12.0`** for **Production** and **Preview**. Astro 6 does **not** run on Node 20 (you will see `Node.js v20.x is not supported by Astro`).
 6. **Save and Deploy**.
 
-**Important:** Do **not** set a **Deploy command** of `npx wrangler deploy`. Pages runs your build and publishes **`dist/`** automatically. The file [`wrangler.toml`](wrangler.toml) in this repo is **ignored by Pages**; you can leave it or delete it later.
+**Important:** Do **not** set a **Deploy command** of `npx wrangler deploy`. Pages runs your build and publishes **`dist/`** automatically. The repo includes [`wrangler.toml`](wrangler.toml) with **`pages_build_output_dir`** so Cloudflare Pages reads the output directory consistently.
+
+The root [`.node-version`](.node-version) file hints Node **22.12.0** for local tools; Cloudflare still needs **`NODE_VERSION`** set in the dashboard unless your account picks it up automatically.
 
 ### If you already created a Worker for this site
 

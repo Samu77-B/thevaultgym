@@ -3,6 +3,9 @@
   "version": "1.0.0",
   "private": true,
   "type": "module",
+  "engines": {
+    "node": ">=22.12.0"
+  },
   "scripts": {
     "generate": "node scripts/generate-page-data.mjs",
     "sync-public": "node scripts/sync-public.mjs",
