@@ -47,22 +47,33 @@
   
   <!-- Custom CSS to override hero background image -->
   <style>
+    /* Definite height so flex:1 on the hero can fill space below the header (true vertical centre) */
     .section-3.sportssec {
       background-image: url('images/the-vault-private-gym-london.png') !important;
       background-position: center center !important;
       background-size: 100% 100% !important;
       background-repeat: no-repeat !important;
       background-attachment: scroll !important;
-      min-height: 100vh !important;
-      height: auto !important;
       box-sizing: border-box !important;
+      display: flex !important;
+      flex-direction: column !important;
+      align-items: stretch !important;
+      min-height: 100vh !important;
+      height: 100vh !important;
+      overflow-y: auto !important;
+      scrollbar-gutter: stable;
     }
-    
-    @media screen and (max-width: 479px) {
+
+    @supports (height: 100dvh) {
       .section-3.sportssec {
-        min-height: 100vh !important;
-        height: auto !important;
+        min-height: 100dvh !important;
+        height: 100dvh !important;
       }
+    }
+
+    .section-3.sportssec #header-component {
+      width: 100%;
+      flex-shrink: 0;
     }
     
     .centrebox.clear {
@@ -720,23 +731,67 @@
        VAULT LOGO BUTTON ANIMATION
        ======================================== */
     
-    .vault-hero-tagline {
-      max-width: 42rem;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    
     /* Webflow .w-container caps at 940px — too narrow for two CTAs in a row */
     .centrebox.vault-hero-centrebox.w-container {
       max-width: min(1200px, 100%) !important;
       width: 100%;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Centre hero in viewport: stretch (not align-items:center) so children use full row width */
+    .section-3.sportssec .vault-hero-centrebox.centrebox {
+      flex: 1 1 auto !important;
+      display: flex !important;
+      flex-direction: column !important;
+      justify-content: center !important;
+      align-items: stretch !important;
+      width: 100% !important;
+      max-width: 100% !important;
+      min-height: 0 !important;
+      margin-top: 0 !important;
+      padding-left: 0 !important;
+      padding-right: 0 !important;
+      text-align: center !important;
+    }
+
+    .section-3.sportssec .textblck.vault-hero-textblck {
+      width: 100% !important;
+      max-width: 100% !important;
+      text-align: center !important;
+      margin-left: auto !important;
+      margin-right: auto !important;
+      padding-left: clamp(12px, 3vw, 28px) !important;
+      padding-right: clamp(12px, 3vw, 28px) !important;
+      box-sizing: border-box !important;
+    }
+
+    /* Headline stack: own full-width column, centred copy (avoids flex min-width / CTA width skew) */
+    .section-3.sportssec .vault-hero-headlines {
+      width: 100%;
+      max-width: min(40rem, 100%);
+      margin: 0 auto;
+      padding: 0;
+      box-sizing: border-box;
+      text-align: center;
+    }
+
+    .section-3.sportssec .vault-hero-headlines .vault-hero-title,
+    .section-3.sportssec .vault-hero-headlines .vault-hero-subtitle {
+      display: block;
+      width: 100%;
+      max-width: none !important;
+      margin-left: 0 !important;
+      margin-right: 0 !important;
+      text-align: center !important;
     }
     
     .vault-buttons-row {
       display: flex !important;
       flex-direction: row;
       flex-wrap: nowrap;
-      justify-content: space-between;
+      justify-content: center;
       align-items: center;
       gap: clamp(1rem, 3vw, 2rem);
       width: 100%;
@@ -984,23 +1039,26 @@ window.cookieconsent.initialise({
     <!-- Header Component -->
     <div id="header-component"></div>
     
-    <div class="centrebox clear w-container vault-hero-centrebox" style="display: flex; justify-content: center; align-items: center; min-height: 100vh; box-sizing: border-box;">
-      <div class="textblck vault-hero-textblck" style="text-align: center; width: 100%; max-width: min(1200px, 100%); box-sizing: border-box;">
-        <p class="paragraph-2 vault-hero-tagline" style="text-align: center; margin-bottom: 60px; font-size: 42px; font-weight: 400; color: #ffffff; line-height: 1.6;">The exclusive personal training gym in Shoreditch</p>
+    <div class="centrebox clear w-container vault-hero-centrebox" style="box-sizing: border-box;">
+      <div class="textblck vault-hero-textblck" style="text-align: center; width: 100%; max-width: 100%; box-sizing: border-box;">
+        <div class="vault-hero-headlines">
+          <h1 class="paragraph-2 vault-hero-title" style="text-align: center; margin: 0 0 16px; font-size: clamp(2rem, 5vw, 3rem); font-weight: 600; color: #ffffff; line-height: 1.2;">Enter The Vault</h1>
+          <h2 class="paragraph-2 vault-hero-subtitle" style="text-align: center; margin: 0 0 48px; font-size: clamp(1.25rem, 3vw, 1.75rem); font-weight: 400; color: #ffffff; line-height: 1.5;">The exclusive personal training gym</h2>
+        </div>
         <div class="vault-buttons-row">
-          <a href="join-us.html" class="vault-logo-button">
+          <a href="join-us.html" class="vault-logo-button" aria-label="Enter The Vault">
             <div class="logo-container">
-              <img src="images/vaultgymLogo.svg" alt="Vault Logo" class="vault-logo logo-1">
-              <img src="images/vaultgymLogo.svg" alt="Vault Logo" class="vault-logo logo-2">
+              <img src="images/vaultgymLogo.svg" alt="" class="vault-logo logo-1">
+              <img src="images/vaultgymLogo.svg" alt="" class="vault-logo logo-2">
             </div>
-            <span class="vault-button-text">Enter The Vault</span>
+            <span class="vault-button-text" aria-hidden="true">Train For A Living</span>
           </a>
-          <a href="join-us.html" class="vault-logo-button">
+          <a href="join-us.html" class="vault-logo-button" aria-label="Join the Vault">
             <div class="logo-container">
-              <img src="images/vaultgymLogo.svg" alt="Vault Logo" class="vault-logo logo-1">
-              <img src="images/vaultgymLogo.svg" alt="Vault Logo" class="vault-logo logo-2">
+              <img src="images/vaultgymLogo.svg" alt="" class="vault-logo logo-1">
+              <img src="images/vaultgymLogo.svg" alt="" class="vault-logo logo-2">
             </div>
-            <span class="vault-button-text">Join the Vault</span>
+            <span class="vault-button-text">Train With A Pro</span>
           </a>
         </div>
       </div>
