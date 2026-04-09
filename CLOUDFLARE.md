@@ -1,43 +1,62 @@
 # Cloudflare Pages + Astro + Decap CMS
 
-## Build settings (Cloudflare dashboard)
+Use **Cloudflare Pages** (not Workers + Wrangler) for this static Astro site.
 
-| Setting | Value |
-|--------|--------|
-| Framework preset | None (or Astro if detected) |
-| Build command | `npm run build` |
-| Build output directory | `dist` |
-| Root directory | `/` (repository root) |
+## Set up Pages (Option A) — step by step
 
-Node version: set **Environment variable** `NODE_VERSION` to `20` (or `22`) in Pages → Settings → Environment variables if the default is too old.
+1. Open [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages**.
+2. Click **Create** / **Create application** → choose **Pages** (static site from Git).
+3. **Connect to Git** → authorize GitHub → select repo **`Samu77-B/thevaultgym`**.
+4. Configure the build:
 
-## What the build does
+   | Setting | Value |
+   |--------|--------|
+   | **Framework preset** | Astro (or **None**) |
+   | **Build command** | `npm run build` |
+   | **Build output directory** | `dist` |
+   | **Root directory** | `/` |
 
-1. `npm run generate` — reads legacy `*.html` at the repo root and writes `src/generated/page-data/*.json`.
-2. `npm run sync-public` — copies `css/`, `js/`, `images/`, `icons/`, `components/` into `public/` so URLs like `/css/...` and fetches to `/components/header.html` keep working.
-3. `astro build` — writes static files to `dist/` with **file** URLs (`about.html`, `services/boxing.html`, etc.).
+5. **Environment variables** (if the build fails on Node): **Settings** → **Environment variables** → add **`NODE_VERSION`** = **`20`** (or `22`).
+6. **Save and Deploy**.
+
+**Important:** Do **not** set a **Deploy command** of `npx wrangler deploy`. Pages runs your build and publishes **`dist/`** automatically. The file [`wrangler.toml`](wrangler.toml) in this repo is **ignored by Pages**; you can leave it or delete it later.
+
+### If you already created a Worker for this site
+
+Keep the **Pages** project separate. Either:
+
+- Use a slightly different Pages project name (e.g. `thevaultgym-site`), or  
+- Stop using the old Worker build that ran `npx wrangler deploy` so you are not maintaining two deploys.
+
+---
+
+## What `npm run build` does
+
+1. **`npm run generate`** — reads legacy `*.html` at the repo root → `src/generated/page-data/*.json` (gitignored; recreated every build).
+2. **`npm run sync-public`** — copies `css/`, `js/`, `images/`, `icons/`, `components/` → `public/`.
+3. **`astro build`** — outputs static files to **`dist/`** (`about.html`, `services/boxing.html`, etc.).
+
+---
 
 ## CMS (Decap)
 
-- Admin UI: `https://<your-pages-domain>/admin/`
-- **Backend:** GitHub (see [Decap GitHub backend](https://decapcms.org/docs/github-backend/)). You need a GitHub OAuth App; Authorization callback URL must match Decap’s docs (typically `https://api.netlify.com/auth/done` is **not** used for GitHub — follow the current Decap GitHub guide for the exact callback).
-- **Content files:** `src/content/pages/<slug>.json` — optional overrides for `seo`, `jsonLd`, `headStyles`, `bodyMarkup`. The `slug` field must match the file name (e.g. `about.json` → `"slug": "about"`).
-- **Images:** uploads go to `images/uploads/` at the repo root (committed to Git). The next `sync-public` copies them into `public/images/uploads/` for the live site.
+- Admin: `https://<your-pages-domain>/admin/`
+- **Backend:** [Decap GitHub backend](https://decapcms.org/docs/github-backend/) (OAuth app on GitHub).
+- **Content:** `src/content/pages/<slug>.json` — overrides `seo`, `jsonLd`, `headStyles`, `bodyMarkup`. **`slug`** must match the filename (e.g. `about.json` → `"slug": "about"`).
+- **Uploads:** repo root `images/uploads/` → synced into the site on build.
 
-### Local editing without GitHub OAuth
+Local CMS without OAuth: uncomment `local_backend: true` in `public/admin/config.yml`, run `npx decap-server`, open the URL Decap prints.
 
-From the repo root:
+---
 
-```bash
-npx decap-server
-```
+## After edits
 
-Uncomment `local_backend: true` in `public/admin/config.yml` while testing, then point the admin at `http://localhost:8080/admin/` (see Decap local backend docs).
+Push to GitHub → Pages rebuilds automatically.
 
-## After changing content
+Keep root `*.html` and `services/*.html` in the repo until you no longer rely on `npm run generate` for baseline content.
 
-Commit changes to `src/content/pages/` and/or `images/uploads/`, push to GitHub — Cloudflare Pages rebuilds automatically.
+---
 
-## Legacy HTML
+## Optional: Workers + Wrangler instead
 
-Keep the root-level `*.html` and `services/*.html` files in the repo; `npm run generate` depends on them until you stop regenerating and maintain content only in the CMS JSON.
+Only if you must deploy as a Worker: build command `npm run build`, deploy `npx wrangler deploy`, and use [`wrangler.toml`](wrangler.toml) with `[assets] directory = "./dist"`. For this project, **Pages is simpler**.

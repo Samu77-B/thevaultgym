@@ -1,0 +1,9 @@
+# Cloudflare Workers — static assets from Astro build output only.
+# Without this, `npx wrangler deploy` defaults to uploading the repo root (including `.git`),
+# which triggers the 25 MiB Workers asset limit.
+
+name = "thevaultgym"
+compatibility_date = "2024-01-01"
+
+[assets]
+directory = "./dist"
