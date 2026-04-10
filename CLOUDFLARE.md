@@ -2,6 +2,18 @@
 
 Use **Cloudflare Pages** (not Workers + Wrangler) for this static Astro site.
 
+## Clean production URL (no branch name like `webflow-cleanup`)
+
+What you see in Cloudflare is controlled in the **dashboard**, not by renaming a file in Git.
+
+1. **Production branch** — In **Workers & Pages** → your project → **Settings** → **Builds & deployments**, set **Production branch** to **`master`**. Production builds then use the main site URL (`https://<project-name>.pages.dev`). **Preview** deployments for other branches can still show the branch name in their links; that is normal.
+
+2. **Project name (title / default subdomain)** — In the same project, use **Rename** (or recreate the project) so the name is something like **`thevaultgym`**, matching [`wrangler.toml`](wrangler.toml) `name`. That removes an old name such as `webflow-cleanup` from the default hostname.
+
+3. **Custom domain** — Under **Custom domains**, attach **`www.thevaultgym.co.uk`** (and/or the apex). That is what visitors should use in production; it avoids `pages.dev` entirely.
+
+This repo’s latest work is merged into **`master`**; point Cloudflare production at **`master`** and push future changes to **`master`** (or merge into it) for the live site.
+
 ## Set up Pages (Option A) — step by step
 
 1. Open [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages**.
