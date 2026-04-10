@@ -15,7 +15,6 @@ const FILES = [
   'index.html',
   'about.html',
   'contact.html',
-  'join-us.html',
   'train-for-a-living.html',
   'train-with-a-pro.html',
   'pt-consultations.html',

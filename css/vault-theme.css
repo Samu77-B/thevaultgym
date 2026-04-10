@@ -1820,20 +1820,21 @@
 }
 
 .cog-cognito--styled .cog-button--primary, :root:root:root:root:root .cog-cognito--styled .cog-button--primary {
-  background-color: #F1D600 !important; /* Changed from previous color to #F1D600 */
+  background-color: #ed155d !important;
   border: none !important;
   border-radius: var(--button-primary__border-radius);
-  color: var(--button-primary__color, var(--primary-reverse));
   width: 100%;
-  color: #000 !important;
+  color: #ffffff !important;
   font-weight: 700 !important;
-  transition: transform 0.2s ease, brightness 0.2s ease !important;
+  transition: transform 0.2s ease, filter 0.2s ease !important;
 }
 
 .cog-cognito--styled .cog-button--primary:hover,
 :root:root:root:root:root .cog-cognito--styled .cog-button--primary:hover {
+  background-color: #ed155d !important;
+  color: #ffffff !important;
   transform: scale(1.02) !important;
-  filter: brightness(1.1) !important;
+  filter: brightness(1.08) !important;
 }
 
 .cog-53,
