@@ -1853,3 +1853,51 @@ textarea.w-select {
 .w-webflow-badge {
   display: none !important;
 }
+
+/* ========== Site-wide responsive baseline ========== */
+html {
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+}
+
+body {
+  overflow-x: hidden;
+  width: 100%;
+}
+
+img,
+video,
+canvas,
+svg {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Photo hero bands (inner pages): less vertical space on phones */
+@media screen and (max-width: 767px) {
+  .section-4.wf-section,
+  .section-6.wf-section,
+  .section-9.wf-section {
+    height: min(50vh, 340px) !important;
+    min-height: 200px !important;
+  }
+
+  html[data-wf-page="619558225e1907aee9c62d9b"] .section-8.wf-section {
+    height: min(50vh, 380px) !important;
+    min-height: 220px !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  .section-4.wf-section,
+  .section-6.wf-section,
+  .section-9.wf-section {
+    height: min(42vh, 280px) !important;
+    min-height: 176px !important;
+  }
+
+  html[data-wf-page="619558225e1907aee9c62d9b"] .section-8.wf-section {
+    height: min(42vh, 320px) !important;
+    min-height: 200px !important;
+  }
+}

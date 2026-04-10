@@ -48,7 +48,7 @@ const title = seo.title || 'The Vault Gym';
     {seo.twitterTitle ? <meta property="twitter:title" content={seo.twitterTitle} /> : null}
     {seo.twitterDescription ? <meta property="twitter:description" content={seo.twitterDescription} /> : null}
     {seo.twitterCard ? <meta name="twitter:card" content={seo.twitterCard} /> : null}
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
     {jsonLd ? <script type="application/ld+json" set:html={jsonLd}></script> : null}
     {headExtraLinks.map((l) => (
       <link rel={l.rel} href={l.href} type={l.type} sizes={l.sizes} media={l.media} />

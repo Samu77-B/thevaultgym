@@ -37,7 +37,7 @@
       ]
     }
   </script>
-  <meta content="width=device-width, initial-scale=1" name="viewport">
+  <meta content="width=device-width, initial-scale=1, viewport-fit=cover" name="viewport">
   
   <link href="css/normalize.css" rel="stylesheet" type="text/css">
   <link href="css/vault-base.css" rel="stylesheet" type="text/css">
@@ -68,6 +68,16 @@
       .section-3.sportssec {
         min-height: 100dvh !important;
         height: 100dvh !important;
+      }
+    }
+
+    /* Phones / narrow: cover avoids stretched hero image; allow section to grow with content */
+    @media screen and (max-width: 767px) {
+      .section-3.sportssec {
+        background-size: cover !important;
+        height: auto !important;
+        min-height: 100vh !important;
+        min-height: 100svh !important;
       }
     }
 
