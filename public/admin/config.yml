@@ -6,6 +6,10 @@ backend:
   name: github
   repo: Samu77-B/thevaultgym
   branch: master
+  # Cloudflare Pages: GitHub OAuth is handled by repo-root functions/api/*.js — see CLOUDFLARE.md.
+  site_domain: https://www.thevaultgym.co.uk
+  base_url: https://www.thevaultgym.co.uk
+  auth_endpoint: /api/auth
 
 # For local-only editing: run `npx decap-server` from the repo root, then uncomment:
 # local_backend: true
@@ -25,6 +29,33 @@ collections:
     identifier_field: slug
     fields:
       - { label: Slug, name: slug, widget: string, hint: "Must match file name without .json (e.g. about, services-boxing)" }
+      - label: Hero background image (optional)
+        name: heroBackgroundImage
+        widget: image
+        required: false
+        hint: "Shown behind the top hero strip where the site uses .section-9 — upload then pick. Uses /images/uploads/…"
+      - label: Structured main content (optional)
+        name: contentBlocks
+        widget: list
+        required: false
+        label_singular: block
+        summary: "{{fields.kind}} — {{fields.text}}"
+        fields:
+          - label: Block type
+            name: kind
+            widget: select
+            options:
+              - { label: Main heading (H1), value: heading }
+              - { label: Tagline (H2), value: tagline }
+              - { label: Section title (H3), value: sectionTitle }
+              - { label: Paragraph, value: paragraph }
+              - { label: Bullet list, value: list }
+          - { label: Text, name: text, widget: text, required: false }
+          - label: List items (one per line)
+            name: listText
+            widget: text
+            required: false
+            hint: "Only for Bullet list"
       - label: SEO
         name: seo
         widget: object

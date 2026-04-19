@@ -54,10 +54,34 @@ Keep the **Pages** project separate. Either:
 
 ## CMS (Decap)
 
-- Admin: `https://<your-pages-domain>/admin/`
-- **Backend:** [Decap GitHub backend](https://decapcms.org/docs/github-backend/) (OAuth app on GitHub).
-- **Content:** `src/content/pages/<slug>.json` — overrides `seo`, `jsonLd`, `headStyles`, `bodyMarkup`. **`slug`** must match the filename (e.g. `about.json` → `"slug": "about"`).
-- **Uploads:** repo root `images/uploads/` → synced into the site on build.
+- Admin: `https://www.thevaultgym.co.uk/admin/` (or your Pages hostname).
+- **Backend:** [Decap GitHub backend](https://decapcms.org/docs/github-backend/). This repo uses **Cloudflare Pages Functions** at [`functions/api/auth.js`](functions/api/auth.js) and [`functions/api/callback.js`](functions/api/callback.js) so GitHub OAuth works without Netlify (pattern from [i40west/netlify-cms-cloudflare-pages](https://github.com/i40west/netlify-cms-cloudflare-pages)).
+
+### GitHub OAuth App (required for production `/admin/`)
+
+1. GitHub → **Settings** → **Developer settings** → **OAuth Apps** → **New OAuth App**.
+2. **Homepage URL:** `https://www.thevaultgym.co.uk` (or your production site URL).
+3. **Authorization callback URL:** `https://www.thevaultgym.co.uk/api/callback` — must match the deployed origin because the Functions use `redirect_uri = <origin>/api/callback`. For **preview** deployments (`*.pages.dev`), add a second callback URL for each preview host you use (GitHub allows multiple callback URLs on one OAuth app), or use [local backend](EDITOR-CMS.md) while testing.
+4. Copy the **Client ID** and generate a **Client secret**.
+
+### Cloudflare environment variables (Pages project)
+
+In **Workers & Pages** → your project → **Settings** → **Environment variables**, add for **Production** (and **Preview** if editors use preview URLs):
+
+| Variable | Value |
+|----------|--------|
+| `NODE_VERSION` | `22` or `22.12.0` (required for Astro 6) |
+| `GITHUB_CLIENT_ID` | GitHub OAuth Client ID |
+| `GITHUB_CLIENT_SECRET` | GitHub OAuth Client secret (treat as secret / encrypted) |
+
+Redeploy after adding variables so **Functions** pick them up.
+
+[`public/admin/config.yml`](public/admin/config.yml) sets `site_domain`, `base_url`, and `auth_endpoint: /api/auth` for production. If the canonical domain changes, update those URLs to match.
+
+### Content and uploads
+
+- **Content:** `src/content/pages/<slug>.json` — merges with generated page data; see [EDITOR-CMS.md](EDITOR-CMS.md) for slugs, SEO, structured blocks, and overrides.
+- **Uploads:** repo root `images/uploads/` → copied into the site on build via `sync-public`.
 
 Local CMS without OAuth: uncomment `local_backend: true` in `public/admin/config.yml`, run `npx decap-server`, open the URL Decap prints.
 

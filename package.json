@@ -20,8 +20,10 @@
     "url": "git+https://github.com/Samu77-B/thevaultgym.git"
   },
   "license": "ISC",
-  "devDependencies": {
-    "astro": "^6.1.4",
+  "dependencies": {
     "cheerio": "^1.2.0"
+  },
+  "devDependencies": {
+    "astro": "^6.1.4"
   }
 }
