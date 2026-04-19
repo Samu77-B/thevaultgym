@@ -87,6 +87,15 @@ Local CMS without OAuth: uncomment `local_backend: true` in `public/admin/config
 
 ---
 
+## Troubleshooting: 404 on `/admin` or the CMS
+
+1. **Use a trailing slash:** Open **`https://www.thevaultgym.co.uk/admin/`** (with `/` at the end). The repo includes [`public/_redirects`](public/_redirects) so **`/admin`** redirects to **`/admin/`** after deploy.
+2. **Production branch:** Cloudflare must build the branch that contains **`public/admin/`** (see `git ls-files public/admin`). If production only tracks **`master`**, merge your feature branch into **`master`** and wait for the deployment to finish.
+3. **Not the Pages build:** If the custom domain points at an old **Worker** or another host, you may get the site’s **404.html** for `/admin/`. Confirm **DNS** for `www.thevaultgym.co.uk` targets the **Pages** project shown in the dashboard.
+4. **OAuth 404:** Login uses **`/api/auth`** and **`/api/callback`** (Pages **Functions** in [`functions/api/`](functions/api)). If those return 404, the Functions bundle may not be deploying — confirm the repo includes the **`functions/`** folder and redeploy; set **`GITHUB_CLIENT_ID`** / **`GITHUB_CLIENT_SECRET`** on the project.
+
+---
+
 ## After edits
 
 Push to GitHub → Pages rebuilds automatically.
