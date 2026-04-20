@@ -21,20 +21,64 @@ public_folder: /images/uploads
 collections:
   - name: pages
     label: Pages
-    folder: src/content/pages
+    files:
+      - label: Home
+        name: home
+        file: src/content/pages/index.json
+      - label: About
+        name: about
+        file: src/content/pages/about.json
+      - label: Contact
+        name: contact
+        file: src/content/pages/contact.json
+      - label: Train For A Living
+        name: trainForALiving
+        file: src/content/pages/train-for-a-living.json
+      - label: Train With A Pro
+        name: trainWithAPro
+        file: src/content/pages/train-with-a-pro.json
+      - label: PT Consultations
+        name: ptConsultations
+        file: src/content/pages/pt-consultations.json
+      - label: Shoreditch Gym
+        name: shoreditchGym
+        file: src/content/pages/shoreditch-gym.json
+      - label: Sports Specific Training
+        name: sportsSpecificTraining
+        file: src/content/pages/sports-specific-training.json
+      - label: Nutrition
+        name: nutrition
+        file: src/content/pages/nutrition.json
+      - label: Services — Personal Training
+        name: servicesPersonalTraining
+        file: src/content/pages/services-personal-training.json
+      - label: Services — Boxing
+        name: servicesBoxing
+        file: src/content/pages/services-boxing.json
+      - label: Services — Pilates
+        name: servicesPilates
+        file: src/content/pages/services-pilates.json
+      - label: Services — Yoga
+        name: servicesYoga
+        file: src/content/pages/services-yoga.json
+      - label: Services — Course Venues
+        name: servicesCourseVenues
+        file: src/content/pages/services-course-venues.json
+      - label: Terms
+        name: terms
+        file: src/content/pages/terms.json
+      - label: Privacy Policy
+        name: privacyPolicy
+        file: src/content/pages/privacy-policy.json
     extension: json
     format: json
-    create: true
-    slug: "{{slug}}"
-    identifier_field: slug
     fields:
-      - { label: Slug, name: slug, widget: string, hint: "Must match file name without .json (e.g. about, services-boxing)" }
-      - label: Hero background image (optional)
+      - label: Hero image (optional)
         name: heroBackgroundImage
         widget: image
         required: false
-        hint: "Shown behind the top hero strip where the site uses .section-9 — upload then pick. Uses /images/uploads/…"
-      - label: Structured main content (optional)
+        hint: "Used for pages with the top hero strip (background image behind the header)."
+      - label: Main page text (optional)
         name: contentBlocks
         widget: list
         required: false
@@ -45,17 +89,17 @@ collections:
             name: kind
             widget: select
             options:
-              - { label: Main heading (H1), value: heading }
-              - { label: Tagline (H2), value: tagline }
-              - { label: Section title (H3), value: sectionTitle }
+              - { label: Main heading, value: heading }
+              - { label: Tagline, value: tagline }
+              - { label: Section title, value: sectionTitle }
               - { label: Paragraph, value: paragraph }
               - { label: Bullet list, value: list }
           - { label: Text, name: text, widget: text, required: false }
-          - label: List items (one per line)
+          - label: Bullet list items (one per line)
             name: listText
             widget: text
             required: false
-            hint: "Only for Bullet list"
+            hint: "Only used when Block type is Bullet list."
       - label: SEO
         name: seo
         widget: object
@@ -63,16 +107,4 @@ collections:
         fields:
           - { label: Title, name: title, widget: string, required: false }
           - { label: Meta description, name: description, widget: text, required: false }
-          - { label: Keywords, name: keywords, widget: string, required: false }
-          - { label: Robots, name: robots, widget: string, required: false }
-          - { label: OG title, name: ogTitle, widget: string, required: false }
-          - { label: OG description, name: ogDescription, widget: text, required: false }
-          - { label: OG type, name: ogType, widget: string, required: false }
-          - { label: OG URL, name: ogUrl, widget: string, required: false }
-          - { label: OG image (path), name: ogImage, widget: string, required: false, hint: "e.g. /images/webclip.png" }
-          - { label: Twitter title, name: twitterTitle, widget: string, required: false }
-          - { label: Twitter description, name: twitterDescription, widget: text, required: false }
-          - { label: Twitter card, name: twitterCard, widget: string, required: false }
-      - { label: JSON-LD override, name: jsonLd, widget: text, required: false }
-      - { label: Head CSS override, name: headStyles, widget: text, required: false }
-      - { label: Body HTML override, name: bodyMarkup, widget: text, required: false }
+          - { label: OG image (optional), name: ogImage, widget: string, required: false, hint: "Example: /images/uploads/share.jpg" }
