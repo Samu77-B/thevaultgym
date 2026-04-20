@@ -18,6 +18,43 @@ backend:
 media_folder: images/uploads
 public_folder: /images/uploads
 
+page_fields: &page_fields
+  - label: Hero image (optional)
+    name: heroBackgroundImage
+    widget: image
+    required: false
+    hint: "Used for pages with the top hero strip (background image behind the header)."
+  - label: Main page text (optional)
+    name: contentBlocks
+    widget: list
+    required: false
+    label_singular: block
+    summary: "{{fields.kind}} — {{fields.text}}"
+    fields:
+      - label: Block type
+        name: kind
+        widget: select
+        options:
+          - { label: Main heading, value: heading }
+          - { label: Tagline, value: tagline }
+          - { label: Section title, value: sectionTitle }
+          - { label: Paragraph, value: paragraph }
+          - { label: Bullet list, value: list }
+      - { label: Text, name: text, widget: text, required: false }
+      - label: Bullet list items (one per line)
+        name: listText
+        widget: text
+        required: false
+        hint: "Only used when Block type is Bullet list."
+  - label: SEO
+    name: seo
+    widget: object
+    collapsed: true
+    fields:
+      - { label: Title, name: title, widget: string, required: false }
+      - { label: Meta description, name: description, widget: text, required: false }
+      - { label: OG image (optional), name: ogImage, widget: string, required: false, hint: "Example: /images/uploads/share.jpg" }
+
 collections:
   - name: pages
     label: Pages
@@ -25,86 +62,66 @@ collections:
       - label: Home
         name: home
         file: src/content/pages/index.json
+        fields: *page_fields
       - label: About
         name: about
         file: src/content/pages/about.json
+        fields: *page_fields
       - label: Contact
         name: contact
         file: src/content/pages/contact.json
+        fields: *page_fields
       - label: Train For A Living
         name: trainForALiving
         file: src/content/pages/train-for-a-living.json
+        fields: *page_fields
       - label: Train With A Pro
         name: trainWithAPro
         file: src/content/pages/train-with-a-pro.json
+        fields: *page_fields
       - label: PT Consultations
         name: ptConsultations
         file: src/content/pages/pt-consultations.json
+        fields: *page_fields
       - label: Shoreditch Gym
         name: shoreditchGym
         file: src/content/pages/shoreditch-gym.json
+        fields: *page_fields
       - label: Sports Specific Training
         name: sportsSpecificTraining
         file: src/content/pages/sports-specific-training.json
+        fields: *page_fields
       - label: Nutrition
         name: nutrition
         file: src/content/pages/nutrition.json
+        fields: *page_fields
       - label: Services — Personal Training
         name: servicesPersonalTraining
         file: src/content/pages/services-personal-training.json
+        fields: *page_fields
       - label: Services — Boxing
         name: servicesBoxing
         file: src/content/pages/services-boxing.json
+        fields: *page_fields
       - label: Services — Pilates
         name: servicesPilates
         file: src/content/pages/services-pilates.json
+        fields: *page_fields
       - label: Services — Yoga
         name: servicesYoga
         file: src/content/pages/services-yoga.json
+        fields: *page_fields
       - label: Services — Course Venues
         name: servicesCourseVenues
         file: src/content/pages/services-course-venues.json
+        fields: *page_fields
       - label: Terms
         name: terms
         file: src/content/pages/terms.json
+        fields: *page_fields
       - label: Privacy Policy
         name: privacyPolicy
         file: src/content/pages/privacy-policy.json
+        fields: *page_fields
     extension: json
     format: json
-    fields:
-      - label: Hero image (optional)
-        name: heroBackgroundImage
-        widget: image
-        required: false
-        hint: "Used for pages with the top hero strip (background image behind the header)."
-      - label: Main page text (optional)
-        name: contentBlocks
-        widget: list
-        required: false
-        label_singular: block
-        summary: "{{fields.kind}} — {{fields.text}}"
-        fields:
-          - label: Block type
-            name: kind
-            widget: select
-            options:
-              - { label: Main heading, value: heading }
-              - { label: Tagline, value: tagline }
-              - { label: Section title, value: sectionTitle }
-              - { label: Paragraph, value: paragraph }
-              - { label: Bullet list, value: list }
-          - { label: Text, name: text, widget: text, required: false }
-          - label: Bullet list items (one per line)
-            name: listText
-            widget: text
-            required: false
-            hint: "Only used when Block type is Bullet list."
-      - label: SEO
-        name: seo
-        widget: object
-        collapsed: true
-        fields:
-          - { label: Title, name: title, widget: string, required: false }
-          - { label: Meta description, name: description, widget: text, required: false }
-          - { label: OG image (optional), name: ogImage, widget: string, required: false, hint: "Example: /images/uploads/share.jpg" }
