@@ -7,8 +7,8 @@ backend:
   repo: Samu77-B/thevaultgym
   branch: master
   # Cloudflare Pages: GitHub OAuth is handled by repo-root functions/api/*.js — see CLOUDFLARE.md.
-  site_domain: https://www.thevaultgym.co.uk
-  base_url: https://www.thevaultgym.co.uk
+  site_domain: https://thevaultgym.pages.dev
+  base_url: https://thevaultgym.pages.dev
   auth_endpoint: /api/auth
 
 # For local-only editing: run `npx decap-server` from the repo root, then uncomment:
