@@ -1,4 +1,8 @@
 {
+  "heroOverlay": {
+    "heading": "H1 Heading",
+    "subheading": "H2 Subheading"
+  },
   "heroBackgroundImage": "/images/train-for-a-living.png",
   "contentBlocks": [
     {
