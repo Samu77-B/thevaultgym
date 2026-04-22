@@ -21,7 +21,7 @@ Use the **SEO** group in Decap to set the page title and meta description. Value
 
 ## Main page text (optional)
 
-**Main page text** lets you edit the main text block inside **`.about-info-container`** using blocks (headings, paragraphs, bullet lists). Paragraphs that include **links** use the **Paragraph with links (HTML)** block type.
+**Main page text** lets you edit the main text block inside **`.about-info-container`** using blocks (headings, paragraphs, bullet lists). For **Main heading**, use **Heading level** to pick **H1–H6** (styling matches the site’s main title, tagline, and section-title styles for H1–H3). Paragraphs that include **links** use the **Paragraph with links (HTML)** block type.
 
 - The **home page** hero headlines and buttons are **not** in this list (they live in the page template). Use **Hero image** and **SEO** on Home; changing the big “Enter The Vault” text needs a code change or a future CMS field.
 - If you **clear** the whole list, the original text from the site template is used again.

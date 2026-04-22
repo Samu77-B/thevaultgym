@@ -2,7 +2,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "Privacy Policy"
+      "text": "Privacy Policy",
+      "headingLevel": "h1"
     }
   ],
   "seo": {

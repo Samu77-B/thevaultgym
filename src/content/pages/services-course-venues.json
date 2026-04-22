@@ -2,7 +2,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "Course Venues"
+      "text": "Course Venues",
+      "headingLevel": "h1"
     },
     {
       "kind": "html",

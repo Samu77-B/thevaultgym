@@ -76,7 +76,7 @@ function containerToBlocks(bodyMarkup) {
     const tag = el.tagName?.toLowerCase() ?? '';
 
     if (tag === 'h1' || $el.hasClass('heading')) {
-      blocks.push({ kind: 'heading', text: $el.text().trim() });
+      blocks.push({ kind: 'heading', text: $el.text().trim(), headingLevel: 'h1' });
       return;
     }
     if (tag === 'h2' || $el.hasClass('vault-page-tagline')) {

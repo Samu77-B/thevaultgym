@@ -3,7 +3,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "Personal Training at The Vault Gym"
+      "text": "Personal Training at The Vault Gym",
+      "headingLevel": "h1"
     },
     {
       "kind": "tagline",

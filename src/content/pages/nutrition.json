@@ -2,7 +2,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "Nutrition"
+      "text": "Nutrition",
+      "headingLevel": "h1"
     },
     {
       "kind": "html",

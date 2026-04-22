@@ -42,6 +42,19 @@ page_fields: &page_fields
           - { label: Paragraph with links (HTML), value: html }
           - { label: Bullet list, value: list }
       - { label: Text, name: text, widget: text, required: false }
+      - label: Heading level
+        name: headingLevel
+        widget: select
+        required: false
+        default: h1
+        hint: "Only when Block type is Main heading — choose H1, H2, etc."
+        options:
+          - { label: H1, value: h1 }
+          - { label: H2, value: h2 }
+          - { label: H3, value: h3 }
+          - { label: H4, value: h4 }
+          - { label: H5, value: h5 }
+          - { label: H6, value: h6 }
       - label: HTML (links / formatting)
         name: html
         widget: text

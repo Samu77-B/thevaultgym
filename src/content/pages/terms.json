@@ -2,7 +2,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "Terms and Conditions"
+      "text": "Terms and Conditions",
+      "headingLevel": "h1"
     }
   ],
   "seo": {

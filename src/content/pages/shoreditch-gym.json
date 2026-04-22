@@ -2,7 +2,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "Shoreditch Gym"
+      "text": "Shoreditch Gym",
+      "headingLevel": "h1"
     },
     {
       "kind": "paragraph",

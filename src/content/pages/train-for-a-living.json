@@ -3,7 +3,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "Build Your PT Business at The Vault"
+      "text": "Build Your PT Business at The Vault",
+      "headingLevel": "h1"
     },
     {
       "kind": "tagline",

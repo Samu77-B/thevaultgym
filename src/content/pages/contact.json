@@ -2,7 +2,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "Contact The Vault Private Gym | Premium Personal Training in Shoreditch"
+      "text": "Contact The Vault Private Gym | Premium Personal Training in Shoreditch",
+      "headingLevel": "h1"
     },
     {
       "kind": "html",

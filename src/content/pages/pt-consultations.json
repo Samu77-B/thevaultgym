@@ -2,7 +2,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "PT Consultations"
+      "text": "PT Consultations",
+      "headingLevel": "h1"
     },
     {
       "kind": "paragraph",

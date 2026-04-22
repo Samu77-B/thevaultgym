@@ -2,7 +2,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "Personal Training"
+      "text": "Personal Training",
+      "headingLevel": "h1"
     },
     {
       "kind": "html",

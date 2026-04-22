@@ -2,7 +2,8 @@
   "contentBlocks": [
     {
       "kind": "heading",
-      "text": "Boxing"
+      "text": "Boxing",
+      "headingLevel": "h1"
     },
     {
       "kind": "html",

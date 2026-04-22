@@ -37,6 +37,8 @@ export type ScriptRec = {
 export type ContentBlock = {
   kind: 'heading' | 'tagline' | 'sectionTitle' | 'paragraph' | 'list' | 'html';
   text?: string;
+  /** For `kind: heading` — semantic level (defaults to h1). */
+  headingLevel?: 'h1' | 'h2' | 'h3' | 'h4' | 'h5' | 'h6';
   /** One bullet per line when kind is `list`. */
   listText?: string;
   /** Raw inner HTML (links, etc.) when kind is `html` — trusted CMS editors only. */
@@ -78,9 +80,22 @@ function renderContentBlocks(blocks: ContentBlock[]): string {
   for (const b of blocks) {
     const text = escapeHtml((b.text ?? '').trim());
     switch (b.kind) {
-      case 'heading':
-        parts.push(`<h1 class="heading">${text}</h1>`);
+      case 'heading': {
+        const raw = (b.headingLevel ?? 'h1').toLowerCase();
+        const level = (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(raw) ? raw : 'h1') as
+          | 'h1'
+          | 'h2'
+          | 'h3'
+          | 'h4'
+          | 'h5'
+          | 'h6';
+        let cls = 'heading';
+        if (level === 'h2') cls = 'vault-page-tagline';
+        else if (level === 'h3') cls = 'vault-page-section-title';
+        else if (level !== 'h1') cls = 'vault-page-section-title';
+        parts.push(`<${level} class="${cls}">${text}</${level}>`);
         break;
+      }
       case 'tagline':
         parts.push(`<h2 class="vault-page-tagline">${text}</h2>`);
         break;
