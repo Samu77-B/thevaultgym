@@ -233,11 +233,10 @@ function renderHeroOverlayHtml(overlay: HeroOverlay): string {
   return parts.join('');
 }
 
-function heroOverlayCss(bodyMarkup: string, wfPage: string): string {
-  const selector = heroBackgroundSelector(bodyMarkup, wfPage);
+function heroOverlayCss(): string {
   return `
 /* CMS: hero overlay text */
-${selector} { position: relative; }
+.vault-cms-hero-container { position: relative; }
 .vault-cms-hero-overlay {
   position: absolute;
   inset: 0;
@@ -304,10 +303,23 @@ function applyHeroOverlay(bodyMarkup: string, wfPage: string, overlay: HeroOverl
     return $.root().html() ?? bodyMarkup;
   }
 
-  const innerHero = $('.section-9.wf-section').first();
-  if (innerHero.length) {
-    innerHero.append(html);
-    return $.root().html() ?? bodyMarkup;
+  // Generic pages: inject into the first top "hero" section that contains the header component.
+  const header = $('#header-component').first();
+  if (header.length) {
+    let hero = header.parent();
+    // Climb up to a reasonable container that looks like a Webflow section.
+    for (let i = 0; i < 4; i++) {
+      if (!hero.length) break;
+      const cls = hero.attr('class') ?? '';
+      if (/\bwf-section\b/.test(cls)) break;
+      hero = hero.parent();
+    }
+
+    if (hero.length) {
+      hero.addClass('vault-cms-hero-container');
+      hero.append(html);
+      return $.root().html() ?? bodyMarkup;
+    }
   }
 
   // Fallback: do nothing if we can't locate a hero section reliably.
@@ -329,7 +341,7 @@ export function mergePage(gen: PageGen, cms: PageCms = {}) {
   }
   if (!cms.bodyMarkup && cms.heroOverlay) {
     bodyMarkup = applyHeroOverlay(bodyMarkup, wfPage, cms.heroOverlay);
-    headStyles = `${headStyles}\n${heroOverlayCss(bodyMarkup, wfPage)}`;
+    headStyles = `${headStyles}\n${heroOverlayCss()}`;
   }
 
   return {
