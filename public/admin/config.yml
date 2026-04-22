@@ -23,7 +23,24 @@ page_fields: &page_fields
     name: heroBackgroundImage
     widget: image
     required: false
-    hint: "Used for pages with the top hero strip (background image behind the header)."
+    hint: "Used for pages with the top hero strip (background image behind the header). Image size guide: use a landscape image at least 1920×1080 (recommended 2400×1350). Keep the subject centred; it will be cropped on smaller screens."
+  - label: Hero overlay text (optional)
+    name: heroOverlay
+    widget: object
+    collapsed: true
+    required: false
+    fields:
+      - { label: H1 heading, name: heading, widget: string, required: false, hint: "Centered text over the hero image." }
+      - { label: H2 subheading, name: subheading, widget: string, required: false, hint: "Centered text under the H1." }
+      - label: Hero buttons/links (optional)
+        name: buttons
+        widget: list
+        required: false
+        label_singular: button
+        summary: "{{fields.label}} → {{fields.href}}"
+        fields:
+          - { label: Button text, name: label, widget: string, required: true }
+          - { label: Link (slug / URL), name: href, widget: string, required: true, hint: "Use a site path like /train-with-a-pro or a full URL like https://..." }
   - label: Main page text (optional)
     name: contentBlocks
     widget: list

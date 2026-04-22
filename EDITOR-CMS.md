@@ -18,6 +18,14 @@ Use the **SEO** group in Decap to set the page title and meta description. Value
 
 - **Media library** uploads go to the repo at **`images/uploads/`** and appear on the site under **`/images/uploads/...`** after the next deploy.
 - **Hero image** (optional): upload an image, then select it for **Hero image**. It applies to the large top hero: **`.section-9`** on inner pages and **`.section-3.sportssec`** on the home page (same field).
+- **Hero image size guide**: use a **landscape** image at least **1920×1080** (recommended **2400×1350**). Keep the subject **centred**; the image is cropped on smaller screens.
+
+## Hero overlay text + buttons (optional)
+
+Each page has a **Hero overlay** group where you can set:
+
+- **H1 heading** + **H2 subheading**: centered text over the hero image.
+- **Hero buttons/links**: edit the **button text** and the **link (slug/path)**. Use site paths like **`/train-with-a-pro`** (preferred) or full URLs like **`https://...`**.
 
 ## Main page text (optional)
 
