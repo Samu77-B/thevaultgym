@@ -1,1 +1,16 @@
-{}
+{
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "Contact The Vault Private Gym | Premium Personal Training in Shoreditch"
+    },
+    {
+      "kind": "html",
+      "html": "We are situated in the heart of Shoreditch. We are five minutes walk from Old Street, Moorgate and Liverpool Street.<br><br>If you require further information about any of our services or would like to arrange an appointment, please contact us at <a href=\"mailto:jon@thevaultgym.com\"><span>jon@thevaultgym.com</span></a><br><br>The Vault Gym, Lower Ground Floor, Zetland House, <br>5-25 Scrutton Street, London EC2A 4 HJ<br><br>Call Jon on. 078 0313 2428<br>or the Gym on. 020 7033 9990<br>"
+    }
+  ],
+  "seo": {
+    "title": "Contact The Vault Private Gym | Luxury Personal Training Gym in Shoreditch, London",
+    "description": "Looking for a premium private gym in Central London? The Vault Gym in Shoreditch offers exclusive personal training, just minutes from Old Street, Moorgate and Liverpool Street stations. Contact us today."
+  }
+}

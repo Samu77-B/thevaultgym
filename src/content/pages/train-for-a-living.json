@@ -1,13 +1,89 @@
 {
-  "slug": "train-for-a-living",
+  "heroBackgroundImage": "/images/train-for-a-living.png",
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "Build Your PT Business at The Vault"
+    },
+    {
+      "kind": "tagline",
+      "text": "Run Your Business. Your Way."
+    },
+    {
+      "kind": "paragraph",
+      "text": "If you’re ready to grow your client base and run your personal training business your way, The Vault Gym offers 5,000 sq ft of premium training space in a prime central Shoreditch location."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Train your clients in a private, fully equipped environment - without gym shifts, membership targets, or revenue cuts."
+    },
+    {
+      "kind": "sectionTitle",
+      "text": "What We Offer"
+    },
+    {
+      "kind": "list",
+      "listText": "5,000 sq ft of state-of-the-art training space\n24/7 gym access\nNo gym shifts or cleaning duties\nZero commission taken from your earnings\nNo client membership or studio fees\nAffordable, flexible rental plans\nFreedom to train yourself whenever you want"
+    },
+    {
+      "kind": "paragraph",
+      "text": "We charge a simple flat rate - so you keep control of your pricing, your clients, and your schedule."
+    },
+    {
+      "kind": "sectionTitle",
+      "text": "A Gym Designed for 1:1 Personal Training"
+    },
+    {
+      "kind": "paragraph",
+      "text": "The Vault is a private PT-only gym. Every client trains on a 1:1 basis with their own personal trainer, creating a calm, premium environment where sessions run smoothly."
+    },
+    {
+      "kind": "list",
+      "listText": "No overcrowding\nNo waiting for equipment\nNo fighting for space"
+    },
+    {
+      "kind": "paragraph",
+      "text": "This allows you to maximize session quality and client results, every time."
+    },
+    {
+      "kind": "sectionTitle",
+      "text": "Fully Equipped for Every Training Style"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our space has been built to support all coaching styles, and the equipment and gym layout was designed to optimise training with the use of free weights and free moving cables to aid functional corrective training in the main gym."
+    },
+    {
+      "kind": "paragraph",
+      "text": "We understand the need to zone fitness areas, so a quiet session is not disturbed by a high impact workout. That is why we have a separate combat room and a strength and conditioning room with Olympic lifting platforms and cross fit rigs."
+    },
+    {
+      "kind": "paragraph",
+      "text": "We also offer a beautiful private yoga and movement studio, ideal for yoga, pilates, guided meditation and small group sessions."
+    },
+    {
+      "kind": "paragraph",
+      "text": "The room is fully equipped with all necessary props, so you can focus on delivering bespoke experiences for your clients."
+    },
+    {
+      "kind": "sectionTitle",
+      "text": "A Gym Built for PTs Who Mean Business."
+    },
+    {
+      "kind": "paragraph",
+      "text": "At The Vault Gym, we don’t take a percentage of your earnings or limit what you charge. Instead, we provide the space, equipment, and environment - and let you stay in control."
+    },
+    {
+      "kind": "paragraph",
+      "text": "If you’re a freelance PT looking for a professional home to grow your business, welcome to The Vault!"
+    },
+    {
+      "kind": "html",
+      "html": "<a href=\"contact.html\" class=\"link\">Get in touch</a> for a site visit or for more info."
+    }
+  ],
   "seo": {
     "title": "Train For A Living | The Vault Gym London",
-    "description": "Build your PT business at The Vault: 5,000 sq ft in Shoreditch, 24/7 access, no commission, flat-rate rental, and a private 1:1 training environment.",
-    "ogTitle": "Train For A Living | The Vault Gym London",
-    "ogDescription": "Build your PT business at The Vault: 5,000 sq ft in Shoreditch, 24/7 access, no commission, flat-rate rental, and a private 1:1 training environment.",
-    "ogType": "website",
-    "twitterTitle": "Train For A Living | The Vault Gym London",
-    "twitterDescription": "Build your PT business at The Vault: 5,000 sq ft in Shoreditch, 24/7 access, no commission, flat-rate rental, and a private 1:1 training environment.",
-    "twitterCard": "summary_large_image"
+    "description": "Build your PT business at The Vault: 5,000 sq ft in Shoreditch, 24/7 access, no commission, flat-rate rental, and a private 1:1 training environment."
   }
 }

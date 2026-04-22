@@ -1,1 +1,16 @@
-{}
+{
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "Nutrition"
+    },
+    {
+      "kind": "html",
+      "html": "The key to success in any exercise program is nutrition, and at The Vault Gym we offer a wide range of nutrition programs to help you to succeed.<br><br>All of our trainers have excellent nutritional knowledge but if you need more specific advice we have clinicians to help.<br><br>We are one of the few gyms to offer blood tests, where we send your blood to be checked in a laboratory for allergies. We can then offer a whole supplement range to resolve any issues.<br><br>If you lean more towards organic food nutrition we can also provide eating plans to resolve any issues.<br><br>Our main priority is your health and we are not a company that will just fill you full of drugs or supplements. We have a highly educated team here to help you.<br>"
+    }
+  ],
+  "seo": {
+    "title": "Nutrition advice and help at the Vault Private Gym London",
+    "description": "The key to success in any exercise program is nutrition, and at The Vault Gym we offer a wide range of nutrition programs to help you to succeed."
+  }
+}

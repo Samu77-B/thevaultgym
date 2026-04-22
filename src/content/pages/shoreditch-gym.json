@@ -1,1 +1,40 @@
-{}
+{
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "Shoreditch Gym"
+    },
+    {
+      "kind": "paragraph",
+      "text": "This is The Vault - 5,000 sq ft of premium gym space located in the heart of Shoreditch. We’re fully equipped with free weights, cable and cardio machines, and multiple areas including a heavy weights room, a boxing room and a yoga studio to facilitate functional training."
+    },
+    {
+      "kind": "paragraph",
+      "text": "The Vault is unique because everyone who trains here works with their own PT on a 1:1 basis which means we can offer a very private, premium environment to work out. No one ever has to wait for machines, or fight for weights - instead, time in the gym is fully maximized."
+    },
+    {
+      "kind": "paragraph",
+      "text": "The gym was designed to complement the integrity of the original building, and we collaborated with artists, bespoke furniture makers and lighting specialists to create a space that is not only functional, but incredibly cool and unique."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Naturally, we’re fully air-conditioned, but because no one wants to work out in stale second-hand air, The Vault is fitted with a fresh air ventilation system which pumps lovely fresh outside air all around the gym."
+    },
+    {
+      "kind": "list",
+      "listText": "Heavy weights room\nBoxing room\nYoga studio\nTreatment room"
+    },
+    {
+      "kind": "tagline",
+      "text": "Strength machines"
+    },
+    {
+      "kind": "list",
+      "listText": "Conditioning equipment\nFunctional training stations\nA turfed sled track\nTraining racks\nPlate Loaders, Olympic lifting platform, CrossFit rig"
+    }
+  ],
+  "seo": {
+    "title": "Shoreditch Private Gym",
+    "description": "The Vault is 5,000 sq ft of premium gym space in Shoreditch: private 1:1 PT training, free weights, cardio, heavy weights room, boxing room, yoga studio, and fresh-air ventilation."
+  }
+}

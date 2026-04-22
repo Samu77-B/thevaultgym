@@ -1,1 +1,16 @@
-{}
+{
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "Course Venues"
+    },
+    {
+      "kind": "html",
+      "html": "If you are looking for a central London venue to hold a fitness training course we can provide meeting rooms and lecture theatres in our Shorditch gym. Ten minutes walk from Liverpool street station and Old street tube, we are ideally located for travelling students. We can provide both practical and academic learning spaces without the complications of surrounding gym members<br>"
+    }
+  ],
+  "seo": {
+    "title": "Course Venues in London",
+    "description": "If you are looking for a central London venue to hold a fitness training course we can provide meeting rooms and lecture theatres in our Shorditch gym. Ten minutes walk from Liverpool street station and Old street tube, we are ideally located for travelling students. We can provide both practical and academic learning spaces without the complications of surrounding gym members"
+  }
+}

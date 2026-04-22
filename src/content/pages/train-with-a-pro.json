@@ -1,1 +1,117 @@
-{}
+{
+  "heroBackgroundImage": "/images/Train With A Pro.png",
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "Personal Training at The Vault Gym"
+    },
+    {
+      "kind": "tagline",
+      "text": "Train Smarter. Train Harder. Train Private."
+    },
+    {
+      "kind": "paragraph",
+      "text": "If you’re done with crowded gyms, generic workouts and frustrating lack of results, the Vault Gym offers a different way to train."
+    },
+    {
+      "kind": "paragraph",
+      "text": "We’re a private, PT-only gym in Shoreditch, built for people who want real results through 1:1 personal training - no memberships, no chaos, no distractions."
+    },
+    {
+      "kind": "tagline",
+      "text": "This Isn’t a Commercial Gym"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Every session at The Vault is for personal training only. That means:"
+    },
+    {
+      "kind": "list",
+      "listText": "No overcrowding\nNo waiting for equipment\nNo people filming, flexing, or wandering around"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Just you, your coach, and the space to train properly."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Whether your goal is fat loss, strength, performance, rehab, or confidence — this is an environment designed for focus and progress."
+    },
+    {
+      "kind": "tagline",
+      "text": "Work With the Right Personal Trainer for You"
+    },
+    {
+      "kind": "paragraph",
+      "text": "At The Vault, you choose the personal trainer that fits your goals, personality, and training style."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our PTs are experienced professionals who run their own businesses here - which means they care deeply about results, reputation, and long-term client success."
+    },
+    {
+      "kind": "paragraph",
+      "text": "From strength and conditioning to calisthenics, to triathlete training and CrossFit, or for someone just starting out on their fitness journey, we’ll find a coach who takes you and your training seriously."
+    },
+    {
+      "kind": "tagline",
+      "text": "A Private, Premium Training Environment"
+    },
+    {
+      "kind": "paragraph",
+      "text": "At The Vault, you’ll never have to rush, wait, or compromise your session, and our trainers will work closely with you to understand your mindset, lifestyle and fitness goals."
+    },
+    {
+      "kind": "paragraph",
+      "text": "You’ll train in:"
+    },
+    {
+      "kind": "list",
+      "listText": "A calm, private gym atmosphere\nFully equipped free weights and machines\nFunctional training zones\nA dedicated heavy lifting room\nA private yoga & movement studio"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Serious Equipment. Serious Results."
+    },
+    {
+      "kind": "paragraph",
+      "text": "We’re equipped to support every training style, including:"
+    },
+    {
+      "kind": "list",
+      "listText": "Plate-loaded machines\nOlympic lifting platform\nCrossFit rig\nCable and cardio machines\nFunctional and mobility equipment"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Whether you’re lifting heavy, learning the basics, or rebuilding strength - your training is never limited by the space."
+    },
+    {
+      "kind": "tagline",
+      "text": "Personal Training Without the Gym Nonsense"
+    },
+    {
+      "kind": "paragraph",
+      "text": "You won’t find:"
+    },
+    {
+      "kind": "list",
+      "listText": "Long-term gym contracts\nCrowded peak hours\nSales pressure or hidden fees"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Instead, you’ll get:"
+    },
+    {
+      "kind": "list",
+      "listText": "1:1 coaching\nStructured, progressive training\nA private, professional environment\nA gym that respects your time"
+    },
+    {
+      "kind": "html",
+      "html": "If you’re serious about your health, strength, and performance, <strong>The Vault Gym</strong> is where you train. Just fill in the form and we’ll get in touch to introduce you to a personal trainer who will get you."
+    }
+  ],
+  "seo": {
+    "title": "Train With A Pro | The Vault Gym London",
+    "description": "Private 1:1 personal training in Shoreditch: no crowded gyms, no memberships — calm atmosphere, expert PTs, and serious equipment at The Vault Gym."
+  }
+}

@@ -1,1 +1,16 @@
-{}
+{
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "Pilates"
+    },
+    {
+      "kind": "html",
+      "html": "Pilates is a form of body conditioning that accentuates muscular harmony, improves flexibility and strengthens the body.<br><br>This is achieved through teaching awareness of breath, spinal alignment and engagement of core muscles. It also seeks to redress postural issues and imbalances.<br><br>Pilates promotes the ability to create extremity in movement without compensatory movement of the spine or pelvis or in simple terms, the ability to move functionally, whilst maintaining stability and control.<br><br>Lack of core development will manifest itself in injury and back problems. Pilates is an ideal form of exercise for those who suffer from back complaints. It is also applicable for post rehabilitation; postnatal, chronic pain relief and general physical wellbeing."
+    }
+  ],
+  "seo": {
+    "title": "Pilates at the Vault Private Gym in London",
+    "description": "Pilates is a form of body conditioning that accentuates muscular harmony, improves flexibility and strengthens the body."
+  }
+}

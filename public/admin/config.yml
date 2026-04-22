@@ -39,8 +39,14 @@ page_fields: &page_fields
           - { label: Tagline, value: tagline }
           - { label: Section title, value: sectionTitle }
           - { label: Paragraph, value: paragraph }
+          - { label: Paragraph with links (HTML), value: html }
           - { label: Bullet list, value: list }
       - { label: Text, name: text, widget: text, required: false }
+      - label: HTML (links / formatting)
+        name: html
+        widget: text
+        required: false
+        hint: "Only for Paragraph with links (HTML) — preserves links."
       - label: Bullet list items (one per line)
         name: listText
         widget: text

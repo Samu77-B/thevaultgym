@@ -35,10 +35,12 @@ export type ScriptRec = {
 
 /** Structured blocks for `.about-info-container` (Vault page pattern). */
 export type ContentBlock = {
-  kind: 'heading' | 'tagline' | 'sectionTitle' | 'paragraph' | 'list';
+  kind: 'heading' | 'tagline' | 'sectionTitle' | 'paragraph' | 'list' | 'html';
   text?: string;
   /** One bullet per line when kind is `list`. */
   listText?: string;
+  /** Raw inner HTML (links, etc.) when kind is `html` — trusted CMS editors only. */
+  html?: string;
 };
 
 export type PageCms = {
@@ -97,6 +99,16 @@ function renderContentBlocks(blocks: ContentBlock[]): string {
         parts.push(`<ul class="vault-gym-list paragraph-2">${items.join('')}</ul>`);
         break;
       }
+      case 'html': {
+        const h = (b.html ?? '').trim();
+        if (!h) break;
+        if (/^<p[\s>]/i.test(h)) {
+          parts.push(h);
+        } else {
+          parts.push(`<p class="paragraph-2">${h}</p>`);
+        }
+        break;
+      }
       default:
         break;
     }
@@ -113,13 +125,30 @@ function applyContentBlocksToAboutContainer(bodyMarkup: string, blocks: ContentB
   return $.root().html() ?? bodyMarkup;
 }
 
-function applyHeroBackgroundImage(headStyles: string, wfPage: string, imagePath: string): string {
+/** Pick hero strip selector: most inner pages use `.section-9`; home uses `.section-3.sportssec`. */
+function heroBackgroundSelector(bodyMarkup: string, wfPage: string): string {
+  const safeWf = wfPage.replace(/"/g, '');
+  if (bodyMarkup.includes('section-9') && bodyMarkup.includes('wf-section')) {
+    return wfPage
+      ? `html[data-wf-page="${safeWf}"] .section-9.wf-section`
+      : `.section-9.wf-section`;
+  }
+  if (bodyMarkup.includes('section-3') && bodyMarkup.includes('sportssec')) {
+    return '.section-3.sportssec';
+  }
+  return wfPage ? `html[data-wf-page="${safeWf}"] .section-9.wf-section` : `.section-9.wf-section`;
+}
+
+function applyHeroBackgroundImage(
+  headStyles: string,
+  bodyMarkup: string,
+  wfPage: string,
+  imagePath: string,
+): string {
   const safe = sanitizePublicImagePath(imagePath);
   if (!safe) return headStyles;
   const cssUrl = safe.replace(/'/g, "\\'");
-  const selector = wfPage
-    ? `html[data-wf-page="${wfPage.replace(/"/g, '')}"] .section-9.wf-section`
-    : `.section-9.wf-section`;
+  const selector = heroBackgroundSelector(bodyMarkup, wfPage);
   const block = `
 /* CMS: hero background */
 ${selector} {
@@ -138,7 +167,7 @@ export function mergePage(gen: PageGen, cms: PageCms = {}) {
 
   let headStyles = cms.headStyles ?? gen.headStyles;
   if (cms.heroBackgroundImage) {
-    headStyles = applyHeroBackgroundImage(headStyles, wfPage, cms.heroBackgroundImage);
+    headStyles = applyHeroBackgroundImage(headStyles, gen.bodyMarkup, wfPage, cms.heroBackgroundImage);
   }
 
   let bodyMarkup = cms.bodyMarkup ?? gen.bodyMarkup;

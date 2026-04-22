@@ -10,6 +10,7 @@
     "generate": "node scripts/generate-page-data.mjs",
     "sync-public": "node scripts/sync-public.mjs",
     "predev": "npm run generate && npm run sync-public",
+    "seed-cms": "node scripts/seed-cms-from-generated.mjs",
     "prebuild": "npm run generate && npm run sync-public",
     "dev": "astro dev",
     "build": "astro build",

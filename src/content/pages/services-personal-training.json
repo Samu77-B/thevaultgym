@@ -1,1 +1,16 @@
-{}
+{
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "Personal Training"
+    },
+    {
+      "kind": "html",
+      "html": "The Vault Gym’s personal training service is second to none. The PT team is over twenty-five strong and all of them are very well respected within the industry. <br><br>Many of the team have competed at an international level in their chosen sport, some have taken part in fitness competitions all over the world, while others have shared their knowledge and written books and articles for magazines, websites and newspapers.<br><br>We have many celebrity clients and the results of our training can be seen on the silver screen and in the music and television industry.<br><br>We treat every client as an individual and all sessions are tailor made to suit your needs and to help you achieve your goals.<br><br>We run a very friendly and unintimidating gym. It doesn’t matter if you’re new to exercise or a world champion, you will be made to feel welcome and comfortable from the moment you step through the doors.<br><br>Our trainers can help you lose or gain weight, train you for a sporting challenge, increase your fitness or help you to recover from an injury or illness. <br><br>As everyone’s needs are different please contact us to answer any questions or concerns you may have and we will be happy to help."
+    }
+  ],
+  "seo": {
+    "title": "Personal Training at the Vault Private Gym",
+    "description": "The Vault Gym’s personal training service is second to none. The PT team is over twenty-five strong and all of them are very well respected within the industry."
+  }
+}

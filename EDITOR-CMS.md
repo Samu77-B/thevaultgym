@@ -8,6 +8,8 @@ In Decap, editors choose a page from a **fixed list** (Home, About, Contact, Ser
 
 Behind the scenes, each page is a JSON file in `src/content/pages/` that overrides the site’s default content at build time.
 
+Those JSON files are **pre-filled** with the current hero image, main text (inside `.about-info-container`), and SEO so editors see what’s already on the site and can change it. The **right-hand “preview” pane in Decap** often stays blank or minimal (it does not render the full Astro page); use a **second browser tab** on the live site to check results after publish.
+
 ## SEO
 
 Use the **SEO** group in Decap to set the page title and meta description. Values you set here override the defaults taken from the original HTML at build time.
@@ -15,14 +17,22 @@ Use the **SEO** group in Decap to set the page title and meta description. Value
 ## Images
 
 - **Media library** uploads go to the repo at **`images/uploads/`** and appear on the site under **`/images/uploads/...`** after the next deploy.
-- **Hero image** (optional): upload an image, then select it for **Hero image**. This applies to pages that use the top **`.section-9`** hero strip (dark gradient + photo).
+- **Hero image** (optional): upload an image, then select it for **Hero image**. It applies to the large top hero: **`.section-9`** on inner pages and **`.section-3.sportssec`** on the home page (same field).
 
 ## Main page text (optional)
 
-**Main page text** lets you rebuild the main text block inside **`.about-info-container`** using simple blocks (headings, paragraphs, bullet lists) **without** pasting raw HTML.
+**Main page text** lets you edit the main text block inside **`.about-info-container`** using blocks (headings, paragraphs, bullet lists). Paragraphs that include **links** use the **Paragraph with links (HTML)** block type.
 
-- If you fill this list, it **replaces** that main content area.
-- If you leave it empty, the original text from the site template is used.
+- The **home page** hero headlines and buttons are **not** in this list (they live in the page template). Use **Hero image** and **SEO** on Home; changing the big “Enter The Vault” text needs a code change or a future CMS field.
+- If you **clear** the whole list, the original text from the site template is used again.
+
+### Re-importing text from the HTML templates (developers)
+
+After changing root `*.html` and running `npm run generate`, you can refresh CMS files from generated data with:
+
+`npm run seed-cms`
+
+**Warning:** this **overwrites** `src/content/pages/*.json` — do not run if you need to keep in-progress Decap edits; commit or back up first.
 
 ## After saving
 
