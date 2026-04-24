@@ -1,7 +1,13 @@
 {
   "heroOverlay": {
     "heading": "About The Vault",
-    "subheading": "Welcome to our gym"
+    "subheading": "Welcome to our gym",
+    "buttons": [
+      {
+        "label": "what",
+        "href": "https://thevaultgym.pages.dev/contact"
+      }
+    ]
   },
   "contentBlocks": [
     {
