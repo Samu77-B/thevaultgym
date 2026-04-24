@@ -1,14 +1,9 @@
 {
   "heroOverlay": {
-    "heading": "H1 Heading",
-    "subheading": "H2 Subheading"
+    "heading": "The Gym",
+    "subheading": "Luxury training facilities"
   },
   "contentBlocks": [
-    {
-      "kind": "heading",
-      "text": "Shoreditch Gym",
-      "headingLevel": "h1"
-    },
     {
       "kind": "paragraph",
       "text": "This is The Vault - 5,000 sq ft of premium gym space located in the heart of Shoreditch. We’re fully equipped with free weights, cable and cardio machines, and multiple areas including a heavy weights room, a boxing room and a yoga studio to facilitate functional training."
@@ -36,6 +31,11 @@
     {
       "kind": "list",
       "listText": "Conditioning equipment\nFunctional training stations\nA turfed sled track\nTraining racks\nPlate Loaders, Olympic lifting platform, CrossFit rig"
+    },
+    {
+      "headingLevel": "h1",
+      "text": "This is The Vault",
+      "kind": "heading"
     }
   ],
   "seo": {
