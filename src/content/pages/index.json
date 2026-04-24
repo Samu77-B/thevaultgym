@@ -1,12 +1,12 @@
 {
   "heroBackgroundImage": "/images/the-vault-private-gym-london.png",
   "heroOverlay": {
-    "heading": "H1 Heading",
-    "subheading": "H2 Subheading"
+    "heading": "Enter The Vault",
+    "subheading": "The exclusive personal training gym"
   },
   "seo": {
-    "title": "The Vault Private Gym, Luxury Personal Training Gym in Shoreditch, London",
-    "description": "The Vault - London's premier private gym in Shoreditch. Exclusive personal training facilities, state-of-the-art equipment, and private training rooms. Minutes from Liverpool Street, Old Street, and Moorgate stations.",
+    "title": "The Vault Gym, Luxury Personal Training Gym in Shoreditch",
+    "description": "The Vault Gym - London's premier private gym in Shoreditch. Exclusive personal training facilities, state-of-the-art equipment, and private training rooms. Minutes from Liverpool Street, Old Street, and Moorgate stations.",
     "ogImage": "/images/webclip.png"
   }
 }
