@@ -28,17 +28,27 @@
     {
       "headingLevel": "h2",
       "kind": "sectionTitle",
-      "text": "Nutrition Advice"
+      "text": "Sports Specific Training"
     },
     {
       "headingLevel": "h2",
       "kind": "sectionTitle",
-      "text": "Sports Specific Training"
+      "text": "Nutrition Advice"
     },
     {
       "headingLevel": "h1",
       "kind": "sectionTitle",
       "text": "Sports Massage"
+    },
+    {
+      "headingLevel": "h2",
+      "kind": "sectionTitle",
+      "text": "Heavy Weights Room"
+    },
+    {
+      "headingLevel": "h2",
+      "kind": "sectionTitle",
+      "text": "Sports Rehab"
     }
   ],
   "seo": {
