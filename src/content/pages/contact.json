@@ -18,18 +18,23 @@
     {
       "headingLevel": "h3",
       "kind": "sectionTitle",
-      "text": "Our details"
+      "text": "Contact details:"
     },
     {
       "headingLevel": "h1",
       "kind": "html",
       "text": "\n",
-      "html": "<b>Jon</b><br>\n<a href=\"mailto:Jon@thevaultgym.com\">Jon@thevaultgym.com</a>\n| <a href=\"tel:07803132428\">07803132428</a><br>\n\n<b>Suzy</b><br>\n<a href=\"mailto:Suzy@thevaultgym.com\">Suzy@thevaultgym.com</a> | \n<a href=\"tel:07930102737\">07930102737</a>\n\n\n\n\n\n\n\n"
+      "html": "<b>Jon</b><br>\n<a href=\"mailto:Jon@thevaultgym.com\">Jon@thevaultgym.com</a>\n| <a href=\"tel:07803132428\">07803132428</a><br><br>\n\n<b>Suzy</b><br>\n<a href=\"mailto:Suzy@thevaultgym.com\">Suzy@thevaultgym.com</a> | \n<a href=\"tel:07930102737\">07930102737</a>\n\n\n\n\n\n\n\n"
     },
     {
       "headingLevel": null,
       "kind": "paragraph",
       "text": "Located in the heart of Shoreditch, The Vault is easily accessible from Old Street, Liverpool Street and Shoreditch High Street stations."
+    },
+    {
+      "headingLevel": "h2",
+      "kind": "sectionTitle",
+      "text": "Address:"
     },
     {
       "headingLevel": null,
