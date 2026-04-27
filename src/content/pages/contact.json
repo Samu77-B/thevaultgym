@@ -31,7 +31,7 @@
       "headingLevel": "h1",
       "kind": "html",
       "text": "\n",
-      "html": "<p><a href=\"mailto:Jon@thevaultgym.com\">Jon@thevaultgym.com</a></p> | 07803132428\n<p><a href=\"mailto:Suzy@thevaultgym.com\">Suzy@thevaultgym.com</a></p> | 07930102737\n\n"
+      "html": "Email : <p><a href=\"mailto:Jon@thevaultgym.com\">Jon@thevaultgym.com</a></p>\n<p>To create a link to a telephone number, use tel: inside the href attribute:</p>\n\n<p><a href=\"tel:07803132428\">07803132428</a></p>\n\n\n<p><a href=\"tel:07803132428\">07803132428</a></p>\n\n\n\n<p><a href=\"mailto:Suzy@thevaultgym.com\">Suzy@thevaultgym.com</a></p> | 07930102737\n\n"
     },
     {
       "headingLevel": "h3",
