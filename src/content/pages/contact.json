@@ -16,27 +16,27 @@
       "kind": "sectionTitle"
     },
     {
-      "headingLevel": null,
-      "kind": "paragraph",
-      "text": "Located in the heart of Shoreditch, The Vault is easily accessible from Old Street, Liverpool Street and Shoreditch High Street stations."
-    },
-    {
       "headingLevel": "h3",
       "kind": "sectionTitle",
       "text": "Our details"
-    },
-    {
-      "headingLevel": null,
-      "kind": "list",
-      "listText": "Lower Ground Floor\nZetland House\n5-25 Scrutton Street\nLondon\nEC2A 4HJ\n",
-      "html": "\n",
-      "text": ""
     },
     {
       "headingLevel": "h1",
       "kind": "html",
       "text": "\n",
       "html": "<b>Jon</b><br>\n<a href=\"mailto:Jon@thevaultgym.com\">Jon@thevaultgym.com</a>\n| <a href=\"tel:07803132428\">07803132428</a><br>\n\n<b>Suzy</b><br>\n<a href=\"mailto:Suzy@thevaultgym.com\">Suzy@thevaultgym.com</a> | \n<a href=\"tel:07930102737\">07930102737</a>\n\n\n\n\n\n\n\n"
+    },
+    {
+      "headingLevel": null,
+      "kind": "paragraph",
+      "text": "Located in the heart of Shoreditch, The Vault is easily accessible from Old Street, Liverpool Street and Shoreditch High Street stations."
+    },
+    {
+      "headingLevel": null,
+      "kind": "html",
+      "listText": "\n",
+      "html": "Lower Ground Floor<br>\nZetland House<br>\n5-25 Scrutton Street<br>\nEC2A 4HJ\n",
+      "text": ""
     },
     {
       "headingLevel": null,
