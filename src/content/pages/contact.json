@@ -32,6 +32,11 @@
       "kind": "html",
       "text": "\n",
       "html": "<p><a href=\"mailto:Jon@thevaultgym.com\">Jon@thevaultgym.com</a></p> | 07803132428\n<p><a href=\"mailto:Suzy@thevaultgym.com\">Suzy@thevaultgym.com</a></p> | 07930102737\n\n"
+    },
+    {
+      "headingLevel": "h3",
+      "kind": "sectionTitle",
+      "text": "Our details"
     }
   ],
   "seo": {
