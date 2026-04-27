@@ -1,7 +1,7 @@
 {
   "heroOverlay": {
-    "heading": "ABOUT THE VAULT",
-    "subheading": "Welcome to our gym",
+    "heading": "ABOUT US",
+    "subheading": "Welcome to The Vault",
     "buttons": [
       {
         "label": "what",
@@ -18,5 +18,6 @@
   "seo": {
     "title": "About The Vault Gym",
     "description": "The Vault Gym was founded by Jon and Suzy Squirrell, who turned their shared love of sport into a lifelong mission. They established The Vault in 2010 after years of involvement in competitive sport and a growing belief that the fitness industry should be more than a conveyor belt of generic classes."
-  }
+  },
+  "heroBackgroundImage": ""
 }
