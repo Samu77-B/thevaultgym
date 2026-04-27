@@ -1,9 +1,15 @@
 {
   "heroOverlay": {
     "heading": "SPECIALIST SERVICES",
-    "subheading": "More than just a work out space"
+    "subheading": "More than just a workout space"
   },
-  "contentBlocks": [],
+  "contentBlocks": [
+    {
+      "headingLevel": "h1",
+      "kind": "heading",
+      "text": "SPECIALIST SERVICES"
+    }
+  ],
   "seo": {
     "title": "Specialist Services",
     "description": "Specialist services at the Vault Gym include Personal Training, Muay Thai Boxing, Yoga, Pilates, Massage, Nutrition, Sports Specific Training, Course Venues, Physiotherapy"
