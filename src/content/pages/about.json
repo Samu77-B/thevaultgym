@@ -13,7 +13,38 @@
       }
     ]
   },
-  "contentBlocks": [],
+  "contentBlocks": [
+    {
+      "headingLevel": "h1",
+      "kind": "heading",
+      "text": "main heading H1"
+    },
+    {
+      "headingLevel": "h2",
+      "kind": "tagline",
+      "text": "tagline h2"
+    },
+    {
+      "headingLevel": "h3",
+      "kind": "sectionTitle",
+      "text": "section title h3"
+    },
+    {
+      "headingLevel": "h4",
+      "kind": "paragraph",
+      "text": "paragraph h4"
+    },
+    {
+      "headingLevel": "h5",
+      "kind": "html",
+      "text": "para with links h5"
+    },
+    {
+      "headingLevel": "h6",
+      "kind": "list",
+      "text": "Bullet list h6\nBullet list h6\nBullet list h6\nBullet list h6\nBullet list h6"
+    }
+  ],
   "seo": {
     "title": "About The Vault Gym",
     "description": "The Vault Gym was founded by Jon and Suzy Squirrell, who turned their shared love of sport into a lifelong mission. They established The Vault in 2010 after years of involvement in competitive sport and a growing belief that the fitness industry should be more than a conveyor belt of generic classes."
