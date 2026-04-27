@@ -23,15 +23,15 @@
     {
       "headingLevel": null,
       "kind": "list",
-      "listText": "\n",
+      "listText": "Lower Ground Floor\nZetland House\n5-25 Scrutton Street\nLondon\nEC2A 4HJ\n",
       "html": "\n",
-      "text": "Lower Ground Floor\nZetland House\n5-25 Scrutton Street\nLondon\nEC2A 4HJ"
+      "text": ""
     },
     {
       "headingLevel": "h1",
       "kind": "html",
-      "text": "Jon@thevaultgym.com\n",
-      "html": "<p><a href=\"mailto:Jon@thevaultgym.com\">Send email</a></p>\n<p><a href=\"mailto:Suzy@thevaultgym.com\">Send email</a></p>\n\n"
+      "text": "\n",
+      "html": "<p><a href=\"mailto:Jon@thevaultgym.com\">Jon@thevaultgym.com</a></p> | 07803132428\n<p><a href=\"mailto:Suzy@thevaultgym.com\">Suzy@thevaultgym.com</a></p> | 07930102737\n\n"
     }
   ],
   "seo": {
