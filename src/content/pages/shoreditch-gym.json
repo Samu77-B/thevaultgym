@@ -39,6 +39,16 @@
       "headingLevel": "h3",
       "kind": "sectionTitle",
       "text": "Equipment"
+    },
+    {
+      "headingLevel": "h3",
+      "kind": "sectionTitle",
+      "text": "Specialist facilities"
+    },
+    {
+      "headingLevel": "h1",
+      "kind": "list",
+      "listText": "Heavy weights room\nBoxing room\nYoga studio\nTreatment room"
     }
   ],
   "seo": {
