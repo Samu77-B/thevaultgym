@@ -1,45 +1,11 @@
 {
   "heroOverlay": {
-    "heading": "H1 Heading",
-    "subheading": "H2 Subheading"
+    "heading": "SPECIALIST SERVICES",
+    "subheading": "More than just a work out space"
   },
-  "contentBlocks": [
-    {
-      "kind": "heading",
-      "text": "PT Consultations",
-      "headingLevel": "h1"
-    },
-    {
-      "kind": "paragraph",
-      "text": "The Vault Gym is one of the largest personal training-only facilities in the country with a gym space of over 4000 square feet, staffed by some of the industry's leading fitness professionals."
-    },
-    {
-      "kind": "paragraph",
-      "text": "We charge no membership fees – the only fee you pay is for the time you spend with your trainer."
-    },
-    {
-      "kind": "paragraph",
-      "text": "We do not allow the gym to be used by non-clients, so you can enjoy a focused uninterrupted training session."
-    },
-    {
-      "kind": "paragraph",
-      "text": "Your trainer will take care of every aspect of your health and fitness lifestyle, designing you a bespoke fitness program that will enable our trainers to push you well beyond your own expectations and help you achieve your fitness goals."
-    },
-    {
-      "kind": "paragraph",
-      "text": "We will assess your diet for optimum weight loss or performance and correct any postural imbalances. We can rehabilitate form injury through our in-house clinicians and have a highly regarded referral scheme to many of the world's leading physiotherapists and doctors."
-    },
-    {
-      "kind": "paragraph",
-      "text": "We also provide a holistic approach to fitness through our specialised yoga and pilates instructors and we are one of the few gyms to offer a private studio for one-to-one practice."
-    },
-    {
-      "kind": "paragraph",
-      "text": "Whether it's your first step into fitness or you're being coached to perform at your best, it can be a challenging and demanding journey and we are here to help every step of the way."
-    }
-  ],
+  "contentBlocks": [],
   "seo": {
-    "title": "PT Consultations - The Vault Gym",
-    "description": "Professional Personal Training consultations and services including: Personal Training, Boxing, Yoga, Pilates, Massage, Nutrition, Sports Specific Training, Course Venues, Physiotherapy"
+    "title": "Specialist Services",
+    "description": "Specialist services at the Vault Gym include Personal Training, Muay Thai Boxing, Yoga, Pilates, Massage, Nutrition, Sports Specific Training, Course Venues, Physiotherapy"
   }
 }
