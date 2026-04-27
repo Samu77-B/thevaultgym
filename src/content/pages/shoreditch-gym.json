@@ -30,6 +30,11 @@
       "text": "Naturally, we’re fully air-conditioned, but because no one wants to work out in stale second-hand air, The Vault is fitted with a fresh air ventilation system which pumps lovely fresh outside air all around the gym."
     },
     {
+      "headingLevel": "h3",
+      "kind": "sectionTitle",
+      "text": "Equipment"
+    },
+    {
       "headingLevel": null,
       "kind": "paragraph",
       "listText": "Turfed sled track\nStrength machines\nConditioning equipment\nFunctional training stations\n​​Training racks\nPlate Loaders\nOlympic lifting platform\nCrossFit rig\n",
@@ -38,15 +43,10 @@
     {
       "headingLevel": "h3",
       "kind": "sectionTitle",
-      "text": "Equipment"
-    },
-    {
-      "headingLevel": "h3",
-      "kind": "sectionTitle",
       "text": "Specialist facilities"
     },
     {
-      "headingLevel": "h1",
+      "headingLevel": null,
       "kind": "list",
       "listText": "Heavy weights room\nBoxing room\nYoga studio\nTreatment room"
     }
