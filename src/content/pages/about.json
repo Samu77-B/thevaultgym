@@ -4,8 +4,12 @@
     "subheading": "Welcome to The Vault",
     "buttons": [
       {
-        "label": "Book a site visit",
+        "label": "train with us",
         "href": "https://thevaultgym.pages.dev/contact"
+      },
+      {
+        "href": "https://thevaultgym.pages.dev/contact",
+        "label": "train for us"
       }
     ]
   },
