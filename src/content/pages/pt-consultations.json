@@ -18,6 +18,27 @@
       "headingLevel": "h2",
       "kind": "sectionTitle",
       "text": "Boxing Room"
+    },
+    {
+      "headingLevel": "h2",
+      "kind": "sectionTitle",
+      "text": "Yoga Studio",
+      "html": ""
+    },
+    {
+      "headingLevel": "h2",
+      "kind": "sectionTitle",
+      "text": "Nutrition Advice"
+    },
+    {
+      "headingLevel": "h2",
+      "kind": "sectionTitle",
+      "text": "Sports Specific Training"
+    },
+    {
+      "headingLevel": "h1",
+      "kind": "sectionTitle",
+      "text": "Sports Massage"
     }
   ],
   "seo": {
