@@ -31,8 +31,14 @@
     },
     {
       "headingLevel": null,
-      "kind": "list",
-      "listText": "Turfed sled track\nStrength machines\nConditioning equipment\nFunctional training stations\n​​Training racks\nPlate Loaders\nOlympic lifting platform\nCrossFit rig\n"
+      "kind": "paragraph",
+      "listText": "Turfed sled track\nStrength machines\nConditioning equipment\nFunctional training stations\n​​Training racks\nPlate Loaders\nOlympic lifting platform\nCrossFit rig\n",
+      "text": ""
+    },
+    {
+      "headingLevel": "h3",
+      "kind": "sectionTitle",
+      "text": "Equipment"
     }
   ],
   "seo": {
