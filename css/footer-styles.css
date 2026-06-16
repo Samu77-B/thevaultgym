@@ -921,6 +921,39 @@ footer .footer-links .footer-link:hover::after {
   margin-bottom: 48px;
 }
 
+/* Multi-column paragraph layout for about-info content pages */
+.vault-gym-columns {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: clamp(16px, 2.5vw, 32px);
+  margin-bottom: 1.5rem;
+}
+
+.about-info-container .vault-gym-columns .paragraph-2 {
+  margin-bottom: 0;
+}
+
+@media (max-width: 991px) {
+  .vault-gym-columns {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 575px) {
+  .vault-gym-columns {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+
+  .about-info-container .vault-gym-columns .paragraph-2 {
+    margin-bottom: 8px;
+  }
+
+  .about-info-container .vault-gym-columns .paragraph-2:last-child {
+    margin-bottom: 0;
+  }
+}
+
 .cognito-form-site .cog-cognito--styled .cog-button--primary,
 .footer-component-loaded .newsletter-form .cog-cognito--styled .cog-button--primary,
 .about-info-section .cognito-form-site .cog-cognito--styled .cog-button--primary {
