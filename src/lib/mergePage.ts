@@ -102,58 +102,70 @@ function sanitizeHref(raw: string): string | null {
   return `/${t.replace(/^\.?\//, '')}`;
 }
 
+function renderContentBlock(b: ContentBlock): string {
+  const text = escapeHtml((b.text ?? '').trim());
+  switch (b.kind) {
+    case 'heading': {
+      const raw = (b.headingLevel ?? 'h1').toLowerCase();
+      const level = (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(raw) ? raw : 'h1') as
+        | 'h1'
+        | 'h2'
+        | 'h3'
+        | 'h4'
+        | 'h5'
+        | 'h6';
+      let cls = 'heading';
+      if (level === 'h2') cls = 'vault-page-tagline';
+      else if (level === 'h3') cls = 'vault-page-section-title';
+      else if (level !== 'h1') cls = 'vault-page-section-title';
+      return `<${level} class="${cls}">${text}</${level}>`;
+    }
+    case 'tagline':
+      return `<h2 class="vault-page-tagline">${text}</h2>`;
+    case 'sectionTitle':
+      return `<h3 class="vault-page-section-title">${text}</h3>`;
+    case 'paragraph':
+      return `<p class="paragraph-2">${text}</p>`;
+    case 'list': {
+      const items = (b.listText ?? '')
+        .split('\n')
+        .map((s) => s.trim())
+        .filter(Boolean)
+        .map((item) => `<li>${escapeHtml(item)}</li>`);
+      return `<ul class="vault-gym-list paragraph-2">${items.join('')}</ul>`;
+    }
+    case 'html': {
+      const h = (b.html ?? '').trim();
+      if (!h) return '';
+      if (/^<p[\s>]/i.test(h)) return h;
+      return `<p class="paragraph-2">${h}</p>`;
+    }
+    default:
+      return '';
+  }
+}
+
 function renderContentBlocks(blocks: ContentBlock[]): string {
   const parts: string[] = [];
-  for (const b of blocks) {
-    const text = escapeHtml((b.text ?? '').trim());
-    switch (b.kind) {
-      case 'heading': {
-        const raw = (b.headingLevel ?? 'h1').toLowerCase();
-        const level = (['h1', 'h2', 'h3', 'h4', 'h5', 'h6'].includes(raw) ? raw : 'h1') as
-          | 'h1'
-          | 'h2'
-          | 'h3'
-          | 'h4'
-          | 'h5'
-          | 'h6';
-        let cls = 'heading';
-        if (level === 'h2') cls = 'vault-page-tagline';
-        else if (level === 'h3') cls = 'vault-page-section-title';
-        else if (level !== 'h1') cls = 'vault-page-section-title';
-        parts.push(`<${level} class="${cls}">${text}</${level}>`);
-        break;
+  let i = 0;
+  while (i < blocks.length) {
+    const b = blocks[i];
+    if (b.kind === 'paragraph') {
+      const run: ContentBlock[] = [];
+      while (i < blocks.length && blocks[i].kind === 'paragraph') {
+        run.push(blocks[i]);
+        i++;
       }
-      case 'tagline':
-        parts.push(`<h2 class="vault-page-tagline">${text}</h2>`);
-        break;
-      case 'sectionTitle':
-        parts.push(`<h3 class="vault-page-section-title">${text}</h3>`);
-        break;
-      case 'paragraph':
-        parts.push(`<p class="paragraph-2">${text}</p>`);
-        break;
-      case 'list': {
-        const items = (b.listText ?? '')
-          .split('\n')
-          .map((s) => s.trim())
-          .filter(Boolean)
-          .map((item) => `<li>${escapeHtml(item)}</li>`);
-        parts.push(`<ul class="vault-gym-list paragraph-2">${items.join('')}</ul>`);
-        break;
+      if (run.length > 1) {
+        const cols = run.map((p) => renderContentBlock(p)).join('\n');
+        parts.push(`<div class="vault-gym-columns">\n${cols}\n</div>`);
+      } else {
+        parts.push(renderContentBlock(run[0]));
       }
-      case 'html': {
-        const h = (b.html ?? '').trim();
-        if (!h) break;
-        if (/^<p[\s>]/i.test(h)) {
-          parts.push(h);
-        } else {
-          parts.push(`<p class="paragraph-2">${h}</p>`);
-        }
-        break;
-      }
-      default:
-        break;
+      continue;
     }
+    parts.push(renderContentBlock(b));
+    i++;
   }
   return parts.join('\n');
 }
