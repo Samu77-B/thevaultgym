@@ -81,17 +81,17 @@
   cursor: pointer;
   min-width: 280px;
   text-align: center;
-  background-color: #f1d600;
-  color: #000;
-  border-color: #f1d600;
+  background-color: #ed155d;
+  color: #ffffff;
+  border-color: #ed155d;
   text-transform: uppercase;
   letter-spacing: 1px;
   font-family: 'Montserrat', sans-serif;
 }
 
 .hero-btn:hover {
-  background-color: #e6c800;
-  border-color: #e6c800;
+  background-color: #c91250;
+  border-color: #c91250;
   transform: translateY(-3px);
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
 }

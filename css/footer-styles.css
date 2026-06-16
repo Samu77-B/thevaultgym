@@ -1145,12 +1145,12 @@ footer .footer-links .footer-link:hover::after {
 .company-header {
   margin-bottom: 40px;
   text-align: center;
-  border-bottom: 2px solid #f1d600;
+  border-bottom: 2px solid #ed155d;
   padding-bottom: 20px;
 }
 
 .company-header h2 {
-  color: #f1d600;
+  color: #ed155d;
   font-size: 2rem;
   margin-bottom: 20px;
   font-family: 'Montserrat', sans-serif;
@@ -1191,7 +1191,7 @@ footer .footer-links .footer-link:hover::after {
 }
 
 .contact-info {
-  background-color: rgba(241, 213, 0, 0);
+  background-color: rgba(237, 21, 93, 0);
   border-radius: 8px;
 }
 
@@ -1201,7 +1201,7 @@ footer .footer-links .footer-link:hover::after {
 }
 
 .contact-info strong {
-  color: #f1d600;
+  color: #ed155d;
 }
 
 /* Responsive adjustments for Terms page */
@@ -1257,10 +1257,14 @@ a.touch-btn:focus-visible {
   color: #ffffff !important;
 }
 
-/* Primary hero CTA: pink fill on hover — keep black label */
+/* Primary hero CTA: pink fill on hover — keep white label */
 a.hero-btn:hover,
-a.hero-btn:focus-visible {
-  color: #000000 !important;
+a.hero-btn:focus-visible,
+a.hero-button.primary:hover,
+a.hero-button.primary:focus-visible,
+a.hero-button:hover,
+a.hero-button:focus-visible {
+  color: #ffffff !important;
 }
 
 /* Secondary hero / brown buttons */
