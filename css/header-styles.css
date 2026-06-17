@@ -155,6 +155,7 @@
   font-family: 'Montserrat', sans-serif;
   font-weight: 800;
   font-size: 28px;
+  line-height: 1.35;
   text-transform: uppercase;
   letter-spacing: 1px;
   transition: color 0.3s ease;
@@ -204,6 +205,7 @@
   font-weight: 800 !important;
   text-transform: uppercase !important;
   letter-spacing: 1px !important;
+  line-height: 1.35 !important;
 }
 
 /* Mobile touch states */
@@ -243,6 +245,7 @@
   .dropdown-link {
     padding: 20px 30px;
     font-size: 20px;
+    line-height: 1.5 !important;
   }
 }
 
@@ -273,5 +276,6 @@
   .dropdown-link {
     padding: 15px 20px;
     font-size: 18px;
+    line-height: 1.55 !important;
   }
 }
