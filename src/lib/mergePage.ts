@@ -72,6 +72,8 @@ export type PageCms = {
   heroOverlay?: HeroOverlay;
   /** When set and `bodyMarkup` is not, replaces inner HTML of `.about-info-container`. */
   contentBlocks?: ContentBlock[];
+  /** When true, consecutive paragraph blocks render in a responsive multi-column grid. */
+  paragraphColumns?: boolean;
 };
 
 function escapeHtml(s: string): string {
@@ -145,12 +147,12 @@ function renderContentBlock(b: ContentBlock): string {
   }
 }
 
-function renderContentBlocks(blocks: ContentBlock[]): string {
+function renderContentBlocks(blocks: ContentBlock[], paragraphColumns = false): string {
   const parts: string[] = [];
   let i = 0;
   while (i < blocks.length) {
     const b = blocks[i];
-    if (b.kind === 'paragraph') {
+    if (paragraphColumns && b.kind === 'paragraph') {
       const run: ContentBlock[] = [];
       while (i < blocks.length && blocks[i].kind === 'paragraph') {
         run.push(blocks[i]);
@@ -170,12 +172,16 @@ function renderContentBlocks(blocks: ContentBlock[]): string {
   return parts.join('\n');
 }
 
-function applyContentBlocksToAboutContainer(bodyMarkup: string, blocks: ContentBlock[]): string {
+function applyContentBlocksToAboutContainer(
+  bodyMarkup: string,
+  blocks: ContentBlock[],
+  paragraphColumns = false,
+): string {
   if (!blocks.length) return bodyMarkup;
   const $ = load(bodyMarkup, { decodeEntities: false }, false);
   const container = $('.about-info-container').first();
   if (!container.length) return bodyMarkup;
-  container.html(renderContentBlocks(blocks));
+  container.html(renderContentBlocks(blocks, paragraphColumns));
   return $.root().html() ?? bodyMarkup;
 }
 
@@ -349,7 +355,11 @@ export function mergePage(gen: PageGen, cms: PageCms = {}) {
 
   let bodyMarkup = cms.bodyMarkup ?? gen.bodyMarkup;
   if (!cms.bodyMarkup && cms.contentBlocks && cms.contentBlocks.length > 0) {
-    bodyMarkup = applyContentBlocksToAboutContainer(bodyMarkup, cms.contentBlocks);
+    bodyMarkup = applyContentBlocksToAboutContainer(
+      bodyMarkup,
+      cms.contentBlocks,
+      cms.paragraphColumns === true,
+    );
   }
   if (!cms.bodyMarkup && cms.heroOverlay) {
     bodyMarkup = applyHeroOverlay(bodyMarkup, wfPage, cms.heroOverlay);
