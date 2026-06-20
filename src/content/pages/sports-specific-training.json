@@ -1,8 +1,4 @@
 {
-  "heroOverlay": {
-    "heading": "H1 Heading",
-    "subheading": "H2 Subheading"
-  },
   "contentBlocks": [
     {
       "kind": "heading",
