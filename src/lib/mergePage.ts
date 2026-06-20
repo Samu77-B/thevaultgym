@@ -43,6 +43,8 @@ export type ContentBlock = {
   listText?: string;
   /** Raw inner HTML (links, etc.) when kind is `html` — trusted CMS editors only. */
   html?: string;
+  /** Optional link for section titles (site path or full URL). */
+  href?: string;
 };
 
 export type HeroOverlayButton = {
@@ -124,8 +126,15 @@ function renderContentBlock(b: ContentBlock): string {
     }
     case 'tagline':
       return `<h2 class="vault-page-tagline">${text}</h2>`;
-    case 'sectionTitle':
-      return `<h3 class="vault-page-section-title">${text}</h3>`;
+    case 'sectionTitle': {
+      const href = b.href ? sanitizeHref(b.href) : null;
+      const inner = href
+        ? `<a href="${escapeHtml(href)}"${
+            /^https?:\/\//i.test(href) ? ' target="_blank" rel="noopener noreferrer"' : ''
+          }>${text}</a>`
+        : text;
+      return `<h3 class="vault-page-section-title">${inner}</h3>`;
+    }
     case 'paragraph':
       return `<p class="paragraph-2">${text}</p>`;
     case 'list': {

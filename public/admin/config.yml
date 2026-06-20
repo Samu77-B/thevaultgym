@@ -59,6 +59,11 @@ page_fields: &page_fields
           - { label: Paragraph with links (HTML), value: html }
           - { label: Bullet list, value: list }
       - { label: Text, name: text, widget: text, required: false }
+      - label: Link (optional)
+        name: href
+        widget: string
+        required: false
+        hint: "Only for Section title — site path like /nutrition or full URL like https://..."
       - label: Heading level
         name: headingLevel
         widget: select

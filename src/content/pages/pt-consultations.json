@@ -29,37 +29,44 @@
     {
       "headingLevel": "h2",
       "kind": "sectionTitle",
-      "text": "Boxing Room"
+      "text": "Boxing Room",
+      "href": "/services/boxing"
     },
     {
       "headingLevel": "h2",
       "kind": "sectionTitle",
-      "text": "Yoga Studio"
+      "text": "Yoga Studio",
+      "href": "/services/yoga"
     },
     {
       "headingLevel": "h2",
       "kind": "sectionTitle",
-      "text": "Sports Specific Training"
+      "text": "Sports Specific Training",
+      "href": "/sports-specific-training"
     },
     {
       "headingLevel": "h2",
       "kind": "sectionTitle",
-      "text": "Nutrition Advice"
+      "text": "Nutrition Advice",
+      "href": "/nutrition"
     },
     {
       "headingLevel": "h1",
       "kind": "sectionTitle",
-      "text": "Sports Massage"
+      "text": "Sports Massage",
+      "href": "https://www.warriorsportsrehab.com/wendy-hilton/"
     },
     {
       "headingLevel": "h2",
       "kind": "sectionTitle",
-      "text": "Heavy Weights Room"
+      "text": "Heavy Weights Room",
+      "href": "/shoreditch-gym"
     },
     {
       "headingLevel": "h2",
       "kind": "sectionTitle",
-      "text": "Warrior Sports Rehab"
+      "text": "Warrior Sports Rehab",
+      "href": "https://www.warriorsportsrehab.com/wendy-hilton/"
     }
   ],
   "seo": {
