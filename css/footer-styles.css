@@ -41,6 +41,21 @@
   color: #ffffff !important;
 }
 
+/* Section title links on content pages — same hover animation, white text on brown bg */
+.about-info-container .vault-page-section-title {
+  margin: 0 0 1rem;
+}
+
+.about-info-container .vault-page-section-title .footer-link {
+  color: #ffffff !important;
+  font-size: inherit;
+  font-weight: inherit;
+}
+
+.about-info-container .vault-page-section-title .footer-link:visited {
+  color: #ffffff !important;
+}
+
 /* Footer container specific styles */
 footer .footer-links .footer-link {
   position: relative !important;

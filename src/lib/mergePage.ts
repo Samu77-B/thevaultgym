@@ -129,7 +129,7 @@ function renderContentBlock(b: ContentBlock): string {
     case 'sectionTitle': {
       const href = b.href ? sanitizeHref(b.href) : null;
       const inner = href
-        ? `<a href="${escapeHtml(href)}"${
+        ? `<a href="${escapeHtml(href)}" class="footer-link"${
             /^https?:\/\//i.test(href) ? ' target="_blank" rel="noopener noreferrer"' : ''
           }>${text}</a>`
         : text;
