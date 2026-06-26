@@ -41,6 +41,11 @@
   color: #ffffff !important;
 }
 
+.footer-link:visited:hover,
+.footer-links .footer-link:visited:hover {
+  color: #ed155d !important;
+}
+
 /* Section title links on content pages — same hover animation, white text on brown bg */
 .about-info-container .vault-page-section-title {
   margin: 0 0 1rem;
@@ -54,6 +59,11 @@
 
 .about-info-container .vault-page-section-title .footer-link:visited {
   color: #ffffff !important;
+}
+
+.about-info-container .vault-page-section-title .footer-link:hover,
+.about-info-container .vault-page-section-title .footer-link:visited:hover {
+  color: #ed155d !important;
 }
 
 /* Footer container specific styles */
@@ -82,6 +92,10 @@ footer .footer-links .footer-link:hover {
 
 footer .footer-links .footer-link:hover::after {
   width: 100% !important;
+}
+
+footer .footer-links .footer-link:visited:hover {
+  color: #ed155d !important;
 }
 
 /* Dynamically loaded footer styles */
@@ -114,6 +128,11 @@ footer .footer-links .footer-link:hover::after {
 .footer-component-loaded .footer-link:hover::after,
 .footer-component-loaded .footer-links .footer-link:hover::after {
   width: 100% !important;
+}
+
+.footer-component-loaded .footer-link:visited:hover,
+.footer-component-loaded .footer-links .footer-link:visited:hover {
+  color: #ed155d !important;
 }
 
 /* ========================================
@@ -688,6 +707,10 @@ footer .footer-links .footer-link:hover::after {
   color: #ffffff;
 }
 
+.footer-link:visited:hover {
+  color: #ed155d;
+}
+
 .footer-social {
   display: flex;
   align-items: center;
@@ -877,6 +900,10 @@ footer .footer-links .footer-link:hover::after {
 
 .footer-links .footer-link:visited {
   color: #ffffff;
+}
+
+.footer-links .footer-link:visited:hover {
+  color: #ed155d;
 }
 
 .newsletter-form {
