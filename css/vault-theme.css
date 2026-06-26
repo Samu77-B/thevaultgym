@@ -11,7 +11,7 @@
 }
 
 .section {
-  height: 100vh;
+  height: 80vh;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.19)), to(rgba(0, 0, 0, 0.19))), url('../images/the-vault-private-gym-london.png');
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.19), rgba(0, 0, 0, 0.19)), url('../images/the-vault-private-gym-london.png');
   background-position: 0px 0px, 50% 50%;
@@ -41,7 +41,7 @@
 }
 
 .section-3 {
-  height: 100vh;
+  height: 80vh;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.38)), to(rgba(0, 0, 0, 0.38))), url('../images/P1000885.jpg');
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.38), rgba(0, 0, 0, 0.38)), url('../images/P1000885.jpg');
   background-position: 0px 0px, 50% 50%;
@@ -95,7 +95,7 @@
 }
 
 .section-4 {
-  height: 100vh;
+  height: 80vh;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.19)), to(rgba(0, 0, 0, 0.19))), url('../images/shoreditch-gym-london.jpg');
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.19), rgba(0, 0, 0, 0.19)), url('../images/shoreditch-gym-london.jpg');
   background-position: 0px 0px, 50% 50%;
@@ -127,7 +127,7 @@
 }
 
 .section-7 {
-  height: 100vh;
+  height: 80vh;
   background-image: -webkit-gradient(linear, left top, left bottom, from(rgba(0, 0, 0, 0.5)), to(rgba(0, 0, 0, 0.5))), url('../images/home-training-london.jpg');
   background-image: linear-gradient(180deg, rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('../images/home-training-london.jpg');
   background-position: 0px 0px, 50% 50%;
@@ -181,7 +181,7 @@
 }
 
 .section-12 {
-  height: 100vh;
+  height: 80vh;
   background-image: url('../images/coty-hurdler-web.jpg');
   background-position: 50% 50%;
   background-size: cover;
@@ -1978,8 +1978,8 @@ body {
 /* Position content over existing background */
 .section:has(.hero-content) {
   position: relative;
-  height: 100vh;
-  min-height: 100vh;
+  height: 80vh;
+  min-height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;

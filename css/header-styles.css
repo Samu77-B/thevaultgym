@@ -279,3 +279,43 @@
     line-height: 1.55 !important;
   }
 }
+
+/* ========================================
+   HERO BAND HEIGHT (20% shorter sitewide)
+   ======================================== */
+html body .section.wf-section:has(#header-component):not(.section-3.sportssec) {
+  height: 64vh !important;
+  min-height: 64vh !important;
+}
+
+html body .section-3.sportssec.wf-section:has(#header-component) {
+  height: 80vh !important;
+  min-height: 80vh !important;
+}
+
+@supports (height: 100dvh) {
+  html body .section-3.sportssec.wf-section:has(#header-component) {
+    height: 80dvh !important;
+    min-height: 80dvh !important;
+  }
+}
+
+@media screen and (max-width: 767px) {
+  html body .section.wf-section:has(#header-component):not(.section-3.sportssec) {
+    height: min(40vh, 272px) !important;
+    min-height: 160px !important;
+  }
+
+  html body .section-3.sportssec.wf-section:has(#header-component) {
+    height: auto !important;
+    min-height: 80vh !important;
+    min-height: 80svh !important;
+  }
+}
+
+@media screen and (max-width: 479px) {
+  html body .section.wf-section:has(#header-component):not(.section-3.sportssec) {
+    height: min(34vh, 224px) !important;
+    min-height: 141px !important;
+  }
+}

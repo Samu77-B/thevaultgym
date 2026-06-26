@@ -1878,13 +1878,13 @@ svg {
   .section-4.wf-section,
   .section-6.wf-section,
   .section-9.wf-section {
-    height: min(50vh, 340px) !important;
-    min-height: 200px !important;
+    height: min(40vh, 272px) !important;
+    min-height: 160px !important;
   }
 
   html[data-wf-page="619558225e1907aee9c62d9b"] .section-8.wf-section {
-    height: min(50vh, 380px) !important;
-    min-height: 220px !important;
+    height: min(40vh, 304px) !important;
+    min-height: 176px !important;
   }
 }
 
@@ -1892,12 +1892,12 @@ svg {
   .section-4.wf-section,
   .section-6.wf-section,
   .section-9.wf-section {
-    height: min(42vh, 280px) !important;
-    min-height: 176px !important;
+    height: min(34vh, 224px) !important;
+    min-height: 141px !important;
   }
 
   html[data-wf-page="619558225e1907aee9c62d9b"] .section-8.wf-section {
-    height: min(42vh, 320px) !important;
-    min-height: 200px !important;
+    height: min(34vh, 256px) !important;
+    min-height: 160px !important;
   }
 }

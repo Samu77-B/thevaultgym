@@ -2,7 +2,7 @@
 
 /* Hero Section with Static Background */
 .hero-section-static {
-  height: 100vh;
+  height: 80vh;
   position: sticky;
   top: 0;
   display: flex;
@@ -22,7 +22,7 @@
   position: relative;
   z-index: 2;
   width: 100%;
-  height: 100vh;
+  height: 80vh;
   display: flex;
   align-items: flex-start;
   justify-content: center;
