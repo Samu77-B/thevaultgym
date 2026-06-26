@@ -231,24 +231,37 @@ footer .footer-links .footer-link:hover::after {
   margin-bottom: 20px;
 }
 
-/* Top row - Newsletter and Contact side by side */
+/* Top row — newsletter left, quick links + sidebar right */
 .newsletter-section {
-  flex: 1;
+  flex: 1.2;
   min-width: 300px;
   margin-bottom: 0 !important;
+}
+
+.footer-nav-row {
+  display: flex;
+  flex: 1;
+  gap: 30px;
+  min-width: 280px;
 }
 
 .contact-section {
   flex: 1;
-  min-width: 300px;
+  min-width: 160px;
   margin-bottom: 0 !important;
 }
 
-.contact-section .footer-sidebar-block {
+.footer-sidebar-column {
+  flex: 1;
+  min-width: 160px;
+  margin-bottom: 0 !important;
+}
+
+.footer-sidebar-column .footer-sidebar-block + .footer-sidebar-block {
   margin-top: 1.5rem;
 }
 
-.contact-section .footer-sidebar-block .footer-heading {
+.footer-sidebar-column .footer-sidebar-block .footer-heading {
   margin-bottom: 10px !important;
 }
 
@@ -361,7 +374,7 @@ footer .footer-links .footer-link:hover::after {
   }
   
   .newsletter-section,
-  .contact-section {
+  .footer-nav-row {
     min-width: 280px;
   }
   
@@ -382,7 +395,18 @@ footer .footer-links .footer-link:hover::after {
   }
   
   .newsletter-section,
-  .contact-section {
+  .footer-nav-row {
+    width: 100% !important;
+    min-width: auto;
+  }
+
+  .footer-nav-row {
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .contact-section,
+  .footer-sidebar-column {
     width: 100% !important;
     min-width: auto;
   }
