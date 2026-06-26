@@ -281,7 +281,7 @@
 }
 
 /* ========================================
-   HERO BAND HEIGHT (20% shorter sitewide)
+   HERO BAND HEIGHT (inner pages 20% shorter)
    ======================================== */
 html body .section.wf-section:has(#header-component):not(.section-3.sportssec) {
   height: 64vh !important;
@@ -289,14 +289,14 @@ html body .section.wf-section:has(#header-component):not(.section-3.sportssec) {
 }
 
 html body .section-3.sportssec.wf-section:has(#header-component) {
-  height: 80vh !important;
-  min-height: 80vh !important;
+  height: 100vh !important;
+  min-height: 100vh !important;
 }
 
 @supports (height: 100dvh) {
   html body .section-3.sportssec.wf-section:has(#header-component) {
-    height: 80dvh !important;
-    min-height: 80dvh !important;
+    height: 100dvh !important;
+    min-height: 100dvh !important;
   }
 }
 
@@ -308,8 +308,8 @@ html body .section-3.sportssec.wf-section:has(#header-component) {
 
   html body .section-3.sportssec.wf-section:has(#header-component) {
     height: auto !important;
-    min-height: 80vh !important;
-    min-height: 80svh !important;
+    min-height: 100vh !important;
+    min-height: 100svh !important;
   }
 }
 
