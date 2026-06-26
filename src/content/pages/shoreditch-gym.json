@@ -32,7 +32,7 @@
     },
     {
       "kind": "html",
-      "html": "<div class=\"vault-gym-facilities-row\"><div><h2 class=\"vault-gym-subheading\">Equipment</h2><ul class=\"vault-gym-list paragraph-2\"><li>Turfed sled track</li><li>Strength machines</li><li>Conditioning equipment</li><li>Functional training stations</li><li>Training racks</li><li>Plate Loaders</li><li>Olympic lifting platform</li><li>CrossFit rig</li></ul></div><div><h2 class=\"vault-gym-subheading\">Specialist facilities</h2><ul class=\"vault-gym-list paragraph-2\"><li>Heavy weights room</li><li>Boxing room</li><li>Yoga studio</li><li>Treatment room</li></ul></div></div>"
+      "html": "<div class=\"vault-gym-columns vault-gym-facilities-columns\"><div><h2 class=\"vault-gym-subheading\">Equipment</h2><ul class=\"vault-gym-list paragraph-2\"><li>Turfed sled track</li><li>Strength machines</li><li>Conditioning equipment</li><li>Functional training stations</li><li>Training racks</li><li>Plate Loaders</li><li>Olympic lifting platform</li><li>CrossFit rig</li></ul></div><div><h2 class=\"vault-gym-subheading\">Specialist facilities</h2><ul class=\"vault-gym-list paragraph-2\"><li>Heavy weights room</li><li>Boxing room</li><li>Yoga studio</li><li>Treatment room</li></ul></div></div>"
     }
   ],
   "seo": {
