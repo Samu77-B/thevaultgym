@@ -31,25 +31,8 @@
       "text": "Naturally, we’re fully air-conditioned, but because no one wants to work out in stale second-hand air, The Vault is fitted with a fresh air ventilation system which pumps lovely fresh outside air all around the gym."
     },
     {
-      "headingLevel": "h3",
-      "kind": "sectionTitle",
-      "text": "Equipment"
-    },
-    {
-      "headingLevel": null,
-      "kind": "list",
-      "listText": "Turfed sled track\nStrength machines\nConditioning equipment\nFunctional training stations\n​​Training racks\nPlate Loaders\nOlympic lifting platform\nCrossFit rig\n",
-      "text": ""
-    },
-    {
-      "headingLevel": "h3",
-      "kind": "sectionTitle",
-      "text": "Specialist facilities"
-    },
-    {
-      "headingLevel": null,
-      "kind": "list",
-      "listText": "Heavy weights room\nBoxing room\nYoga studio\nTreatment room"
+      "kind": "html",
+      "html": "<div class=\"vault-gym-facilities-row\"><div><h2 class=\"vault-gym-subheading\">Equipment</h2><ul class=\"vault-gym-list paragraph-2\"><li>Turfed sled track</li><li>Strength machines</li><li>Conditioning equipment</li><li>Functional training stations</li><li>Training racks</li><li>Plate Loaders</li><li>Olympic lifting platform</li><li>CrossFit rig</li></ul></div><div><h2 class=\"vault-gym-subheading\">Specialist facilities</h2><ul class=\"vault-gym-list paragraph-2\"><li>Heavy weights room</li><li>Boxing room</li><li>Yoga studio</li><li>Treatment room</li></ul></div></div>"
     }
   ],
   "seo": {

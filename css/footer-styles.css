@@ -244,10 +244,18 @@ footer .footer-links .footer-link:hover::after {
   margin-bottom: 0 !important;
 }
 
-/* Bottom row - Links in a compact row */
+.contact-section .footer-sidebar-block {
+  margin-top: 1.5rem;
+}
+
+.contact-section .footer-sidebar-block .footer-heading {
+  margin-bottom: 10px !important;
+}
+
+/* Bottom row — company contact details only */
 .footer-links-row {
   display: flex;
-  justify-content: space-between;
+  justify-content: flex-start;
   width: 100%;
   gap: 30px;
   margin-top: 20px;
@@ -259,10 +267,11 @@ footer .footer-links .footer-link:hover::after {
   min-width: 150px;
 }
 
-/* Contact column: twice the width of More Info / Follow Us */
+/* Contact column spans bottom row */
 .footer-links-row .footer-contact-column {
-  flex: 2;
+  flex: 1;
   min-width: 300px;
+  max-width: 100%;
 }
 
 /* Full width inside column (overrides global .contact-info { width: 31% } elsewhere in this file) */

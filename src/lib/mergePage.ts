@@ -148,7 +148,7 @@ function renderContentBlock(b: ContentBlock): string {
     case 'html': {
       const h = (b.html ?? '').trim();
       if (!h) return '';
-      if (/^<p[\s>]/i.test(h)) return h;
+      if (/^<(p|div)[\s>]/i.test(h)) return h;
       return `<p class="paragraph-2">${h}</p>`;
     }
     default:

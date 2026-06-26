@@ -69,6 +69,23 @@
     .about-info-container strong {
       color: #ffffff;
     }
+
+    .about-info-container .vault-gym-columns {
+      display: grid !important;
+      grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+    }
+
+    @media (max-width: 991px) {
+      .about-info-container .vault-gym-columns {
+        grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+      }
+    }
+
+    @media (max-width: 575px) {
+      .about-info-container .vault-gym-columns {
+        grid-template-columns: 1fr !important;
+      }
+    }
   </style>
   <script src="https://ajax.googleapis.com/ajax/libs/webfont/1.6.26/webfont.js" type="text/javascript"></script>
   <script type="text/javascript">WebFont.load({  google: {    families: ["Oswald:200,300,400,500,600,700","Montserrat:100,200,300,400,500,600,700,800,900"]  }});</script>
@@ -104,7 +121,12 @@ window.cookieconsent.initialise({
   <div class="about-info-section">
     <div class="about-info-container">
       <h1 class="heading"><strong>Yoga</strong></h1>
-      <p class="paragraph-2">At The Vault Gym we are very lucky to have our own director of yoga Suzy Purnell. Suzy is an extremely talented teacher and has held classes worldwide.<br><br>With her strong background in personal training Suzy has often combined her talents to get many Hollywood stars and TV presenters ready for the red carpet. <br><br>Suzy has her own private yoga studio at The Vault Gym, which can take one or two clients at a time. A yoga experience here is very intimate and working one to one or one to two with Suzy allows you to focus and develop your own practice.<br><br>Unlike a group class, each session will be designed solely for you. Suzy will help you with your technique, alignment or any physical part of your practice or just guide you to find your internal peace and achieve the correct balance of mind and body.<br><br>All levels of practitioners are welcome from beginners to advanced as Suzy can pitch the sessions to your ability. Shown below are some examples of her differing teaching styles.<br><br><strong>Yoga Holistic</strong><br>This is balanced, gentle practice ideal for those new to yoga, returning from injury or even athletes who feel inflexible. It uses asana, pranayama and meditation techniques throughout the session.<br><br><strong>Yoga Hatha</strong><br>This is the most accessible form of yoga and is particularly good for those who are practicing for the first time. It includes asanas, some dynamic movement, lots of posture work plus breathing and relaxation techniques.<br><br><strong>Yoga Vinyasa, Yoga Power</strong><br>An intense but simple experience that flows step by step towards a goal (vinyasa karma) using the breath as a key guide. The emphasis is on alignment, re-structuring posture and increasing strength and flexibility. This style is not for the faint-hearted and can be used as a stepping-stone towards Yoga Ashtanga.</p>
+      <div class="vault-gym-columns">
+        <p class="paragraph-2">At The Vault Gym we are very lucky to have our own director of yoga Suzy Purnell. Suzy is an extremely talented teacher and has held classes worldwide.<br><br>With her strong background in personal training Suzy has often combined her talents to get many Hollywood stars and TV presenters ready for the red carpet.</p>
+        <p class="paragraph-2">Suzy has her own private yoga studio at The Vault Gym, which can take one or two clients at a time. A yoga experience here is very intimate and working one to one or one to two with Suzy allows you to focus and develop your own practice.</p>
+        <p class="paragraph-2">Unlike a group class, each session will be designed solely for you. Suzy will help you with your technique, alignment or any physical part of your practice or just guide you to find your internal peace and achieve the correct balance of mind and body.<br><br>All levels of practitioners are welcome from beginners to advanced as Suzy can pitch the sessions to your ability.</p>
+        <p class="paragraph-2"><strong>Yoga Holistic</strong><br>This is balanced, gentle practice ideal for those new to yoga, returning from injury or even athletes who feel inflexible. It uses asana, pranayama and meditation techniques throughout the session.<br><br><strong>Yoga Hatha</strong><br>This is the most accessible form of yoga and is particularly good for those who are practicing for the first time. It includes asanas, some dynamic movement, lots of posture work plus breathing and relaxation techniques.<br><br><strong>Yoga Vinyasa, Yoga Power</strong><br>An intense but simple experience that flows step by step towards a goal (vinyasa karma) using the breath as a key guide. The emphasis is on alignment, re-structuring posture and increasing strength and flexibility. This style is not for the faint-hearted and can be used as a stepping-stone towards Yoga Ashtanga.</p>
+      </div>
     </div>
   </div>
   <!-- [if lte IE 9]><script src="https://cdnjs.cloudflare.com/ajax/libs/placeholders/3.0.2/placeholders.min.js"></script><![endif] -->
