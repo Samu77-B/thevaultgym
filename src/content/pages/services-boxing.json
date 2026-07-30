@@ -1,17 +1,11 @@
 {
-  "contentBlocks": [
-    {
-      "kind": "heading",
-      "text": "Boxing",
-      "headingLevel": "h1"
-    },
-    {
-      "kind": "html",
-      "html": "The Vault Gym has its own dedicated boxing room. It’s supremely well equipped and has seen world champion fighters such as David Haye and Amir Khan train in the space.<br><br>Unlike many health clubs that offer boxing classes we have professional boxing coaches sanctioned by the British Boxing Board of Control. <br><br>We also have strong links to white-collar boxing organisations, should you want to face the ultimate challenge of going toe to toe in the ring."
-    }
-  ],
+  "contentBlocks": [],
   "seo": {
     "title": "The Vault Private Gym Boxing",
     "description": "The Vault Gym has its own dedicated boxing room. It’s supremely well equipped and has seen world champion fighters such as David Haye and Amir Khan train in the space."
+  },
+  "heroBackgroundImage": "/images/uploads/3d63eaff-1781-4b21-aef2-d15e7ffd256e.jpg",
+  "heroOverlay": {
+    "heading": "BOXING ROOM"
   }
 }
