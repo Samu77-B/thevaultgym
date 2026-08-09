@@ -2,7 +2,17 @@
   "heroBackgroundImage": "/images/uploads/5e63438c-68d7-4cc0-9131-6e1d63e3b741.png",
   "heroOverlay": {
     "heading": "ENTER THE VAULT",
-    "subheading": "The exclusive personal training gym in Shoreditch"
+    "subheading": "The exclusive personal training gym in Shoreditch",
+    "buttons": [
+      {
+        "label": "Work With Us",
+        "href": "/train-for-a-living"
+      },
+      {
+        "label": "Train With Us",
+        "href": "/train-with-a-pro"
+      }
+    ]
   },
   "seo": {
     "title": "The Vault Gym, London's premier private personal training gym",

@@ -88,11 +88,30 @@ function escapeHtml(s: string): string {
 
 /** Allow only site-relative asset paths for injected CSS `url()`. */
 function sanitizePublicImagePath(p: string): string | null {
-  let t = p.trim();
+  let t = p.trim().replace(/^['"]|['"]$/g, '');
+  // Decap / editors sometimes paste a full site URL — keep the pathname only.
+  try {
+    if (/^https?:\/\//i.test(t)) {
+      const u = new URL(t);
+      t = u.pathname;
+    }
+  } catch {
+    return null;
+  }
   if (!t.startsWith('/')) t = `/${t}`;
-  if (!/^\/[\w\-./]+$/.test(t)) return null;
+  // Allow common upload filename chars (spaces, parens, etc.) under /images/
+  if (!/^\/images\/[^?#]+$/i.test(t)) return null;
   if (t.includes('..')) return null;
   return t;
+}
+
+/** Encode a public path for use inside CSS `url('...')`. */
+function cssUrlPath(publicPath: string): string {
+  return publicPath
+    .split('/')
+    .map((seg, i) => (i === 0 ? seg : encodeURIComponent(seg)))
+    .join('/')
+    .replace(/'/g, "\\'");
 }
 
 function sanitizeHref(raw: string): string | null {
@@ -216,7 +235,7 @@ function applyHeroBackgroundImage(
 ): string {
   const safe = sanitizePublicImagePath(imagePath);
   if (!safe) return headStyles;
-  const cssUrl = safe.replace(/'/g, "\\'");
+  const cssUrl = cssUrlPath(safe);
   const selector = heroBackgroundSelector(bodyMarkup, wfPage);
   const block = `
 /* CMS: hero background */

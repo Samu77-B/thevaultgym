@@ -1,0 +1,25 @@
+{
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "Muay Thai",
+      "headingLevel": "h1"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Muay Thai at The Vault brings authentic striking technique into a private, premium training environment — pads, clinch work, conditioning, and fight fitness."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Train 1:1 with specialist coaches who can build your skills from the foundations up, or sharpen the tools you already have for competition or fitness."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Our dedicated combat space means you can focus on technique and power without the distractions of a busy commercial gym floor."
+    }
+  ],
+  "seo": {
+    "title": "Muay Thai | The Vault Private Gym",
+    "description": "Train Muay Thai at The Vault Gym in Shoreditch — technique, pad work, and conditioning with specialist coaching in a dedicated combat space."
+  }
+}

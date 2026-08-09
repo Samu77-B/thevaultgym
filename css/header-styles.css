@@ -126,6 +126,17 @@
   visibility: visible;
   transform: translateY(0);
   pointer-events: auto;
+  max-height: calc(100dvh - 110px);
+  max-height: calc(100vh - 110px);
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Lock page scroll while the fixed menu overlay is open */
+body.vault-menu-open {
+  overflow: hidden;
+  touch-action: none;
+  overscroll-behavior: none;
 }
 
 .dropdown-list {

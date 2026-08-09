@@ -11,25 +11,38 @@
       "text": "SPECIALIST SERVICES"
     },
     {
-      "headingLevel": "h1",
       "kind": "paragraph",
-      "text": "At The Vault, training goes beyond sets and reps. Results come from the full picture - intelligent programming, recovery, nutrition, movement quality, and specialist coaching. "
+      "text": "At The Vault, training goes beyond sets and reps. Results come from the full picture - intelligent programming, recovery, nutrition, movement quality, and specialist coaching."
     },
     {
-      "headingLevel": "h1",
       "kind": "paragraph",
       "text": "That’s why we offer a range of Specialist Services designed to help both clients and personal trainers get more from every session. Whether you’re looking to improve performance, recover properly, sharpen technique, or build a stronger body from the inside out, everything you need is under one roof."
     },
     {
-      "headingLevel": "h1",
       "kind": "paragraph",
-      "text": "For clients, it means access to expert support in a private, premium environment.\nFor personal trainers, it means more tools, more value, and more ways to help your clients succeed."
+      "text": "For clients, it means access to expert support in a private, premium environment."
+    },
+    {
+      "kind": "paragraph",
+      "text": "For personal trainers, it means more tools, more value, and more ways to help your clients succeed."
     },
     {
       "headingLevel": "h2",
       "kind": "sectionTitle",
       "text": "Boxing Room",
       "href": "/services/boxing"
+    },
+    {
+      "headingLevel": "h2",
+      "kind": "sectionTitle",
+      "text": "Muay Thai",
+      "href": "/services/muay-thai"
+    },
+    {
+      "headingLevel": "h2",
+      "kind": "sectionTitle",
+      "text": "HYROX",
+      "href": "/services/hyrox"
     },
     {
       "headingLevel": "h2",
@@ -41,7 +54,7 @@
       "headingLevel": "h2",
       "kind": "sectionTitle",
       "text": "Heavy Weights Room",
-      "href": "/shoreditch-gym"
+      "href": "/services/heavy-weights"
     },
     {
       "headingLevel": "h2",
@@ -56,21 +69,21 @@
       "href": "/nutrition"
     },
     {
-      "headingLevel": "h1",
+      "headingLevel": "h2",
       "kind": "sectionTitle",
       "text": "Sports Massage",
-      "href": "https://www.warriorsportsrehab.com/wendy-hilton/"
+      "href": "https://www.warriorsportsrehab.com/"
     },
     {
       "headingLevel": "h2",
       "kind": "sectionTitle",
       "text": "Warrior Sports Rehab",
-      "href": "https://www.warriorsportsrehab.com/wendy-hilton/"
+      "href": "https://www.warriorsportsrehab.com/"
     }
   ],
   "seo": {
     "title": "Specialist Services",
-    "description": "Specialist services at the Vault Gym include Personal Training, Muay Thai Boxing, Yoga, Pilates, Massage, Nutrition, Sports Specific Training, Course Venues, Physiotherapy"
+    "description": "Specialist services at the Vault Gym include Personal Training, Muay Thai, Boxing, HYROX, Yoga, Pilates, Massage, Nutrition, Sports Specific Training, Heavy Weights Room, and Physiotherapy."
   },
   "heroBackgroundImage": "/images/uploads/31179e37-0f76-452a-8a05-d3c4897af024-1-.jpg"
 }

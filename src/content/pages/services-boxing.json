@@ -1,14 +1,69 @@
 {
   "contentBlocks": [
     {
-      "headingLevel": "h1",
+      "kind": "heading",
+      "text": "Boxing Room",
+      "headingLevel": "h1"
+    },
+    {
       "kind": "paragraph",
-      "text": "Step into our dedicated boxing space built for focus, movement, and intensity. Whether you’re learning the fundamentals, building confidence, improving conditioning, or sharpening fight skills, this is a space where real work gets done.\n\nIdeal for 1:1 coaching, pad work, technical drills, sparring preparation, and high-level conditioning sessions, our boxing room is home to two experienced Muay Thai coaches who know what it takes to perform.\n\nTrain with Daniela\nWith over 10 years of Muay Thai experience, Daniela is the current UK #2 and a former ISKA World Champion, WBC National Champion, and MTGP British Champion. She has competed on some of the biggest stages in the sport, including the legendary Rajadamnern Stadium in Thailand.\n\nKnown for her slick defensive skills, sharp boxing, powerful low kicks, and elusive fighting style, Daniela brings elite-level experience into every session. Her playful energy, technical knowledge, and passion for coaching make her a standout choice for beginners and fighters alike.\n\nA strong advocate for women in combat sports, Daniela is committed to helping every client build confidence, skill, and resilience.\n\nTrain with Papito\nPapito is a former UK #3 ranked fighter and MTGP British Champion with more than a decade of experience in Muay Thai.\n\nKnown for his heart, relentless stamina, and pressure-fighting style, he specialises in close-range combat, devastating body shots, elbows, and intelligent inside fighting.\n\nAfter focusing on Boxing during recovery from an ACL injury, Papito returned to professional Muay Thai - giving him deep coaching knowledge across both striking arts.\n\nHis coaching style is intense, motivating, and enjoyable:\n\n\"I push my students physically and mentally every session, but we always make time for a laugh. Everyone has their own style, and my job is to help bring that out.\"\n\nWhether You’re New or Experienced\nWhether you want to learn self-defence, get seriously fit, compete, or simply train in a new way, our boxing room offers expert coaching in a private, premium environment."
+      "text": "Step into our dedicated boxing space built for focus, movement, and intensity. Whether you’re learning the fundamentals, building confidence, improving conditioning, or sharpening fight skills, this is a space where real work gets done."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Ideal for 1:1 coaching, pad work, technical drills, sparring preparation, and high-level conditioning sessions, our boxing room is home to two experienced Muay Thai coaches who know what it takes to perform."
+    },
+    {
+      "kind": "sectionTitle",
+      "text": "Train with Daniela",
+      "headingLevel": "h2"
+    },
+    {
+      "kind": "paragraph",
+      "text": "With over 10 years of Muay Thai experience, Daniela is the current UK #2 and a former ISKA World Champion, WBC National Champion, and MTGP British Champion. She has competed on some of the biggest stages in the sport, including the legendary Rajadamnern Stadium in Thailand."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Known for her slick defensive skills, sharp boxing, powerful low kicks, and elusive fighting style, Daniela brings elite-level experience into every session. Her playful energy, technical knowledge, and passion for coaching make her a standout choice for beginners and fighters alike."
+    },
+    {
+      "kind": "paragraph",
+      "text": "A strong advocate for women in combat sports, Daniela is committed to helping every client build confidence, skill, and resilience."
+    },
+    {
+      "kind": "sectionTitle",
+      "text": "Train with Papito",
+      "headingLevel": "h2"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Papito is a former UK #3 ranked fighter and MTGP British Champion with more than a decade of experience in Muay Thai."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Known for his heart, relentless stamina, and pressure-fighting style, he specialises in close-range combat, devastating body shots, elbows, and intelligent inside fighting."
+    },
+    {
+      "kind": "paragraph",
+      "text": "After focusing on Boxing during recovery from an ACL injury, Papito returned to professional Muay Thai - giving him deep coaching knowledge across both striking arts."
+    },
+    {
+      "kind": "paragraph",
+      "text": "His coaching style is intense, motivating, and enjoyable: \"I push my students physically and mentally every session, but we always make time for a laugh. Everyone has their own style, and my job is to help bring that out.\""
+    },
+    {
+      "kind": "sectionTitle",
+      "text": "Whether You’re New or Experienced",
+      "headingLevel": "h2"
+    },
+    {
+      "kind": "paragraph",
+      "text": "Whether you want to learn self-defence, get seriously fit, compete, or simply train in a new way, our boxing room offers expert coaching in a private, premium environment."
     }
   ],
   "seo": {
-    "title": "The Vault Private Gym Boxing",
-    "description": "The Vault Gym has its own dedicated boxing room. It’s supremely well equipped and has seen world champion fighters such as David Haye and Amir Khan train in the space."
+    "title": "Boxing Room | The Vault Private Gym",
+    "description": "Dedicated boxing room at The Vault Gym with Muay Thai coaches Daniela and Papito — 1:1 coaching, pad work, conditioning, and fight skills in a private premium space."
   },
   "heroBackgroundImage": "/images/uploads/3d63eaff-1781-4b21-aef2-d15e7ffd256e.jpg",
   "heroOverlay": {

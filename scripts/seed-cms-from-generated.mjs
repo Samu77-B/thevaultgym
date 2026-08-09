@@ -30,6 +30,9 @@ const SLUGS = [
   'services-boxing',
   'services-pilates',
   'services-yoga',
+  'services-heavy-weights',
+  'services-hyrox',
+  'services-muay-thai',
 ];
 
 function normalizeImagePath(raw) {

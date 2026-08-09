@@ -112,15 +112,15 @@ collections:
         name: contact
         file: src/content/pages/contact.json
         fields: *page_fields
-      - label: Train For A Living
+      - label: Work With Us
         name: trainForALiving
         file: src/content/pages/train-for-a-living.json
         fields: *page_fields
-      - label: Train With A Pro
+      - label: Train With Us
         name: trainWithAPro
         file: src/content/pages/train-with-a-pro.json
         fields: *page_fields
-      - label: PT Consultations
+      - label: Specialist Services
         name: ptConsultations
         file: src/content/pages/pt-consultations.json
         fields: *page_fields
@@ -143,6 +143,18 @@ collections:
       - label: Services — Boxing
         name: servicesBoxing
         file: src/content/pages/services-boxing.json
+        fields: *page_fields
+      - label: Services — Heavy Weights Room
+        name: servicesHeavyWeights
+        file: src/content/pages/services-heavy-weights.json
+        fields: *page_fields
+      - label: Services — HYROX
+        name: servicesHyrox
+        file: src/content/pages/services-hyrox.json
+        fields: *page_fields
+      - label: Services — Muay Thai
+        name: servicesMuayThai
+        file: src/content/pages/services-muay-thai.json
         fields: *page_fields
       - label: Services — Pilates
         name: servicesPilates

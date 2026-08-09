@@ -29,6 +29,9 @@ const FILES = [
   'services/boxing.html',
   'services/pilates.html',
   'services/yoga.html',
+  'services/heavy-weights.html',
+  'services/hyrox.html',
+  'services/muay-thai.html',
 ];
 
 function slugFromFile(f) {

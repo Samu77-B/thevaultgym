@@ -55,37 +55,44 @@ async function loadComponent(elementId, componentPath) {
 function initHamburgerMenu() {
   const hamburgerBtn = document.querySelector('.hamburger-menu-btn');
   const dropdownNav = document.querySelector('.dropdown-nav');
-  
-  console.log('Initializing hamburger menu:', { hamburgerBtn, dropdownNav });
-  
-  if (hamburgerBtn && dropdownNav) {
-    hamburgerBtn.addEventListener('click', (e) => {
-      e.preventDefault();
-      e.stopPropagation();
-      console.log('Hamburger clicked');
-      dropdownNav.classList.toggle('active');
-      hamburgerBtn.classList.toggle('active');
-    });
 
-    // Close menu when clicking outside
-    document.addEventListener('click', (e) => {
-      if (!hamburgerBtn.contains(e.target) && !dropdownNav.contains(e.target)) {
-        dropdownNav.classList.remove('active');
-        hamburgerBtn.classList.remove('active');
-      }
-    });
-
-    // Close menu when clicking on a link
-    const dropdownLinks = document.querySelectorAll('.dropdown-link');
-    dropdownLinks.forEach(link => {
-      link.addEventListener('click', () => {
-        dropdownNav.classList.remove('active');
-        hamburgerBtn.classList.remove('active');
-      });
-    });
-  } else {
+  if (!hamburgerBtn || !dropdownNav) {
     console.error('Hamburger menu elements not found');
+    return;
   }
+
+  function setMenuOpen(open) {
+    dropdownNav.classList.toggle('active', open);
+    hamburgerBtn.classList.toggle('active', open);
+    document.body.classList.toggle('vault-menu-open', open);
+    hamburgerBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+  }
+
+  hamburgerBtn.setAttribute('aria-expanded', 'false');
+  hamburgerBtn.setAttribute('aria-controls', 'dropdown-nav');
+
+  hamburgerBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    setMenuOpen(!dropdownNav.classList.contains('active'));
+  });
+
+  // Close menu when clicking outside
+  document.addEventListener('click', (e) => {
+    if (!hamburgerBtn.contains(e.target) && !dropdownNav.contains(e.target)) {
+      setMenuOpen(false);
+    }
+  });
+
+  // Close menu when clicking on a link
+  dropdownNav.querySelectorAll('.dropdown-link').forEach((link) => {
+    link.addEventListener('click', () => setMenuOpen(false));
+  });
+
+  // Escape closes menu
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') setMenuOpen(false);
+  });
 }
 
 // Load components when DOM is ready
@@ -100,11 +107,11 @@ document.addEventListener('DOMContentLoaded', () => {
     initHamburgerMenu();
     // Mark active dropdown link based on current path
     try {
-      const currentPath = window.location.pathname.split('/').pop() || 'index.html';
+      const path = (window.location.pathname || '/').replace(/\/+$/, '') || '/';
       const links = document.querySelectorAll('.dropdown-link');
-      links.forEach(link => {
-        const href = (link.getAttribute('href') || '').trim();
-        if (href === currentPath) {
+      links.forEach((link) => {
+        const href = (link.getAttribute('href') || '').trim().replace(/\/+$/, '') || '/';
+        if (href === path || (href !== '/' && path.endsWith(href))) {
           link.classList.add('is-active');
         }
       });

@@ -1,0 +1,25 @@
+{
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "Heavy Weights Room",
+      "headingLevel": "h1"
+    },
+    {
+      "kind": "paragraph",
+      "text": "The Vault heavy weights room is built for serious strength work — a dedicated space where you can load up without competing for racks or waiting for bars."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Expect Olympic lifting platforms, plate-loaded machines, and the free weights you need for progressive strength, power, and conditioning sessions with your PT."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Because every client trains 1:1, the room stays focused, private, and available when your session needs maximum intensity."
+    }
+  ],
+  "seo": {
+    "title": "Heavy Weights Room | The Vault Private Gym",
+    "description": "Train heavy in The Vault dedicated strength room with Olympic platforms, plate-loaded machines, and serious iron in a private PT-only environment."
+  }
+}

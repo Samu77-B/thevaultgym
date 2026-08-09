@@ -1,0 +1,25 @@
+{
+  "contentBlocks": [
+    {
+      "kind": "heading",
+      "text": "HYROX",
+      "headingLevel": "h1"
+    },
+    {
+      "kind": "paragraph",
+      "text": "HYROX combines running with functional workout stations — and The Vault is set up to help you train for every part of the race."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Work with a personal trainer on strength, sled work, conditioning, and race pacing in a private environment designed for focused performance."
+    },
+    {
+      "kind": "paragraph",
+      "text": "Whether you are racing for the first time or chasing a personal best, we will help you build the engine and the skills to finish strong."
+    }
+  ],
+  "seo": {
+    "title": "HYROX | The Vault Private Gym",
+    "description": "Prepare for HYROX at The Vault Gym in Shoreditch — functional strength, conditioning, and race-specific training in a private PT-only gym."
+  }
+}

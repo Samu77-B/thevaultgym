@@ -3,7 +3,16 @@
   "heroOverlay": {
     "heading": "ABOUT US",
     "subheading": "Welcome to The Vault",
-    "buttons": []
+    "buttons": [
+      {
+        "label": "Train with us",
+        "href": "/train-with-a-pro"
+      },
+      {
+        "label": "Work with us",
+        "href": "/train-for-a-living"
+      }
+    ]
   },
   "contentBlocks": [
     {

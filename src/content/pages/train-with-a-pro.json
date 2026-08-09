@@ -1,6 +1,6 @@
 {
   "heroOverlay": {
-    "heading": "DO YOU WANT A PT?",
+    "heading": "TRAIN WITH US",
     "subheading": "Personal training at The Vault Gym"
   },
   "heroBackgroundImage": "/images/uploads/14c3a5c9-3433-4edd-9ab8-f1a0c565571c.jpg",
@@ -113,10 +113,14 @@
     {
       "kind": "html",
       "html": "If you’re serious about your health, strength, and performance, <strong>The Vault Gym</strong> is where you train. Just fill in the form and we’ll get in touch to introduce you to a personal trainer who will get you."
+    },
+    {
+      "kind": "html",
+      "html": "<div class=\"cognito-form-site cognito-page-form\" data-inquiry=\"train-with-us\"><div class=\"cognito-page-form-mount\"></div></div>"
     }
   ],
   "seo": {
-    "title": "Train With A Pro | The Vault Gym London",
+    "title": "Train With Us | The Vault Gym London",
     "description": "Private 1:1 personal training in Shoreditch: no crowded gyms, no memberships — calm atmosphere, expert PTs, and serious equipment at The Vault Gym."
   }
 }

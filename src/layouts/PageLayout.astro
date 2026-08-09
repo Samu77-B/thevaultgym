@@ -74,19 +74,22 @@ const title = seo.title || 'The Vault Gym';
   </head>
   <body>
     <div style="display:contents" set:html={bodyMarkup}></div>
-    {bodyScripts.map((s) =>
-      s.src ? (
-        <script
-          src={s.src}
-          type={s.type || 'text/javascript'}
-          integrity={s.integrity}
-          crossorigin={s.crossorigin as 'anonymous' | 'use-credentials' | undefined}
-          async={s.async || undefined}
-          defer={s.defer || undefined}
-        />
-      ) : (
-        <script type={s.type || 'text/javascript'} is:inline set:html={s.inline || ''} />
-      )
-    )}
+    {bodyScripts
+      .filter((s) => !(s.src && /cognitoforms\.com\/f\/seamless\.js/i.test(s.src)))
+      .map((s) =>
+        s.src ? (
+          <script
+            src={s.src}
+            type={s.type || 'text/javascript'}
+            integrity={s.integrity}
+            crossorigin={s.crossorigin as 'anonymous' | 'use-credentials' | undefined}
+            async={s.async || undefined}
+            defer={s.defer || undefined}
+          />
+        ) : (
+          <script type={s.type || 'text/javascript'} is:inline set:html={s.inline || ''} />
+        ),
+      )}
+    <script src="/js/vault-contact-form.js" defer></script>
   </body>
 </html>

@@ -1,6 +1,6 @@
 {
   "heroOverlay": {
-    "heading": "Are you a PT?",
+    "heading": "WORK WITH US",
     "subheading": "Build your PT business at The Vault"
   },
   "heroBackgroundImage": "/images/uploads/e71feef1-06d0-48d8-a16d-9eddd944dafc.jpg",
@@ -84,11 +84,11 @@
     },
     {
       "kind": "html",
-      "html": "<a href=\"contact.html\" class=\"link\">Get in touch</a> for a site visit or for more info."
+      "html": "<div class=\"cognito-form-site cognito-page-form\" data-inquiry=\"work-with-us\"><div class=\"cognito-page-form-mount\"></div></div>"
     }
   ],
   "seo": {
-    "title": "Train For A Living | The Vault Gym London",
+    "title": "Work With Us | The Vault Gym London",
     "description": "Build your PT business at The Vault: 5,000 sq ft in Shoreditch, 24/7 access, no commission, flat-rate rental, and a private 1:1 training environment."
   }
 }
