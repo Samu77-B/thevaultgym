@@ -975,7 +975,8 @@ footer .footer-links .footer-link:visited:hover {
 /* Cognito Forms (seamless.js) — match footer newsletter fields */
 .cog-53,
 .cog-83,
-.cog-84 {
+.cog-84,
+.cog-91 {
   --background-hsl: 0, 0%, 25%;
   --border-radius: 0px;
   --border-width: 1px;
@@ -985,10 +986,26 @@ footer .footer-links .footer-link:visited:hover {
   --input__color: #333333;
 }
 
+/* Page contact form — same width as footer newsletter column, left aligned */
 .cognito-page-form {
   margin-top: 24px;
   margin-bottom: 48px;
+  width: calc((100% - 20px) * 1.2 / 2.2);
   max-width: 100%;
+  margin-left: 0;
+  margin-right: auto;
+}
+
+.cognito-page-form .cog-cognito,
+.cognito-page-form iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+}
+
+@media screen and (max-width: 768px) {
+  .cognito-page-form {
+    width: 100%;
+  }
 }
 
 /* Fallback: content-area Cognito wrapper without .cognito-page-form */

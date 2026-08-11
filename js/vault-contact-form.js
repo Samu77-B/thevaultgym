@@ -1,14 +1,10 @@
 /**
- * Shared contact form (Cognito form 91) with page-based InquiryType prefill.
+ * Shared contact form (Cognito form 91) with page-based inquiry prefill.
  *
- * Cognito form should include a Choice (Dropdown) field with Internal Name:
- *   InquiryType
- * Options (exact labels):
- *   - Work with us
- *   - Train with us
- *   - General enquiry
+ * Cognito dropdown internal name is usually YouWantTo (label: "You want to:").
+ * Option labels must match Cognito exactly.
  *
- * Mount markup (CMS html block or template):
+ * Mount markup:
  *   <div class="cognito-form-site cognito-page-form" data-inquiry="train-with-us">
  *     <div class="cognito-page-form-mount"></div>
  *   </div>
@@ -17,11 +13,14 @@
   var COGNITO_KEY = 'nra8M7-W5EyCgKiqoaohEw';
   var COGNITO_FORM = '91';
 
+  /** Primary label sent to Cognito; aliases tried if the first does not stick. */
   var INQUIRY_LABELS = {
     'work-with-us': 'Work with us',
     'train-with-us': 'Train with us',
-    general: 'General enquiry',
+    general: 'General contact',
   };
+
+  var INQUIRY_FIELD_KEYS = ['YouWantTo', 'InquiryType', 'YouWantToContactUsAbout'];
 
   function inquiryFromPath() {
     var path = (window.location.pathname || '').replace(/\/+$/, '').toLowerCase();
@@ -40,61 +39,68 @@
     return inquiryFromPath();
   }
 
-  function loadCognitoScript(cb) {
-    if (window.Cognito && typeof window.Cognito.prefill === 'function') {
-      cb();
-      return;
-    }
-    var existing = document.querySelector('script[data-vault-cognito-page="1"]');
-    if (existing) {
-      existing.addEventListener('load', cb);
-      return;
-    }
-    var s = document.createElement('script');
-    s.src = 'https://www.cognitoforms.com/f/seamless.js';
-    s.async = true;
-    s.setAttribute('data-key', COGNITO_KEY);
-    s.setAttribute('data-form', COGNITO_FORM);
-    s.setAttribute('data-vault-cognito-page', '1');
-    s.addEventListener('load', cb);
-    // Attach to the first mount so seamless.js has a target; other mounts get prefill only.
-    var firstMount = document.querySelector('.cognito-page-form-mount');
-    if (firstMount) {
-      firstMount.appendChild(s);
-    } else {
-      document.body.appendChild(s);
-    }
+  function buildPrefillPayload(label) {
+    var entry = {};
+    INQUIRY_FIELD_KEYS.forEach(function (key) {
+      entry[key] = label;
+    });
+    return entry;
   }
 
-  function applyPrefill(inquiryKey) {
+  function applyPrefill(mountId, inquiryKey) {
     var label = INQUIRY_LABELS[inquiryKey] || INQUIRY_LABELS.general;
-    var entry = { InquiryType: label };
-    try {
-      if (window.Cognito && typeof window.Cognito.prefill === 'function') {
-        window.Cognito.prefill(entry);
+    var entry = buildPrefillPayload(label);
+    var selector = '#' + mountId;
+
+    function tryPrefill() {
+      if (!window.Cognito) return false;
+      try {
+        if (typeof window.Cognito.mount === 'function') {
+          var mounted = window.Cognito.mount(COGNITO_FORM, selector);
+          if (mounted && typeof mounted.prefill === 'function') {
+            mounted.prefill(entry);
+            return true;
+          }
+        }
+        if (typeof window.Cognito.prefill === 'function') {
+          window.Cognito.prefill(entry);
+          return true;
+        }
+      } catch (e) {
+        console.warn('Cognito prefill skipped:', e);
       }
-    } catch (e) {
-      console.warn('Cognito prefill skipped:', e);
+      return false;
     }
+
+    tryPrefill();
+    [150, 500, 1200, 2500].forEach(function (delay) {
+      setTimeout(tryPrefill, delay);
+    });
   }
 
   function mountForms() {
     var wraps = document.querySelectorAll('.cognito-page-form');
     if (!wraps.length) return;
 
-    var inquiry = resolveInquiry(wraps[0]);
-    wraps.forEach(function (wrap) {
-      wrap.setAttribute('data-inquiry', resolveInquiry(wrap));
-    });
+    wraps.forEach(function (wrap, index) {
+      if (wrap.querySelector('script[data-vault-cognito-page="1"]')) return;
 
-    loadCognitoScript(function () {
-      // Seamless embed may need a tick before prefill is available.
-      setTimeout(function () {
-        applyPrefill(inquiry);
-      }, 50);
-      setTimeout(function () {
-        applyPrefill(inquiry);
-      }, 400);
+      var mountId = wrap.id || 'vault-contact-form-' + index;
+      wrap.id = mountId;
+
+      var inquiry = resolveInquiry(wrap);
+      wrap.setAttribute('data-inquiry', inquiry);
+
+      var s = document.createElement('script');
+      s.src = 'https://www.cognitoforms.com/f/seamless.js';
+      s.async = true;
+      s.setAttribute('data-key', COGNITO_KEY);
+      s.setAttribute('data-form', COGNITO_FORM);
+      s.setAttribute('data-vault-cognito-page', '1');
+      s.addEventListener('load', function () {
+        applyPrefill(mountId, inquiry);
+      });
+      wrap.appendChild(s);
     });
   }
 
