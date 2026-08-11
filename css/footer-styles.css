@@ -986,25 +986,54 @@ footer .footer-links .footer-link:visited:hover {
   --input__color: #333333;
 }
 
-/* Page contact form — same width as footer newsletter column, left aligned */
-.cognito-page-form {
-  margin-top: 24px;
-  margin-bottom: 48px;
-  width: calc((100% - 20px) * 1.2 / 2.2);
-  max-width: 100%;
-  margin-left: 0;
-  margin-right: auto;
-}
-
-.cognito-page-form .cog-cognito,
-.cognito-page-form iframe {
+.about-info-section .about-info-container .cog-91 {
   width: 100% !important;
   max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+}
+
+/* Page contact form — match footer newsletter column width, left aligned */
+.about-info-section .about-info-container .cognito-page-form {
+  --vault-form-column-width: calc((min(100%, 1140px) - 30px - 20px) * 1.2 / 2.2);
+  width: var(--vault-form-column-width);
+  max-width: 100%;
+  margin-top: 24px;
+  margin-bottom: 48px;
+  margin-left: 0 !important;
+  margin-right: auto !important;
+  padding: 0;
+  text-align: left;
+  display: block;
+  box-sizing: border-box;
+  float: none;
+  align-self: flex-start;
+}
+
+.about-info-section .about-info-container .cognito-page-form .cog-cognito,
+.about-info-section .about-info-container .cognito-page-form .cog-91,
+.about-info-section .about-info-container .cognito-page-form .cognito-page-form-mount,
+.about-info-section .about-info-container .cognito-page-form iframe {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
+  box-sizing: border-box;
+}
+
+.about-info-section .about-info-container .cognito-page-form .cog-form,
+.about-info-section .about-info-container .cognito-page-form .cog-body,
+.about-info-section .about-info-container .cognito-page-form .cog-page {
+  width: 100% !important;
+  max-width: 100% !important;
+  margin-left: 0 !important;
+  margin-right: 0 !important;
 }
 
 @media screen and (max-width: 768px) {
-  .cognito-page-form {
+  .about-info-section .about-info-container .cognito-page-form {
     width: 100%;
+    max-width: 100%;
   }
 }
 
