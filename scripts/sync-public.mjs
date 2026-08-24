@@ -1,5 +1,5 @@
 /**
- * Copies static assets into public/ for Astro + Decap admin.
+ * Copies static assets into public/ for Astro.
  */
 import { cpSync, mkdirSync, existsSync } from 'fs';
 import { join, dirname } from 'path';

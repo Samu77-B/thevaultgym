@@ -2,7 +2,7 @@
 
 The Vault site stays on **Cloudflare Pages**. Editors use **Sanity Studio** (no GitHub login).
 
-Until `SANITY_PROJECT_ID` is set, the site keeps using the existing Decap JSON files in `src/content/pages/`.
+Until `SANITY_PROJECT_ID` is set on the build, the site falls back to local JSON in `src/content/pages/`. Editors should only use Sanity Studio.
 
 ## 1. Create a Sanity project
 
@@ -92,9 +92,9 @@ npm run deploy
 
 Sanity hosts Studio at `https://<studio-name>.sanity.studio`. Give that URL to the client.
 
-## 8. Decap /admin
+## 8. Decap /admin (removed)
 
-Leave Decap in place until Sanity is seeded and live. Then you can remove `/admin` and the GitHub OAuth Functions later.
+The old GitHub Decap CMS at `/admin/` has been removed so it cannot conflict with Sanity. Use Studio only.
 
 ## Client workflow
 

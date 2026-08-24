@@ -1,6 +1,6 @@
 /**
  * One-way sync: fills src/content/pages/<slug>.json from src/generated/page-data/<slug>.json
- * so Decap shows existing title, hero image, main text, and SEO. Run after `npm run generate`.
+ * so local JSON overlays have existing title, hero image, main text, and SEO. Run after `npm run generate`.
  */
 import { readFileSync, writeFileSync, mkdirSync } from 'fs';
 import { dirname, join } from 'path';

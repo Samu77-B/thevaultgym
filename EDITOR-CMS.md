@@ -1,51 +1,34 @@
-# Editing the site (Decap CMS)
+# Editing the site (Sanity CMS)
 
-The admin UI lives at **`/admin/`** on the deployed site (for example `https://www.thevaultgym.co.uk/admin/`). You must sign in with a **GitHub account that has write access** to the content repository.
+Content is edited in **Sanity Studio** — not on the website’s `/admin` page (that Decap/GitHub login has been removed).
 
-## Pages list (WordPress-style)
+## For editors (client)
 
-In Decap, editors choose a page from a **fixed list** (Home, About, Contact, Services, etc.). You do **not** need to create pages or manage “slugs”.
+1. Open the Studio URL you were given (local: `http://localhost:3333/`, or the hosted `*.sanity.studio` URL after deploy).
+2. Sign in with the **Sanity** account you were invited to (email invite from the project owner).
+3. Open a **Page**, edit text/images/SEO, then click **Publish**.
+4. Wait 1–3 minutes for the site rebuild, then hard-refresh the live page.
 
-Behind the scenes, each page is a JSON file in `src/content/pages/` that overrides the site’s default content at build time.
+You do **not** need GitHub or Cloudflare access.
 
-Those JSON files are **pre-filled** with the current hero image, main text (inside `.about-info-container`), and SEO so editors see what’s already on the site and can change it. The **right-hand “preview” pane in Decap** often stays blank or minimal (it does not render the full Astro page); use a **second browser tab** on the live site to check results after publish.
+## Pages list
 
-## SEO
+Editors choose from a fixed list of site pages (Home, About, Contact, Work With Us, Train With Us, etc.). You do not create new page types unless a developer adds them.
 
-Use the **SEO** group in Decap to set the page title and meta description. Values you set here override the defaults taken from the original HTML at build time.
+## Fields
 
-## Images
+- **Hero image** — landscape, ideally 1920×1080+; subject centred.
+- **Hero overlay** — optional H1 / H2 / buttons over the hero.
+- **Main page text** — blocks (headings, paragraphs, lists, HTML with links).
+- **SEO** — title and meta description.
 
-- **Media library** uploads go to the repo at **`images/uploads/`** and appear on the site under **`/images/uploads/...`** after the next deploy.
-- **Hero image** (optional): upload an image, then select it for **Hero image**. It applies to the large top hero: **`.section-9`** on inner pages and **`.section-3.sportssec`** on the home page (same field).
-- **Hero image size guide**: use a **landscape** image at least **1920×1080** (recommended **2400×1350**). Keep the subject **centred**; the image is cropped on smaller screens.
+## After publishing
 
-## Hero overlay text + buttons (optional)
+Sanity saves immediately. The live static site updates after **Cloudflare Pages** rebuilds (automatic if the Publish webhook is set up — see [SANITY.md](SANITY.md)).
 
-Each page has a **Hero overlay** group where you can set:
+## Developers
 
-- **H1 heading** + **H2 subheading**: centered text over the hero image.
-- **Hero buttons/links**: edit the **button text** and the **link (slug/path)**. Use site paths like **`/train-with-a-pro`** (preferred) or full URLs like **`https://...`**.
-
-## Main page text (optional)
-
-**Main page text** lets you edit the main text block inside **`.about-info-container`** using blocks (headings, paragraphs, bullet lists). For **Main heading**, use **Heading level** to pick **H1–H6** (styling matches the site’s main title, tagline, and section-title styles for H1–H3). Paragraphs that include **links** use the **Paragraph with links (HTML)** block type.
-
-- The **home page** hero headlines and buttons are **not** in this list (they live in the page template). Use **Hero image** and **SEO** on Home; changing the big “Enter The Vault” text needs a code change or a future CMS field.
-- If you **clear** the whole list, the original text from the site template is used again.
-
-### Re-importing text from the HTML templates (developers)
-
-After changing root `*.html` and running `npm run generate`, you can refresh CMS files from generated data with:
-
-`npm run seed-cms`
-
-**Warning:** this **overwrites** `src/content/pages/*.json` — do not run if you need to keep in-progress Decap edits; commit or back up first.
-
-## After saving
-
-Decap commits to **GitHub**. **Cloudflare Pages** rebuilds the site automatically. Allow a minute or two for the deploy, then hard-refresh the live page to see changes.
-
-## Local editing without GitHub login
-
-From the repository root, uncomment `local_backend: true` in `public/admin/config.yml`, run `npx decap-server`, and open the URL the CLI prints. Turn off `local_backend` before committing for production.
+- Full setup: [SANITY.md](SANITY.md)
+- Hosting notes: [CLOUDFLARE.md](CLOUDFLARE.md)
+- Seed from existing JSON: `npm run seed-sanity`
+- Studio: `cd studio && npm run dev`

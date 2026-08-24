@@ -1,6 +1,8 @@
-# Cloudflare Pages + Astro + Decap CMS
+# Cloudflare Pages + Astro + Sanity CMS
 
 Use **Cloudflare Pages** (not Workers + Wrangler) for this static Astro site.
+
+Content is edited in **Sanity Studio** — see **[SANITY.md](SANITY.md)** and **[EDITOR-CMS.md](EDITOR-CMS.md)**.
 
 ## Clean production URL (no branch name like `webflow-cleanup`)
 
@@ -52,59 +54,31 @@ Keep the **Pages** project separate. Either:
 
 ---
 
-## CMS (Sanity — preferred for non-technical editors)
+## CMS (Sanity)
 
 See **[SANITY.md](SANITY.md)** for Studio setup, seeding, Cloudflare env vars, and the **Publish → rebuild webhook**.
 
-Until Sanity env vars are set on Pages, the site still merges content from `src/content/pages/*.json` (Decap).
-
-## CMS (Decap — legacy)
-
-- Admin: `https://www.thevaultgym.co.uk/admin/` (or your Pages hostname).
-- **Backend:** [Decap GitHub backend](https://decapcms.org/docs/github-backend/). This repo uses **Cloudflare Pages Functions** at [`functions/api/auth.js`](functions/api/auth.js) and [`functions/api/callback.js`](functions/api/callback.js) so GitHub OAuth works without Netlify (pattern from [i40west/netlify-cms-cloudflare-pages](https://github.com/i40west/netlify-cms-cloudflare-pages)).
-
-### GitHub OAuth App (required for production `/admin/`)
-
-1. GitHub → **Settings** → **Developer settings** → **OAuth Apps** → **New OAuth App**.
-2. **Homepage URL:** `https://www.thevaultgym.co.uk` (or your production site URL).
-3. **Authorization callback URL:** `https://www.thevaultgym.co.uk/api/callback` — must match the deployed origin because the Functions use `redirect_uri = <origin>/api/callback`. For **preview** deployments (`*.pages.dev`), add a second callback URL for each preview host you use (GitHub allows multiple callback URLs on one OAuth app), or use [local backend](EDITOR-CMS.md) while testing.
-4. Copy the **Client ID** and generate a **Client secret**.
-
 ### Cloudflare environment variables (Pages project)
-
-In **Workers & Pages** → your project → **Settings** → **Environment variables**, add for **Production** (and **Preview** if editors use preview URLs):
 
 | Variable | Value |
 |----------|--------|
 | `NODE_VERSION` | `22` or `22.12.0` (required for Astro 6) |
-| `GITHUB_CLIENT_ID` | GitHub OAuth Client ID |
-| `GITHUB_CLIENT_SECRET` | GitHub OAuth Client secret (treat as secret / encrypted) |
+| `SANITY_PROJECT_ID` | Sanity project id (e.g. `7jggn04g`) |
+| `SANITY_DATASET` | `production` |
+| `SANITY_API_READ_TOKEN` | Viewer/Editor read token (if dataset is private) |
 
-Redeploy after adding variables so **Functions** pick them up.
+Redeploy after adding variables.
 
-[`public/admin/config.yml`](public/admin/config.yml) sets `site_domain`, `base_url`, and `auth_endpoint: /api/auth` for production. If the canonical domain changes, update those URLs to match.
+Optional but recommended: Sanity webhook → Cloudflare **Deploy hook** so Publish rebuilds the live site (details in SANITY.md).
 
-### Content and uploads
-
-- **Content:** `src/content/pages/<slug>.json` — merges with generated page data; see [EDITOR-CMS.md](EDITOR-CMS.md) for slugs, SEO, structured blocks, and overrides.
-- **Uploads:** repo root `images/uploads/` → copied into the site on build via `sync-public`.
-
-Local CMS without OAuth: uncomment `local_backend: true` in `public/admin/config.yml`, run `npx decap-server`, open the URL Decap prints.
-
----
-
-## Troubleshooting: 404 on `/admin` or the CMS
-
-1. **Use a trailing slash:** Open **`https://www.thevaultgym.co.uk/admin/`** (with `/` at the end). The repo includes [`public/_redirects`](public/_redirects) so **`/admin`** redirects to **`/admin/`** after deploy.
-2. **Production branch:** Cloudflare must build the branch that contains **`public/admin/`** (see `git ls-files public/admin`). If production only tracks **`master`**, merge your feature branch into **`master`** and wait for the deployment to finish.
-3. **Not the Pages build:** If the custom domain points at an old **Worker** or another host, you may get the site’s **404.html** for `/admin/`. Confirm **DNS** for `www.thevaultgym.co.uk` targets the **Pages** project shown in the dashboard.
-4. **OAuth 404:** Login uses **`/api/auth`** and **`/api/callback`** (Pages **Functions** in [`functions/api/`](functions/api)). If those return 404, the Functions bundle may not be deploying — confirm the repo includes the **`functions/`** folder and redeploy; set **`GITHUB_CLIENT_ID`** / **`GITHUB_CLIENT_SECRET`** on the project.
+Local JSON files in `src/content/pages/` remain as a **build fallback** if Sanity env vars are missing. Editors should only use Sanity Studio.
 
 ---
 
 ## After edits
 
-Push to GitHub → Pages rebuilds automatically.
+- **Content:** edit in Sanity → Publish → Cloudflare rebuild (via webhook or next deploy).
+- **Code/layout:** push to GitHub → Pages rebuilds automatically.
 
 Keep root `*.html` and `services/*.html` in the repo until you no longer rely on `npm run generate` for baseline content.
 

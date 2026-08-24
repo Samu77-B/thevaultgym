@@ -1,3 +1,2 @@
-# Cloudflare Pages — https://developers.cloudflare.com/pages/configuration/redirects/
-# Serve admin/index.html reliably (some clients request /admin without trailing slash).
-/admin   /admin/   301
+# Cloudflare Pages redirects
+# (Decap /admin removed — content is edited in Sanity Studio)
