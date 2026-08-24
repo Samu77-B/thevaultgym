@@ -1,6 +1,7 @@
 ---
 import PageLayout from '../layouts/PageLayout.astro';
 import { mergePage, type PageCms, type PageGen } from '../lib/mergePage';
+import { loadCmsPage } from '../lib/loadCmsPage';
 
 interface Props {
   slug: string;
@@ -25,7 +26,8 @@ if (!genMod?.default) {
   throw new Error(`Missing generated page data for slug "${slug}" (expected ${genKey})`);
 }
 
-const cms = cmsMods[cmsKey] ?? {};
+const jsonFallback = cmsMods[cmsKey] ?? {};
+const cms = await loadCmsPage(slug, jsonFallback);
 const page = mergePage(genMod.default, cms);
 ---
 

@@ -11,10 +11,12 @@
     "sync-public": "node scripts/sync-public.mjs",
     "predev": "npm run generate && npm run sync-public",
     "seed-cms": "node scripts/seed-cms-from-generated.mjs",
+    "seed-sanity": "node --env-file=.env scripts/seed-sanity-from-json.mjs",
     "prebuild": "npm run generate && npm run sync-public",
     "dev": "astro dev",
     "build": "astro build",
-    "preview": "astro preview"
+    "preview": "astro preview",
+    "studio": "npm run dev --prefix studio"
   },
   "repository": {
     "type": "git",
@@ -22,6 +24,8 @@
   },
   "license": "ISC",
   "dependencies": {
+    "@sanity/client": "^6.28.0",
+    "@sanity/image-url": "^1.1.0",
     "cheerio": "^1.2.0"
   },
   "devDependencies": {

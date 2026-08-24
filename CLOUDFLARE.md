@@ -52,7 +52,13 @@ Keep the **Pages** project separate. Either:
 
 ---
 
-## CMS (Decap)
+## CMS (Sanity — preferred for non-technical editors)
+
+See **[SANITY.md](SANITY.md)** for Studio setup, seeding, Cloudflare env vars, and the **Publish → rebuild webhook**.
+
+Until Sanity env vars are set on Pages, the site still merges content from `src/content/pages/*.json` (Decap).
+
+## CMS (Decap — legacy)
 
 - Admin: `https://www.thevaultgym.co.uk/admin/` (or your Pages hostname).
 - **Backend:** [Decap GitHub backend](https://decapcms.org/docs/github-backend/). This repo uses **Cloudflare Pages Functions** at [`functions/api/auth.js`](functions/api/auth.js) and [`functions/api/callback.js`](functions/api/callback.js) so GitHub OAuth works without Netlify (pattern from [i40west/netlify-cms-cloudflare-pages](https://github.com/i40west/netlify-cms-cloudflare-pages)).
