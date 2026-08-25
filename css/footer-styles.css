@@ -984,6 +984,51 @@ footer .footer-links .footer-link:visited:hover {
   --input__background-color: #ffffff;
   --input__border-color: #333333;
   --input__color: #333333;
+  --focus__border-color: #ed155d;
+  --focus__box-shadow-color: #ed155d;
+  --link__color: #ed155d;
+  --choice__selected-color: #ed155d;
+}
+
+/* Cognito dropdown / choice: brand pink instead of browser blue */
+.cognito-form-site,
+.about-info-section .cognito-form-site,
+.footer-component-loaded .newsletter-form {
+  accent-color: #ed155d;
+}
+
+.cognito-form-site select:focus,
+.cognito-form-site .cog-input:focus,
+.cognito-form-site .cog-select:focus,
+.cognito-form-site [class*="cog-"] input:focus,
+.cognito-form-site [class*="cog-"] select:focus,
+.cognito-form-site [class*="cog-"] textarea:focus {
+  border-color: #ed155d !important;
+  outline-color: #ed155d !important;
+  box-shadow: 0 0 0 1px #ed155d !important;
+}
+
+.cognito-form-site option:checked,
+.cognito-form-site option:hover,
+.cognito-form-site .cog-choice__option--selected,
+.cognito-form-site .cog-choice__option--highlighted,
+.cognito-form-site .cog-choice__option:hover,
+.cognito-form-site [aria-selected="true"],
+.cognito-form-site [class*="option"][class*="selected"],
+.cognito-form-site [class*="Option"][class*="selected"],
+.cognito-form-site [class*="option"]:hover,
+.cognito-form-site [role="option"][aria-selected="true"],
+.cognito-form-site [role="option"]:hover,
+.cognito-form-site [role="listbox"] [aria-selected="true"],
+.cognito-form-site [role="option"].cog-highlight {
+  color: #ed155d !important;
+  background-color: rgba(237, 21, 93, 0.12) !important;
+}
+
+.cognito-form-site a,
+.cognito-form-site .cog-hyperlink,
+.cognito-form-site [class*="link"] {
+  color: #ed155d !important;
 }
 
 .about-info-section .about-info-container .cog-91 {

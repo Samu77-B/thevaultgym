@@ -61,7 +61,8 @@
       min-height: 100vh !important;
       height: 100vh !important;
       overflow-y: auto !important;
-      scrollbar-gutter: stable;
+      /* Keep scrollbar space on html/body instead — gutter here left a gap beside the brown header */
+      scrollbar-gutter: auto;
     }
 
     @supports (height: 100dvh) {

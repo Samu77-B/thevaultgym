@@ -1839,11 +1839,14 @@
 
 .cog-53,
 .cog-83,
-.cog-84 {
+.cog-84,
+.cog-91 {
   --background-hsl: 0, 0%, 25%;
   --border-radius: 0px;
   --border-width: 1px;
   --color: rgb(255, 255, 255);
+  --focus__border-color: #ed155d;
+  --link__color: #ed155d;
 }
 
 @media screen and (max-width: 768px) {
