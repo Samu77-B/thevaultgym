@@ -100,10 +100,16 @@ const PAGE_QUERY = `*[_type == "page" && slug == $slug][0]{
  * Prefer Sanity when SANITY_PROJECT_ID is set; otherwise use local JSON (Decap / fallback).
  */
 export async function loadCmsPage(slug: string, jsonFallback: PageCms = {}): Promise<PageCms> {
-  if (!isSanityConfigured()) return jsonFallback;
+  if (!isSanityConfigured()) {
+    console.warn(`[cms] SANITY_PROJECT_ID not set — using local JSON for "${slug}"`);
+    return jsonFallback;
+  }
 
   const client = getSanityClient();
-  if (!client) return jsonFallback;
+  if (!client) {
+    console.warn(`[cms] Sanity client missing — using local JSON for "${slug}"`);
+    return jsonFallback;
+  }
 
   try {
     const doc = await client.fetch<SanityPageDoc | null>(PAGE_QUERY, { slug });
@@ -111,6 +117,7 @@ export async function loadCmsPage(slug: string, jsonFallback: PageCms = {}): Pro
       console.warn(`[cms] No Sanity page for slug "${slug}" — using local JSON fallback`);
       return jsonFallback;
     }
+    console.log(`[cms] Sanity OK for "${slug}"`);
     return sanityDocToPageCms(doc);
   } catch (err) {
     console.warn(`[cms] Sanity fetch failed for "${slug}" — using local JSON fallback`, err);

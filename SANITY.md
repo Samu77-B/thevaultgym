@@ -1,107 +1,114 @@
-# Sanity CMS (Cloudflare Pages)
+# Sanity CMS — setup checklist (Cloudflare Pages)
 
-The Vault site stays on **Cloudflare Pages**. Editors use **Sanity Studio** (no GitHub login).
+Studio (edit content): **https://thevaultgym.sanity.studio/**  
+Site: **https://thevaultgym.pages.dev/** or **https://www.thevaultgym.co.uk**  
+Project ID: **`7jggn04g`** · Dataset: **`production`**
 
-Until `SANITY_PROJECT_ID` is set on the build, the site falls back to local JSON in `src/content/pages/`. Editors should only use Sanity Studio.
+Publish in Studio only updates Sanity. The website updates after Cloudflare **rebuilds** using Sanity data.
 
-## 1. Create a Sanity project
+---
 
-1. Go to [https://www.sanity.io/get-started](https://www.sanity.io/get-started) and create a free project (e.g. **The Vault Gym**).
-2. Note the **Project ID** and use dataset **`production`**.
-3. In Sanity → **API** → **Tokens**:
-   - **Viewer** (or Editor) token for builds → `SANITY_API_READ_TOKEN` (optional if dataset is public)
-   - **Editor** token for seeding → `SANITY_API_WRITE_TOKEN` (local only; do not put write token in Cloudflare)
+## A. Cloudflare env vars (required)
 
-## 2. Configure this repo
-
-Root `.env` (local):
-
-```env
-SANITY_PROJECT_ID=yourProjectId
-SANITY_DATASET=production
-SANITY_API_READ_TOKEN=
-SANITY_API_WRITE_TOKEN=
-SANITY_STUDIO_PROJECT_ID=yourProjectId
-SANITY_STUDIO_DATASET=production
-```
-
-Studio uses the same project — also set in `studio/.env`:
-
-```env
-SANITY_STUDIO_PROJECT_ID=yourProjectId
-SANITY_STUDIO_DATASET=production
-```
-
-Or replace `YOUR_PROJECT_ID` in `studio/sanity.config.ts` / `studio/sanity.cli.ts`.
-
-## 3. Install & run Studio
-
-```bash
-cd studio
-npm install
-npm run dev
-```
-
-Open the URL printed (usually `http://localhost:3333`). Sign in with the Sanity account that owns the project.
-
-Invite your client: Sanity manage → **Members** → invite by email as **Editor**.
-
-## 4. Seed current page content
-
-From the **repo root** (with write token in `.env`):
-
-```bash
-npm install
-node --env-file=.env scripts/seed-sanity-from-json.mjs
-```
-
-Then in Studio, open each page and click **Publish** (seeded docs may start as drafts depending on workflow).
-
-## 5. Cloudflare Pages env vars
-
-In Cloudflare → Pages → your project → **Settings** → **Environment variables** (Production + Preview):
+1. [Cloudflare Dashboard](https://dash.cloudflare.com) → **Workers & Pages**
+2. Open your Vault Pages project
+3. **Settings** → **Variables and Secrets** (or **Environment variables**)
+4. Add for **Production** (and Preview if you use it):
 
 | Name | Value |
 |------|--------|
-| `SANITY_PROJECT_ID` | your project id |
+| `SANITY_PROJECT_ID` | `7jggn04g` |
 | `SANITY_DATASET` | `production` |
-| `SANITY_API_READ_TOKEN` | viewer/editor read token (if dataset is private) |
+| `NODE_VERSION` | `22` (if not already set) |
 
-Redeploy after saving.
+Optional (only if dataset is private):
 
-## 6. Publish → live site (webhook)
+| Name | Value |
+|------|--------|
+| `SANITY_API_READ_TOKEN` | Viewer token from Sanity → API → Tokens |
 
-Without this, Publish updates Sanity only; the static site waits for the next Cloudflare build.
+5. **Save**
+6. Go to **Deployments** → open the latest → **Retry deployment** (or **Manage deployment** → Retry)
 
-1. Cloudflare Pages → **Settings** → **Builds & deployments** → **Deploy hooks** → create hook (e.g. “Sanity publish”).
-2. Copy the hook URL.
-3. Sanity → **API** → **Webhooks** → create webhook:
-   - URL: the Cloudflare deploy hook
-   - Trigger on: **Create / Update / Delete** for dataset `production`
-   - Filter (optional): `_type == "page"`
-4. Test: edit a page in Studio → **Publish** → Cloudflare should start a build → site updates in ~1–3 minutes.
+Wait until the deploy is **Success**.
 
-## 7. Deploy Studio for the client
+### Check the build log
 
-Easiest free option:
+Open that deployment → **Build log**. Search for:
+
+- `[cms] Sanity OK for "about"` → Cloudflare is reading Sanity ✓  
+- `[cms] SANITY_PROJECT_ID not set` → env vars missing or not on Production ✗  
+
+---
+
+## B. Deploy hook (Cloudflare) + webhook (Sanity)
+
+### B1. Cloudflare Deploy Hook
+
+1. Same Pages project → **Settings** → **Builds & deployments**
+2. Scroll to **Deploy hooks**
+3. **Add deploy hook**
+   - Name: `Sanity publish`
+   - Branch: `master` (your production branch)
+4. **Copy the hook URL** (long `https://api.cloudflare.com/.../deploy_hooks/...` link)
+
+### B2. Sanity Webhook
+
+1. Open **https://www.sanity.io/manage/project/7jggn04g/api/webhooks**  
+   (must be **manage.sanity.io**, not Studio)
+2. **Create webhook**
+3. Fill in:
+
+| Field | Value |
+|--------|--------|
+| **Name** | `Cloudflare rebuild` |
+| **URL** | paste the Cloudflare Deploy Hook URL |
+| **Dataset** | `production` |
+| **Trigger on** | Create, Update, Delete |
+| **Filter** | `_type == "page"` (optional) |
+| **Drafts** | leave **off** |
+
+4. **Save**
+
+---
+
+## C. End-to-end test
+
+1. Studio → **About** → change H1 to `SANITY TEST 123` → **Publish**
+2. Cloudflare → **Deployments** — a new build should start within ~30–60 seconds  
+   - If **no** new deploy → webhook URL wrong or webhook not saved
+3. When deploy succeeds, hard-refresh **https://thevaultgym.pages.dev/about** (Ctrl+F5)
+4. You should see **SANITY TEST 123**
+
+If a deploy ran but text is still old → check build log for `[cms] Sanity OK` (section A).
+
+---
+
+## D. Local checks (optional)
 
 ```bash
-cd studio
-npm run deploy
+# From repo root — confirms Sanity has published pages
+node --env-file=.env scripts/test-sanity-connection.mjs
 ```
 
-Sanity hosts Studio at `https://<studio-name>.sanity.studio`. Give that URL to the client.
+---
 
-## 8. Decap /admin (removed)
+## Quick “what’s broken?” guide
 
-The old GitHub Decap CMS at `/admin/` has been removed so it cannot conflict with Sanity. Use Studio only.
+| Symptom | Fix |
+|---------|-----|
+| Publish does nothing on site; **no** new Cloudflare deploy | Fix Sanity webhook URL / recreate deploy hook |
+| New Cloudflare deploy runs, site still old | Add `SANITY_PROJECT_ID` + `SANITY_DATASET` on **Production**, retry deploy |
+| Build log says `SANITY_PROJECT_ID not set` | Env vars missing or only set on Preview |
+| Build log says `Sanity OK` but browser shows old text | Hard refresh / wait for CDN; confirm you’re on the right domain |
+| Studio 404 | Studio is at https://thevaultgym.sanity.studio/ (already deployed) |
 
-## Client workflow
+---
 
-1. Open Studio URL  
-2. Open a page  
-3. Edit text / images  
-4. **Publish**  
-5. Wait 1–3 minutes → refresh thevaultgym.co.uk  
+## Client workflow (once setup works)
 
-They never need GitHub or Cloudflare.
+1. Open https://thevaultgym.sanity.studio/  
+2. Edit a page → **Publish**  
+3. Wait 1–3 minutes → refresh the live site  
+
+No GitHub. No `/admin`.

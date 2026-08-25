@@ -1,22 +1,30 @@
 import { createClient, type SanityClient } from '@sanity/client';
 import imageUrlBuilder from '@sanity/image-url';
 
+function env(name: string): string {
+  // Prefer process.env (Cloudflare Pages injects build env here).
+  const fromProcess = (typeof process !== 'undefined' && process.env?.[name]) || '';
+  const fromImport = (import.meta.env as Record<string, string | undefined>)?.[name] || '';
+  return String(fromProcess || fromImport || '').trim();
+}
+
 export function isSanityConfigured(): boolean {
-  const id = (import.meta.env.SANITY_PROJECT_ID || process.env.SANITY_PROJECT_ID || '').trim();
+  const id = env('SANITY_PROJECT_ID');
   return Boolean(id) && id !== 'YOUR_PROJECT_ID';
 }
 
 export function getSanityClient(): SanityClient | null {
   if (!isSanityConfigured()) return null;
-  const projectId = (import.meta.env.SANITY_PROJECT_ID || process.env.SANITY_PROJECT_ID || '').trim();
-  const dataset = (import.meta.env.SANITY_DATASET || process.env.SANITY_DATASET || 'production').trim();
-  const token = (import.meta.env.SANITY_API_READ_TOKEN || process.env.SANITY_API_READ_TOKEN || '').trim();
+  const projectId = env('SANITY_PROJECT_ID');
+  const dataset = env('SANITY_DATASET') || 'production';
+  const token = env('SANITY_API_READ_TOKEN');
 
   return createClient({
     projectId,
     dataset,
     apiVersion: '2025-01-01',
-    useCdn: true,
+    // Fresh published content at build time (CDN can lag after Publish).
+    useCdn: false,
     token: token || undefined,
   });
 }
