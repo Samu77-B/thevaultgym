@@ -19,16 +19,29 @@ Publish in Studio only updates Sanity. The website updates after Cloudflare **re
 |------|--------|
 | `SANITY_PROJECT_ID` | `7jggn04g` |
 | `SANITY_DATASET` | `production` |
+| `SANITY_API_READ_TOKEN` | **Required if dataset is private** — Viewer token (see below) |
 | `NODE_VERSION` | `22` (if not already set) |
 
-Optional (only if dataset is private):
+### Create a Viewer read token (usually required)
+
+Your local machine uses a write token, so Sanity works there. Cloudflare needs its own **read** token:
+
+1. [Sanity manage → API → Tokens](https://www.sanity.io/manage/project/7jggn04g/api#tokens)
+2. **Add API token**
+   - Name: `cloudflare-build`
+   - Permissions: **Viewer** (read-only)
+3. Copy the token
+4. Cloudflare → Pages → **Settings** → **Variables and Secrets** → add:
 
 | Name | Value |
 |------|--------|
-| `SANITY_API_READ_TOKEN` | Viewer token from Sanity → API → Tokens |
+| `SANITY_API_READ_TOKEN` | *(paste Viewer token)* |
 
-5. **Save**
-6. Go to **Deployments** → open the latest → **Retry deployment** (or **Manage deployment** → Retry)
+Treat it as a **secret**. Do not commit it to Git.
+
+5. **Retry deployment** and confirm the build log shows `[cms] Sanity OK for "about"` (not “No Sanity page”).
+
+Also confirm `SANITY_PROJECT_ID` and `SANITY_DATASET` are set for **Production**. The log line `Build environment variables: (none found)` only means none in `wrangler.toml` — dashboard vars still apply if you added them.
 
 Wait until the deploy is **Success**.
 

@@ -114,7 +114,24 @@ export async function loadCmsPage(slug: string, jsonFallback: PageCms = {}): Pro
   try {
     const doc = await client.fetch<SanityPageDoc | null>(PAGE_QUERY, { slug });
     if (!doc) {
-      console.warn(`[cms] No Sanity page for slug "${slug}" — using local JSON fallback`);
+      // Help diagnose private datasets / wrong dataset (common on Cloudflare without a read token).
+      const meta = await client.fetch<{
+        total: number;
+        published: number;
+        projectId: string;
+        dataset: string;
+      }>(`{
+        "total": count(*[_type == "page"]),
+        "published": count(*[_type == "page" && !(_id in path("drafts.**"))]),
+        "projectId": sanity::projectId(),
+        "dataset": sanity::dataset()
+      }`);
+      console.warn(
+        `[cms] No Sanity page for slug "${slug}" — using local JSON. ` +
+          `project=${meta?.projectId} dataset=${meta?.dataset} ` +
+          `pages(total=${meta?.total}, published=${meta?.published}). ` +
+          `If totals are 0, add SANITY_API_READ_TOKEN (Viewer) on Cloudflare — dataset is likely private.`,
+      );
       return jsonFallback;
     }
     console.log(`[cms] Sanity OK for "${slug}"`);
