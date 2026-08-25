@@ -973,6 +973,11 @@ footer .footer-links .footer-link:visited:hover {
 }
 
 /* Cognito Forms (seamless.js) — match footer newsletter fields */
+/* Cognito Forms (seamless.js) — match footer newsletter fields
+   Primary stylesheet for form look: this file (css/footer-styles.css).
+   Form markup mount: pages use .cognito-page-form (see contact.html / CMS html blocks).
+   Embed script: js/vault-contact-form.js (loads Cognito form 91).
+   Cognito’s own CSS uses very high specificity (:root x5); we match that below. */
 .cog-53,
 .cog-83,
 .cog-84,
@@ -990,45 +995,69 @@ footer .footer-links .footer-link:visited:hover {
   --choice__selected-color: #ed155d;
 }
 
-/* Cognito dropdown / choice: brand pink instead of browser blue */
+:root:root:root:root:root .cog-53,
+:root:root:root:root:root .cog-83,
+:root:root:root:root:root .cog-84,
+:root:root:root:root:root .cog-91,
+:root:root:root:root:root .cog-cognito--styled {
+  --focus__border-color: #ed155d;
+  --focus__box-shadow-color: #ed155d;
+  --link__color: #ed155d;
+  --choice__selected-color: #ed155d;
+  --button-primary__background-color: #ed155d;
+  accent-color: #ed155d;
+}
+
+/* Cognito dropdown / choice: brand pink instead of browser / Cognito blue */
 .cognito-form-site,
 .about-info-section .cognito-form-site,
 .footer-component-loaded .newsletter-form {
   accent-color: #ed155d;
 }
 
-.cognito-form-site select:focus,
-.cognito-form-site .cog-input:focus,
-.cognito-form-site .cog-select:focus,
-.cognito-form-site [class*="cog-"] input:focus,
-.cognito-form-site [class*="cog-"] select:focus,
-.cognito-form-site [class*="cog-"] textarea:focus {
+:root:root:root:root:root .cognito-form-site .cog-input:focus,
+:root:root:root:root:root .cognito-form-site .cog-select:focus,
+:root:root:root:root:root .cognito-form-site .cog-choice--dropdown:focus,
+:root:root:root:root:root .cognito-form-site .cog-choice--dropdown .cog-input:focus,
+:root:root:root:root:root .cognito-form-site select:focus,
+:root:root:root:root:root .cognito-form-site input:focus,
+:root:root:root:root:root .cognito-form-site textarea:focus,
+:root:root:root:root:root .cognito-form-site [class*="cog-"] :focus {
   border-color: #ed155d !important;
+  outline: 1px solid #ed155d !important;
   outline-color: #ed155d !important;
   box-shadow: 0 0 0 1px #ed155d !important;
 }
 
-.cognito-form-site option:checked,
-.cognito-form-site option:hover,
-.cognito-form-site .cog-choice__option--selected,
-.cognito-form-site .cog-choice__option--highlighted,
-.cognito-form-site .cog-choice__option:hover,
-.cognito-form-site [aria-selected="true"],
-.cognito-form-site [class*="option"][class*="selected"],
-.cognito-form-site [class*="Option"][class*="selected"],
-.cognito-form-site [class*="option"]:hover,
-.cognito-form-site [role="option"][aria-selected="true"],
-.cognito-form-site [role="option"]:hover,
-.cognito-form-site [role="listbox"] [aria-selected="true"],
-.cognito-form-site [role="option"].cog-highlight {
+/* Highlighted / selected dropdown row (custom Cognito menu) */
+:root:root:root:root:root .cognito-form-site .cog-choice__menu-item--highlighted,
+:root:root:root:root:root .cognito-form-site .cog-choice__menu-item:hover,
+:root:root:root:root:root .cognito-form-site .cog-choice__menu-item--selected,
+:root:root:root:root:root .cognito-form-site .cog-choice__option--highlighted,
+:root:root:root:root:root .cognito-form-site .cog-choice__option--selected,
+:root:root:root:root:root .cognito-form-site .cog-choice__option:hover,
+:root:root:root:root:root .cognito-form-site [role="option"][aria-selected="true"],
+:root:root:root:root:root .cognito-form-site [role="option"]:hover,
+:root:root:root:root:root .cognito-form-site [role="option"].cog-highlight,
+:root:root:root:root:root .cognito-form-site [class*="menu-item"][class*="highlight"],
+:root:root:root:root:root .cognito-form-site [class*="MenuItem"][class*="highlight"],
+:root:root:root:root:root .cog-cognito--styled .cog-choice__menu-item--highlighted,
+:root:root:root:root:root .cog-cognito--styled .cog-choice__menu-item:hover,
+:root:root:root:root:root .cog-cognito--styled .cog-choice__menu-item--selected {
   color: #ed155d !important;
   background-color: rgba(237, 21, 93, 0.12) !important;
 }
 
-.cognito-form-site a,
-.cognito-form-site .cog-hyperlink,
-.cognito-form-site [class*="link"] {
+:root:root:root:root:root .cognito-form-site a,
+:root:root:root:root:root .cognito-form-site .cog-hyperlink {
   color: #ed155d !important;
+}
+
+/* Native <option> — limited browser support; best-effort */
+.cognito-form-site option:checked,
+.cognito-form-site option:hover {
+  color: #ed155d !important;
+  background-color: rgba(237, 21, 93, 0.12) !important;
 }
 
 .about-info-section .about-info-container .cog-91 {

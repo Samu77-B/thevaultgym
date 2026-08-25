@@ -47,10 +47,44 @@
     return entry;
   }
 
+  function injectBrandStyles() {
+    if (document.getElementById('vault-cognito-brand-css')) return;
+    var style = document.createElement('style');
+    style.id = 'vault-cognito-brand-css';
+    style.textContent = [
+      ':root:root:root:root:root .cog-cognito--styled,',
+      ':root:root:root:root:root .cog-91 {',
+      '  --focus__border-color:#ed155d;',
+      '  --focus__box-shadow-color:#ed155d;',
+      '  --link__color:#ed155d;',
+      '  --choice__selected-color:#ed155d;',
+      '  --button-primary__background-color:#ed155d;',
+      '}',
+      ':root:root:root:root:root .cog-cognito--styled .cog-input:focus,',
+      ':root:root:root:root:root .cog-cognito--styled .cog-choice--dropdown .cog-input:focus,',
+      ':root:root:root:root:root .cog-cognito--styled select:focus {',
+      '  border-color:#ed155d!important;',
+      '  outline-color:#ed155d!important;',
+      '  box-shadow:0 0 0 1px #ed155d!important;',
+      '}',
+      ':root:root:root:root:root .cog-cognito--styled .cog-choice__menu-item--highlighted,',
+      ':root:root:root:root:root .cog-cognito--styled .cog-choice__menu-item:hover,',
+      ':root:root:root:root:root .cog-cognito--styled .cog-choice__menu-item--selected,',
+      ':root:root:root:root:root .cog-cognito--styled [role="option"][aria-selected="true"],',
+      ':root:root:root:root:root .cog-cognito--styled [role="option"]:hover {',
+      '  color:#ed155d!important;',
+      '  background-color:rgba(237,21,93,0.12)!important;',
+      '}',
+    ].join('\n');
+    document.head.appendChild(style);
+  }
+
   function applyPrefill(mountId, inquiryKey) {
     var label = INQUIRY_LABELS[inquiryKey] || INQUIRY_LABELS.general;
     var entry = buildPrefillPayload(label);
     var selector = '#' + mountId;
+
+    injectBrandStyles();
 
     function tryPrefill() {
       if (!window.Cognito) return false;
