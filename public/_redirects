@@ -1,2 +1,38 @@
-# Cloudflare Pages redirects
-# (Decap /admin removed — content is edited in Sanity Studio)
+# Holding page — redirect site pages to logo-only home (static assets unchanged)
+/about / 302
+/about.html / 302
+/contact / 302
+/contact.html / 302
+/train-for-a-living / 302
+/train-for-a-living.html / 302
+/train-with-a-pro / 302
+/train-with-a-pro.html / 302
+/pt-consultations / 302
+/pt-consultations.html / 302
+/shoreditch-gym / 302
+/shoreditch-gym.html / 302
+/sports-specific-training / 302
+/sports-specific-training.html / 302
+/nutrition / 302
+/nutrition.html / 302
+/terms / 302
+/terms.html / 302
+/privacy-policy / 302
+/privacy-policy.html / 302
+/services/boxing / 302
+/services/boxing.html / 302
+/services/course-venues / 302
+/services/course-venues.html / 302
+/services/heavy-weights / 302
+/services/heavy-weights.html / 302
+/services/hyrox / 302
+/services/hyrox.html / 302
+/services/muay-thai / 302
+/services/muay-thai.html / 302
+/services/personal-training / 302
+/services/personal-training.html / 302
+/services/pilates / 302
+/services/pilates.html / 302
+/services/yoga / 302
+/services/yoga.html / 302
+/index.html / 302
