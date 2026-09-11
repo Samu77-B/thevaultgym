@@ -89,10 +89,11 @@ function escapeHtml(s: string): string {
 /** Allow only site-relative asset paths for injected CSS `url()`. */
 function sanitizePublicImagePath(p: string): string | null {
   let t = p.trim().replace(/^['"]|['"]$/g, '');
-  // Decap / editors sometimes paste a full site URL — keep the pathname only.
+  // Site URLs — keep pathname only (e.g. https://example.com/images/foo.jpg).
   try {
     if (/^https?:\/\//i.test(t)) {
       const u = new URL(t);
+      if (/^cdn\.sanity\.io$/i.test(u.hostname)) return null;
       t = u.pathname;
     }
   } catch {
@@ -112,6 +113,16 @@ function cssUrlPath(publicPath: string): string {
     .map((seg, i) => (i === 0 ? seg : encodeURIComponent(seg)))
     .join('/')
     .replace(/'/g, "\\'");
+}
+
+/** Resolve CMS hero image to a safe CSS `url()` value (local /images/ or Sanity CDN). */
+function cssBackgroundUrl(raw: string): string | null {
+  const t = raw.trim().replace(/^['"]|['"]$/g, '');
+  if (/^https:\/\/cdn\.sanity\.io\//i.test(t)) {
+    return t.replace(/'/g, "\\'");
+  }
+  const local = sanitizePublicImagePath(t);
+  return local ? cssUrlPath(local) : null;
 }
 
 function sanitizeHref(raw: string): string | null {
@@ -213,18 +224,22 @@ function applyContentBlocksToAboutContainer(
   return $.root().html() ?? bodyMarkup;
 }
 
-/** Pick hero strip selector: most inner pages use `.section-9`; home uses `.section-3.sportssec`. */
+/** Pick hero strip selector: home `.section-3`; inner pages use `.section-9` or `.section-2`. */
 function heroBackgroundSelector(bodyMarkup: string, wfPage: string): string {
   const safeWf = wfPage.replace(/"/g, '');
-  if (bodyMarkup.includes('section-9') && bodyMarkup.includes('wf-section')) {
-    return wfPage
-      ? `html[data-wf-page="${safeWf}"] .section-9.wf-section`
-      : `.section-9.wf-section`;
-  }
+  const scoped = (selector: string) =>
+    wfPage ? `html[data-wf-page="${safeWf}"] ${selector}` : selector;
+
   if (bodyMarkup.includes('section-3') && bodyMarkup.includes('sportssec')) {
     return '.section-3.sportssec';
   }
-  return wfPage ? `html[data-wf-page="${safeWf}"] .section-9.wf-section` : `.section-9.wf-section`;
+  if (bodyMarkup.includes('section-9') && bodyMarkup.includes('wf-section')) {
+    return scoped('.section-9.wf-section');
+  }
+  if (bodyMarkup.includes('section-2') && bodyMarkup.includes('wf-section')) {
+    return scoped('.section-2.wf-section');
+  }
+  return scoped('.section-9.wf-section');
 }
 
 function applyHeroBackgroundImage(
@@ -233,9 +248,8 @@ function applyHeroBackgroundImage(
   wfPage: string,
   imagePath: string,
 ): string {
-  const safe = sanitizePublicImagePath(imagePath);
-  if (!safe) return headStyles;
-  const cssUrl = cssUrlPath(safe);
+  const cssUrl = cssBackgroundUrl(imagePath);
+  if (!cssUrl) return headStyles;
   const selector = heroBackgroundSelector(bodyMarkup, wfPage);
   const block = `
 /* CMS: hero background */
