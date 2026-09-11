@@ -224,20 +224,41 @@ function applyContentBlocksToAboutContainer(
   return $.root().html() ?? bodyMarkup;
 }
 
-/** Pick hero strip selector: home `.section-3`; inner pages use `.section-9` or `.section-2`. */
+/** Build a CSS selector for the hero strip that wraps `#header-component`. */
+function heroSectionClassSelector(bodyMarkup: string): string | null {
+  const $ = load(bodyMarkup, { decodeEntities: false }, false);
+  const header = $('#header-component').first();
+  if (!header.length) return null;
+
+  let hero = header.parent();
+  for (let i = 0; i < 5; i++) {
+    if (!hero.length) break;
+    const cls = hero.attr('class') ?? '';
+    if (/\bwf-section\b/.test(cls)) {
+      const classes = cls.split(/\s+/).filter(Boolean);
+      const sectionClass = classes.find((c) => /^section-\d+$/.test(c));
+      if (sectionClass) {
+        if (classes.includes('sportssec')) return `.${sectionClass}.sportssec`;
+        return `.${sectionClass}.wf-section`;
+      }
+      return '.wf-section';
+    }
+    hero = hero.parent();
+  }
+  return null;
+}
+
+/** Pick hero strip selector from page markup (section-2/3/4/6/8/9, home sportssec, etc.). */
 function heroBackgroundSelector(bodyMarkup: string, wfPage: string): string {
   const safeWf = wfPage.replace(/"/g, '');
   const scoped = (selector: string) =>
     wfPage ? `html[data-wf-page="${safeWf}"] ${selector}` : selector;
 
+  const fromMarkup = heroSectionClassSelector(bodyMarkup);
+  if (fromMarkup) return scoped(fromMarkup);
+
   if (bodyMarkup.includes('section-3') && bodyMarkup.includes('sportssec')) {
-    return '.section-3.sportssec';
-  }
-  if (bodyMarkup.includes('section-9') && bodyMarkup.includes('wf-section')) {
-    return scoped('.section-9.wf-section');
-  }
-  if (bodyMarkup.includes('section-2') && bodyMarkup.includes('wf-section')) {
-    return scoped('.section-2.wf-section');
+    return scoped('.section-3.sportssec');
   }
   return scoped('.section-9.wf-section');
 }
